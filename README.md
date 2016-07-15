@@ -1,3 +1,7 @@
+
+![Alt text](words_and_music/app/assets/images/logo.png)
+
+
 # Words & Music
 
 Words & Music is a project I created to allow users to write reviews about music and arts, as well as post events relating to the former two. Users will then vote on the submitted content through a points system. It's esentially metacritic meets reddit along with the ability for users to post and vote with events as well. Users will have the ability to filter reviews and events through Trending, New, and All. The name of the project comes from lingo I frequently use with my friends:
