@@ -1,6 +1,8 @@
+<div style="text-align:center" markdown="1">
 
-![Alt text](words_and_music/app/assets/images/logo.png)
+![Alt Text](http://i.imgur.com/XDLsX5d.png)
 
+</div>
 
 # Words & Music
 
