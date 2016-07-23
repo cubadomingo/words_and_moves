@@ -10,16 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160723151003) do
-=======
-ActiveRecord::Schema.define(version: 20160723151118) do
->>>>>>> 260b3bb433fbdf2d8621ae1fd9b7cf71399fc94c
-
+ActiveRecord::Schema.define(version: 20160723152118) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
   create_table "categories", force: :cascade do |t|
     t.string "name"
   end
@@ -42,7 +36,8 @@ ActiveRecord::Schema.define(version: 20160723151118) do
 
   create_table "regions", force: :cascade do |t|
     t.string "name"
-=======
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -60,9 +55,10 @@ ActiveRecord::Schema.define(version: 20160723151118) do
     t.string   "username"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "provider"
+    t.string   "uid"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
->>>>>>> 260b3bb433fbdf2d8621ae1fd9b7cf71399fc94c
   end
 
 end
