@@ -26,14 +26,13 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-<<<<<<< HEAD
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'annotate'
 
-=======
 # Use devise for authentication
 gem 'devise'
->>>>>>> 260b3bb433fbdf2d8621ae1fd9b7cf71399fc94c
+# Authentication with facebook
+gem 'omniauth-facebook'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
