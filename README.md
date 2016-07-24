@@ -1,18 +1,25 @@
 ![Alt Text](http://i.imgur.com/pBy724o.png)
 
-Words & Moves is a project I created to allow users to write reviews about music and arts, as well as post events relating to the former two. Users will then vote on the submitted content through a points system. It's esentially metacritic meets reddit along with the ability for users to post and vote with events as well. Users will have the ability to filter reviews and events through Trending, New, and All. The name of the project comes from lingo I frequently use with my friends:
+Words & Moves is a web application that takes the concept of user submitted content and using a voting system to rank it and filter it through hot, new, top, and rising. Users can create posts and comment on the posts relating to the arts. I was inspired to create this website after visiting a couple of cities over differrent countries and seeing how there was no website for all cities that was constantly updated with events that are happening in the region. Events are also votable and follow the same concept of posts and comments.
+
+## Database Schema
+
+The current schema as of now looks like this:
+![Alt Text](http://i.imgur.com/rBCsQua.png)
+
+We're still pretty early in the development stage and there are still much more features that have yet to be added to the schema.
 
 ###What's the word?
 
-* meaning what's the scoop? or what's new?
+* meaning "what's the scoop?" or "what's new?"
 
-This refers to the reviews for music, arts, and events happening in the DC area.
+This refers to the posts for music, films, and arts happening in the DC area.
 
 ###What's the move?
 
-* meaning what's going on? or what's the plan?
+* means "what's going on?" or "what's the plan?"
 
-This refers to the upcoming events in the DC area.
+This refers to the upcoming events happening in the region.
 
 ## What's the Stack?
 
