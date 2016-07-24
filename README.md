@@ -2,13 +2,6 @@
 
 Words & Moves is a web application that takes the concept of user submitted content and using a voting system to rank it and filter it through hot, new, top, and rising. Users can create posts and comment on the posts relating to the arts. I was inspired to create this website after visiting a couple of cities over differrent countries and seeing how there was no website for all cities that was constantly updated with events that are happening in the region. Events are also votable and follow the same concept of posts and comments.
 
-## Database Schema
-
-The current schema as of now looks like this:
-![Alt Text](http://i.imgur.com/rBCsQua.png)
-
-We're still pretty early in the development stage and there are still much more features that have yet to be added to the schema.
-
 ###What's the word?
 
 * meaning "what's the scoop?" or "what's new?"
@@ -50,11 +43,18 @@ This refers to the upcoming events happening in the region.
 * React Framework: **Jest**
 * Tools: **Shoulda Matchers**, **factory_girl**
 
+## Database Schema
+
+The current schema as of now looks like this:
+![Alt Text](http://i.imgur.com/rBCsQua.png)
+
+We're still pretty early in the development stage and there are still much more features that have yet to be added to the schema.
+
 ## React and Rails Integration
 
 I had the option of using react-rails, the official gem to integrate React with Rails but it would have lacked the ability to use Redux, Webpack, and React-Router. Therefore I plan on using the react\_on_rails gem which provides the ability to use the technologies the official gem lacks. This changes the original Rails architecture but I believe the benefits of having a hybrid, isomorphic web application outweighs the loss of certain rails components; In my opinion having a mix of server-side and client-side rendering is the future of web application.
 
-This will be my first time working with React and Redux, along with integrating it with Rails, so I still don't know all the technical details on how I'm going to make this work but it should make for a great learning experience. I plan on using the extensive knowledge of google and of people I meet at meetups for any roadblocks I hit.
+We're still on the fence on wether we use react for all view components or only for certain client side features while maintaining the traditional ERB views for certain pages instead of using React for both. Stay tuned as we could go either way.
 
 ## Contributing
 
