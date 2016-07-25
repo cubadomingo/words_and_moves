@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Words & Moves</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="jumbotron home-subscribe text-center">
+            <div class="row">
+              <%= image_tag("logo-pink.png", class: "logo")%>
+            </div>
+            <div class="row">
+              <%= image_tag("logo-yellow", class: "logo")%>
+            </div>
+            <div class="row">
+              <%= image_tag("logo-blue", class: "logo")%>
+            </div>
+            <div class="row">
+              <%= image_tag("logo-black", class: "logo")%>
+            </div>
+            <h2>The best place for locals to discuss music, film, and arts and find related events happening nearby.</h2>
+            <div class="">
+              <h3>Subscribe to receive an update when we go live.</h3>
+              <input class="form-control" placeholder="me@example.com"></input><span class="btn btn-primary">Subscribe</span>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="categories">
+          <div class="col-md-3 col-lg-3 home-music text-center">
+            <%= image_tag("film.png", class: "landing-icon") %>
+            <h2>Films</h2>
+          </div>
+          <div class="col-md-3 col-lg-3 home-films text-center">
+            <%= image_tag("music.png", class: "landing-icon") %>
+            <h2>Music</h2>
+          </div>
+          <div class="col-md-3 col-lg-3 home-arts text-center">
+            <%= image_tag("art.png", class: "landing-icon") %>
+            <h2>Arts</h2>
+          </div>
+          <div class="col-md-3 col-lg-3 home-sports text-center">
+            <%= image_tag("sport.png", class: "landing-icon") %>
+            <h2>Sports</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

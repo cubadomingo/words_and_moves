@@ -1,2 +1,235 @@
- @import "bootstrap-sprockets";
- @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$pink: rgb(236,0,140);
+$yellow: rgb(255,242,0);
+$blue: rgb(0,174,239);
+$grayLighter: #eeeeee;
+
+/* Landing Page */
+
+.home-subscribe {
+  color: black;
+  background-color: white;
+  margin-bottom: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  h2 {
+    color: $pink;
+    margin-top: 20px;
+  }
+
+  h3 {
+    color: $blue;
+  }
+
+  input {
+    font-size: 18px;
+    display: inline-block;
+    height: 50px;
+    width: 300px;
+  }
+
+  .btn-primary {
+    font-size: 20px;
+    height: 50px;
+    margin-bottom: 5px;
+  }
+}
+
+.landing-icon {
+  margin-top: 20px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.home-music {
+  background-color: $pink;
+  min-height: 100px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.home-films {
+  background-color: $blue;
+  min-height: 100px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.home-arts {
+  background-color: $pink;
+  min-height: 100px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.home-sports {
+  background-color: $blue;
+  min-height: 100px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.logo {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+/* Navbar */
+
+.navbar {
+  background-color: white;
+  height: 50px;
+  border-radius: 0px;
+
+  .logo {
+    margin-top: 1px;
+  }
+
+  .btn-primary {
+    padding: 5px;
+  }
+
+  img {
+    height: 30%;
+    width: 30%;
+  }
+}
+
+.navbar-default .navbar-nav {
+  >li {
+    a {
+      color: black;
+    }
+
+    a:hover {
+      color: black;
+    }
+  }
+
+  .navbar-signin {
+    color: $pink;
+
+    &:hover {
+      color: $pink;
+    }
+  }
+
+  .navbar-signup {
+    background-color: white;
+    color: $pink;
+    &:hover {
+      background-color: $pink;
+      color: white;
+    }
+  }
+}
+
+
+/* login */
+
+body {
+  background-color: $blue;
+}
+
+
+.login {
+  width: 325px;
+
+  .login-padding {
+    padding: 10px;
+
+     > h3 {
+      color: white;
+    }
+  }
+
+  .bottom-margin-form {
+    margin-bottom: 10px;
+  }
+
+  .no-margin {
+    margin: 0px;
+  }
+
+  .button-100 {
+    width: 100%;
+  }
+
+  .form-horizontal .control-label.text-left{
+    text-align: left;
+  }
+
+  .forgot-password {
+    font-size: 12px;
+    margin-left: 75px;
+  }
+
+  .checkbox input[type="checkbox"] {
+    margin-left: 0;
+  }
+}
+
+
+.btn-primary {
+  background-color: $pink;
+  border-color: $pink;
+
+  &:hover {
+    background-color: $pink;
+    border-color: $pink;
+  }
+
+  &:active {
+      background-color: $pink;
+      border-color: $pink;
+    }
+
+  &:focus {
+    background-color: $pink;
+    border-color: $pink;
+  }
+}
+
+.navbar-signin {
+
+}
+
+
+.login-margin-background {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+footer {
+  .container_fluid {
+    padding-botton: 0px;
+  }
+
+  .footer_links {
+    word-spacing: 25px;
+
+    a {
+      color: white;
+      font-size: 16px;
+    }
+  }
+
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: black;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
