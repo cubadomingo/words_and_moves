@@ -1,10 +1,6 @@
 class PagesController < ApplicationController
-
-  def index
-  	@user = current_user
-  end
-
   def landing
+    @subscriber = Subscriber.new
     render :layout => false
   end
 end
