@@ -3,6 +3,7 @@ class SubscribersController < ApplicationController
   def create
     @subscriber = Subscriber.new(subscriber_params)
     if @subscriber.save
+      LiveUpdateMailer.subscribing(@subscriber).deliver
       flash[:success] = "Thanks for subcribing!"
       redirect_to root_path
     elsif subscriber = Subscriber.find_by(subscriber_params); Subscriber.exists?(subscriber.id)
