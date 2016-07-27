@@ -1,6 +1,7 @@
 ![Alt Text](http://i.imgur.com/pBy724o.png)
 
 [![Build Status](https://travis-ci.org/cubadomingo/words_and_moves.svg?branch=master)](https://travis-ci.org/cubadomingo/words_and_moves)
+[![Coverage Status](https://coveralls.io/repos/github/cubadomingo/words_and_moves/badge.svg?branch=master)](https://coveralls.io/github/cubadomingo/words_and_moves?branch=master)
 
 Words & Moves is a web application that takes the concept of user submitted content and using a voting system to rank it and filter it through hot, new, top, and rising. Users can create posts and comment on the posts relating to the arts. I was inspired to create this website after visiting a couple of cities over differrent countries and seeing how there was no website for all cities that was constantly updated with events that are happening in the region. Events are also votable and follow the same concept of posts and comments.
 
