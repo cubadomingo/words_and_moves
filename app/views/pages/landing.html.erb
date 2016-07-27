@@ -12,6 +12,9 @@
     <div class="container-fluid">
       <div class="row">
         <div class="jumbotron home-subscribe text-center">
+             <% flash.each do |message_type, message| %>
+              <div class="alert alert-<%= message_type %>"><%= message %></div>
+            <% end %>
             <div class="row">
               <%= image_tag("logo-pink.png", class: "logo")%>
             </div>
@@ -25,10 +28,11 @@
               <%= image_tag("logo-black", class: "logo")%>
             </div>
             <h2>The best place for locals to discuss music, film, and arts and find related events happening nearby.</h2>
-            <div class="">
-              <h3>Subscribe to receive an update when we go live.</h3>
-              <input class="form-control" placeholder="me@example.com"></input><span class="btn btn-primary">Subscribe</span>
-            </div>
+            <h3>Subscribe to receive an update when we go live.</h3>
+            <%= form_for @subscriber do |f| %>
+              <%= f.email_field :email, :required => false, class: "form-control" %>
+              <span><%= f.submit "Subscribe", class: "btn btn-primary" %></span>
+            <% end %>
         </div>
       </div>
       <div class="row">
