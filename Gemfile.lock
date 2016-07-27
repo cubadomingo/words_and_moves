@@ -47,6 +47,10 @@ GEM
     arel (7.1.0)
     autoprefixer-rails (6.3.7)
       execjs
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     bcrypt (3.1.11)
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
@@ -86,6 +90,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
+    connection_pool (2.2.0)
     coveralls (0.8.14)
       json (>= 1.8, < 3)
       simplecov (~> 0.12.0)
@@ -196,6 +201,13 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    react-rails (1.8.0)
+      babel-transpiler (>= 0.7.0)
+      coffee-script-source (~> 1.8)
+      connection_pool
+      execjs
+      railties (>= 3.2)
+      tilt
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     rspec-core (3.5.1)
@@ -294,6 +306,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.0)
+  react-rails
   rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
   shoulda-matchers (~> 3.1)
