@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :subscriber do
-    email "testing@gmail.com"
+    sequence(:email) { |x| "test.user#{x}@gmail.com" }
   end
 end

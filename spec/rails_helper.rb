@@ -68,12 +68,12 @@ RSpec.configure do |config|
 
   # Configuring Shoulda Matchers for RSpec
   Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    # Choose a test framework:
-    with.test_framework :rspec
-    with.library :rails
+    config.integrate do |with|
+      # Choose a test framework:
+      with.test_framework :rspec
+      with.library :rails
+    end
   end
-end
 
 
   # Filter lines from Rails gems in backtraces.
