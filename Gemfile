@@ -33,6 +33,8 @@ gem 'annotate'
 gem 'devise'
 # Authentication with facebook
 gem 'omniauth-facebook'
+# Coverall for test coverage percentage
+gem 'coveralls', require: false
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
