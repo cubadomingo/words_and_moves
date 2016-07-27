@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726202827) do
+ActiveRecord::Schema.define(version: 20160727215320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(version: 20160726202827) do
 
   create_table "regions", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "rsvps", force: :cascade do |t|
+    t.integer  "physician_id"
+    t.integer  "patient_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["patient_id"], name: "index_rsvps_on_patient_id", using: :btree
+    t.index ["physician_id"], name: "index_rsvps_on_physician_id", using: :btree
   end
 
   create_table "subscribers", force: :cascade do |t|

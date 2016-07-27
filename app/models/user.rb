@@ -6,11 +6,13 @@ class User < ApplicationRecord
   has_many :comments
   has_many :posts
   has_many :events
+  has_many :rsvps
+  has_many :events, through: :rsvps
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   def full_name
     "#{first_name} #{last_name}"
-  end 
+  end
 
   def self.from_omniauth(auth)
 	  where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
