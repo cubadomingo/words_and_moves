@@ -11,7 +11,7 @@ module DeviseHelper
 
     html = <<-HTML
     <div class="row">
-      <div class="col-md-5">
+      <div class="col-md-12">
         <div id="error_explanation" class="alert alert-danger">
           <h3>#{sentence}</h3>
           <ul>#{messages}</ul>
