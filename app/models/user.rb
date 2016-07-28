@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   def full_name
     "#{first_name} #{last_name}"
-  end 
+  end
 
   def self.from_omniauth(auth)
 	  where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
