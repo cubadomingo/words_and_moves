@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'noreply.wordsandmoves@gmail.com'
+  default from: "Words & Moves <postmaster@wordsandmoves.com>"
   layout 'mailer'
 end
