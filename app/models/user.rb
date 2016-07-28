@@ -32,8 +32,4 @@ class User < ApplicationRecord
       end
     end
   end
-
-  def rsvped_events
-    rsvps.map { |x| x.event }
-  end
 end
