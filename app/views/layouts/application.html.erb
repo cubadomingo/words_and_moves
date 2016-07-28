@@ -3,9 +3,9 @@
   <head>
     <title>Words & Moves</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -31,7 +31,7 @@
             <li><a href="#">Sports</a></li>
             <li><%= link_to "Sign in", new_session_path(resource_name), class: "navbar-signin" %></li>
             <li><%= link_to "Sign up", new_registration_path(resource_name), class: 'btn btn-primary navbar-btn navbar-signup' %></li>
-  
+
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

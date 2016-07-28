@@ -2,7 +2,7 @@
 
 ActionMailer::Base.smtp_settings = {
   user_name: 'SMTP_Injection',
-  password: "super_secret_key",
+  password: ENV['SPARKPOST_KEY'],
   address: 'smtp.sparkpostmail.com',
   port: 587,
   enable_starttls_auto: true,
