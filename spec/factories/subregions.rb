@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :subregion do
-    name "MyString"
+    name "NoVA"
+    region
   end
 end
