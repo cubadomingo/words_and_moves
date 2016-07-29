@@ -81,9 +81,9 @@ $grayLighter: #eeeeee;
 
 .navbar {
   background-color: white;
-  height: 50px;
   border-radius: 0px;
   margin-bottom: 0;
+  z-index: 9999;
 
   .logo {
     margin-top: 1px;
@@ -125,6 +125,12 @@ $grayLighter: #eeeeee;
       background-color: $pink;
       color: white;
     }
+  }
+}
+
+.navbar-collapse {
+  li {
+    background-color: white;
   }
 }
 
