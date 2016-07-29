@@ -8,5 +8,5 @@
 
 class Region < ActiveRecord::Base
   has_many :posts
-  has_many :events
+  has_many :subregions
 end
