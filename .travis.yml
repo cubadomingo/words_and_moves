@@ -3,6 +3,7 @@ rvm:
   - 2.3.0
 
 script:
+  - npm install
   - bundle exec rake db:setup
   - bundle exec rspec
 cache: bundler
