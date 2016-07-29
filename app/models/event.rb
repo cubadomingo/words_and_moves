@@ -12,6 +12,7 @@
 class Event < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
+  belongs_to :city
   has_many :comments
   has_many :rsvps
   has_many :users, through: :rsvps
