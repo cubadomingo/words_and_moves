@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :subscribers, only: [:create]
 
+  get 'feed', to: 'users#feed'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/facebook_callbacks" }
 
 end

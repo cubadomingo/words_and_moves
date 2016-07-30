@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Feed</h1>
+  <div class="row">
+    <div class="col-md-10">
+      <% for item in @item_list %>
+        <div class="row panel">
+          <div class="col-md-1">
+           1000 <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+          </div>
+          <div class="col-md-8">
+            <h3><%= item.title %></h3>
+            <p><%= item.comments.count %> comments</p>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-2">
+      <div class='panel panel-primary'>
+        <h2><a href="#">hot</a></h2>
+        <h2><a href="#">new</a></h2>
+        <h2><a href="#">rising</a></h2>
+        <h2><a href="#">posts</a></h2>
+        <h2><a href="#">events</a></h2>
+      </div>
+      <div class='panel panel-primary'>
+        <h4><a href="#">Hip-Hop</a></h4>
+        <h4><a href="#">Rock</a></h4>
+        <h4><a href="#">Alternative</a></h4>
+        <h4><a href="#">Reggae</a></h4>
+        <h4><a href="#">Pop</a></h4>
+        <h4><a href="#">Punk</a></h4>
+        <h4><a href="#">Progressive</a></h4>
+        <h4><a href="#">Jazz</a></h4>
+        <h4><a href="#">Dance</a></h4>
+      </div>
+    </div>
+  </div>
+</div>
