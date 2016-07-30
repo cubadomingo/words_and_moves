@@ -7,6 +7,15 @@ Rails.application.routes.draw do
 
   get 'feed', to: 'users#feed'
 
+  resources :posts do
+    resources :likes, only: [:create]
+    resources :dislikes, only: [:create]
+  end
+  resources :events do
+    resources :likes, only: [:create]
+    resources :dislikes, only: [:create]
+  end
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/facebook_callbacks" }
 
 end

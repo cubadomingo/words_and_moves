@@ -5,7 +5,12 @@
       <% for item in @item_list %>
         <div class="row panel">
           <div class="col-md-1">
-           1000 <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+            <%= item.net_likes %>
+            <% if item.class == "Event" %>
+              <%= button_to("Like", event_likes_path(item, :item_id => item.id, :item_class => "Event"), method: :post) %>
+            <% else %>
+              <%= button_to("Like", post_likes_path(item, :item_id => item.id, :item_class => "Post"), method: :post) %>
+            <% end %>
           </div>
           <div class="col-md-8">
             <h3><%= item.title %></h3>
