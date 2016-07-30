@@ -1,3 +1,5 @@
+//= require webpack-bundle
+
 // DO NOT REQUIRE jQuery or jQuery-ujs in this file!
 // DO NOT REQUIRE TREE!
 
