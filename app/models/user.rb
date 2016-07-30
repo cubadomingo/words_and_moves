@@ -11,7 +11,10 @@ class User < ApplicationRecord
 
   has_many :user_city_relations
   has_many :preferred_cities, through: :user_city_relations, source: :city
-  
+
+  has_many :user_region_relations
+  has_many :preferred_regions, through: :user_region_relations, source: :region
+
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   def full_name

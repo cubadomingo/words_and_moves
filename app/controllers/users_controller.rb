@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:feed]
 
   def feed
-    @item_list = @user.preferred_cities.map { |x| x.events.each {|y| y} }.flatten + Region.first.posts
+    @item_list = @user.preferred_cities.map { |x| x.events.each {|y| y} }.flatten + @user.preferred_regions.map { |x| x.posts.each {|y| y} }.flatten
   end
 
   private
