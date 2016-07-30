@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user_city_relation do
-    user nil
-    city nil
+    user
+    city 
   end
 end
