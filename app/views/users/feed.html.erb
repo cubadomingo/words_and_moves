@@ -6,10 +6,12 @@
         <div class="row panel">
           <div class="col-md-1">
             <%= item.net_likes %>
-            <% if item.class == "Event" %>
-              <%= button_to("Like", event_likes_path(item, :item_id => item.id, :item_class => "Event"), method: :post) %>
+            <% if item.class == Event %>
+              <%= button_to("Like", event_likes_path(item, :item_id => item.id, :item_class => item.class), method: :post, remote: true, class: "btn btn-sm btn-primary") %>
+              <%= button_to("Dislike", event_dislikes_path(item, :item_id => item.id, :item_class => item.class), method: :post, remote: true, class: "btn btn-sm btn-secondary") %>
             <% else %>
-              <%= button_to("Like", post_likes_path(item, :item_id => item.id, :item_class => "Post"), method: :post) %>
+              <%= button_to("Like", post_likes_path(item, :item_id => item.id, :item_class => item.class), method: :post, remote: true, class: "btn btn-sm btn-primary") %>
+              <%= button_to("Dislike", post_dislikes_path(item, :item_id => item.id, :item_class => item.class), method: :post, remote: true, class: "btn btn-sm btn-secondary") %>
             <% end %>
           </div>
           <div class="col-md-8">

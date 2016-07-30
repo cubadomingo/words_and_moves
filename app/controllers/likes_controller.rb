@@ -3,9 +3,8 @@ class LikesController < ApplicationController
   before_action :set_item
 
   def create
-    byebug
-    dislike = @item.likes.create!(user_id: current_user.id)
-    flash[:success] = "You disliked that #{@item.class}"
+    like = @item.likes.create!(user_id: current_user.id)
+    flash[:success] = "You liked that #{@item.class}"
     redirect_to :back
   end
 
