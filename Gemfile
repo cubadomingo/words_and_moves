@@ -13,11 +13,12 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'annotate'
 gem 'devise'
 gem 'omniauth-facebook'
-gem 'react_on_rails', '~> 5'
+gem 'react_on_rails'
 gem 'coveralls', require: false
 
 group :development do
   gem 'capistrano'
+  gem 'capistrano-nvm'
   gem 'capistrano-bundler'
   gem 'capistrano-passenger'
   gem 'capistrano-rails'
