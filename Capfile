@@ -23,6 +23,9 @@ require 'capistrano/nvm'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 require 'capistrano/passenger'
+require 'capistrano/npm'
+
+
 
 set :nvm_node, 'v6.3.1'
 
