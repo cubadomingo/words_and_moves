@@ -8,6 +8,10 @@ class User < ApplicationRecord
   has_many :events
   has_many :rsvps
   has_many :rsvped_events, through: :rsvps, source: :event
+
+  has_many :user_city_relations
+  has_many :preferred_cities, through: :user_city_relations, source: :city
+  
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   def full_name
