@@ -99,4 +99,9 @@ RSpec.configure do |config|
 
   # Include FactoryGirl Helpers
   config.include FactoryGirl::Syntax::Methods
+
+  # Include Devise test helpers
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :view
+  config.include Devise::Test::IntegrationHelpers, type: :feature
 end
