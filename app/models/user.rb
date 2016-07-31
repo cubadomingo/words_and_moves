@@ -9,6 +9,16 @@ class User < ApplicationRecord
   has_many :rsvps
   has_many :rsvped_events, through: :rsvps, source: :event
 
+  has_many :likes
+  has_many :liked_events, through: :likes, source: :event
+  has_many :dislikes
+  has_many :disliked_events, through: :dislikes, source: :event
+
+  has_many :likes
+  has_many :liked_posts, through: :likes, source: :post
+  has_many :dislikes
+  has_many :disliked_posts, through: :dislikes, source: :post
+
   has_many :user_city_relations
   has_many :preferred_cities, through: :user_city_relations, source: :city
 

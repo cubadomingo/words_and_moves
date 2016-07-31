@@ -1,0 +1,24 @@
+<div class="row panel">
+  <div class="col-md-2">
+    <div class="row text-center">
+      <h1><%= item.net_likes %></h1>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <h3><%= item.title %></h3>
+    <p><%= item.comments.count %> comments</p>
+    <div class="row">
+      <div class="col-md-2">
+      <%= button_to(likes_path(item, :item_id => item.id, :item_class => item.class), method: :post, remote: true, class: "btn btn-sm btn-primary") do %>
+        Like <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+      <% end %>
+      </div>
+      <div class="col-md-2">
+      <%= button_to(dislikes_path(item, :item_id => item.id, :item_class => item.class), method: :post, remote: true, class: "btn btn-sm btn-secondary") do %>
+        Dislike <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>

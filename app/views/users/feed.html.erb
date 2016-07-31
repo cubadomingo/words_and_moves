@@ -3,16 +3,7 @@
   <div class="row">
     <div class="col-md-10">
       <% for item in @item_list %>
-        <div class="row panel">
-          <div class="col-md-1">
-           1000 <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
-          </div>
-          <div class="col-md-8">
-            <h3><%= item.title %></h3>
-            <p><%= item.comments.count %> comments</p>
-          </div>
-          <div class="col-md-3"></div>
-        </div>
+        <%= render 'item_row', item: item %>
       <% end %>
     </div>
     <div class="col-md-2">
