@@ -9,14 +9,14 @@ RSpec.describe DislikesController, type: :controller do
     context "Event" do
       it "creates a new dislike" do
         count = event.dislikes.count
-        post :create, { :item_id => event.id, :item_class => event.class.to_s }
+        post :create, params: { :item_id => event.id, :item_class => event.class.to_s }
         expect(event.dislikes.count).to be > count
       end
       context "when user has already liked event" do
         it "does not create a new dislike" do
           event.dislikes.create!(user_id: user.id)
           count = event.dislikes.count
-          post :create, { :item_id => event.id, :item_class => event.class.to_s }
+          post :create, params: { :item_id => event.id, :item_class => event.class.to_s }
           expect(flash[:danger]).to eq("Sorry, you've already disliked this Event")
           expect(event.dislikes.count).to eq(count)
         end
@@ -25,7 +25,7 @@ RSpec.describe DislikesController, type: :controller do
     context "Post" do
       it "creates a new dislike" do
         count = post_item.dislikes.count
-        post :create, { :item_id => post_item.id, :item_class => post_item.class.to_s }
+        post :create, params: { :item_id => post_item.id, :item_class => post_item.class.to_s }
         expect(post_item.dislikes.count).to be > count
       end
     end
