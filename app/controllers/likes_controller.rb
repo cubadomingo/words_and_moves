@@ -9,7 +9,7 @@ class LikesController < ApplicationController
     else
       flash[:danger] = "Sorry, you've already liked this #{@item.class}"
     end
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
   end
 
   private
@@ -25,7 +25,7 @@ class LikesController < ApplicationController
   def verify_non_repeat
     unless @item.likes.where(user: current_user).empty?
       flash[:danger] = "Sorry, you've already liked this #{@item.class}"
-      redirect_to :back
+      redirect_back(fallback_location: feed_path)
     end
   end
 end
