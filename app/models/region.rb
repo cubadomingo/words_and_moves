@@ -12,7 +12,7 @@ class Region < ActiveRecord::Base
   friendly_id :name, use: :slugged
 
   has_many :posts
-  has_many :events
+  has_many :events, through: :subregions
   has_many :subregions
 
   has_many :user_region_relations

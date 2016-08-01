@@ -3,6 +3,7 @@
 @import "users";
 
 $pink: rgb(236,0,140);
+$lightPink: rgb(255,191,242);
 $yellow: rgb(255,242,0);
 $blue: rgb(0,174,239);
 $grayLighter: #eeeeee;
@@ -259,5 +260,18 @@ footer {
   overflow: hidden;
   padding-bottom: 10px;
   text-align: center;
+}
+
+.panel-danger {
+
+  .panel-heading {
+    color: $pink;
+    background-color: $lightPink;
+    border-bottom: 1px solid $pink;
+  }
+  a {
+    color: $pink;
+  }
+
 }
 
