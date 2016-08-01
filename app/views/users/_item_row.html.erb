@@ -1,4 +1,4 @@
-<div class="row panel">
+<%= item.class == Event ? "<div class='row panel event-row'>".html_safe : "<div class='row panel post-row'>".html_safe %>
   <div class="col-md-2">
     <div class="row text-center">
       <h1><%= item.net_likes %></h1>

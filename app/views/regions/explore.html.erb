@@ -1,5 +1,24 @@
-<h1> This is where a list of cities will be </h1>
+<div class="container">
+  <h1> This is where a list of cities will be </h1>
 
 <% @regions.each do |region| %>
 <h1><%= link_to region.name, region_feed_path(region.slug) %>
 <% end %>
+
+  <% @regions.each do |x| %>
+  <h1><%= x.name %></h1>
+  <h2>will implement link_to so clicking on the name sends to their feed page </h2>
+  <% end %>
+
+  <div class="row">
+    <div class="panel col-md-6">
+      <h3>Popular</h3>
+      <% for region in @regions %>
+        <h1><%= link_to "#{region.name}", region_feed_path(region.name) %></h1>
+      <% end %>
+    </div>
+    <div class="panel col-md-6">
+      <h3>Recently Added</h3>
+    </div>
+  </div>
+</div>

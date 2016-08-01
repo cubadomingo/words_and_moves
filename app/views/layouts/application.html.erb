@@ -16,7 +16,13 @@
           </div>
           <div class="col-xs-6 text-right">
             <% if user_signed_in? %>
-               <%= link_to current_user.username, edit_user_registration_path, class: "btn btn-primary sign-button" %>
+              <div class="col-xs-6"></div>
+              <div class="col-xs-3">
+                <%= link_to current_user.username, edit_user_registration_path, class: "btn btn-primary sign-button" %>
+              </div>
+              <div class="col-xs-3">
+                <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-primary sign-button" %>
+              </div>
             <% else %>
               <%= link_to "Sign in or Sign up", new_user_registration_path, class: "btn btn-primary sign-button"%>
             <% end %>
@@ -24,7 +30,7 @@
         </div>
         <div class="row">
           <div class="col-xs-3">
-          <h1>Feed</h1>
+            <%= render "layouts/page_title", locals: { controller: params[:controller] } %>
           </div>
           <div class="col-xs-9 text-right feed-links">
             <span>[</span>
