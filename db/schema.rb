@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160730191359) do
+ActiveRecord::Schema.define(version: 20160801170938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,9 +55,23 @@ ActiveRecord::Schema.define(version: 20160730191359) do
     t.integer  "category_id"
     t.integer  "city_id"
     t.integer  "user_id"
+    t.integer  "region_id"
     t.index ["category_id"], name: "index_events_on_category_id", using: :btree
     t.index ["city_id"], name: "index_events_on_city_id", using: :btree
+    t.index ["region_id"], name: "index_events_on_region_id", using: :btree
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
 
   create_table "likes", force: :cascade do |t|
@@ -83,6 +97,8 @@ ActiveRecord::Schema.define(version: 20160730191359) do
 
   create_table "regions", force: :cascade do |t|
     t.string "name"
+    t.string "slug"
+    t.index ["slug"], name: "index_regions_on_slug", unique: true, using: :btree
   end
 
   create_table "rsvps", force: :cascade do |t|
@@ -156,6 +172,7 @@ ActiveRecord::Schema.define(version: 20160730191359) do
   add_foreign_key "dislikes", "users"
   add_foreign_key "events", "categories"
   add_foreign_key "events", "cities"
+  add_foreign_key "events", "regions"
   add_foreign_key "events", "users"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "categories"

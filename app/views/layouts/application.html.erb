@@ -10,7 +10,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-xs-6">
-            <% if params[:controller] == 'regions' %>
+            <% if params[:controller] == 'regions' && params[:action] != 'explore' %>
               <h2><%= @region.name %></h2>
             <% end %>
           </div>

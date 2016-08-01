@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id          :integer          not null, primary key
+#  title       :string
+#  body        :text
+#  category_id :integer
+#  region_id   :integer
+#  user_id     :integer
+#
+
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do

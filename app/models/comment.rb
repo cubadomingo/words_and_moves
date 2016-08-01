@@ -2,8 +2,11 @@
 #
 # Table name: comments
 #
-#  id   :integer          not null, primary key
-#  body :string
+#  id       :integer          not null, primary key
+#  body     :string
+#  user_id  :integer
+#  event_id :integer
+#  post_id  :integer
 #
 
 class Comment < ActiveRecord::Base
