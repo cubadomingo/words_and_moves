@@ -1,11 +1,15 @@
-<div class="row panel">
+<%= item.class == Event ? "<div class='row alert event-row'>".html_safe : "<div class='row alert alert-info'>".html_safe %>
   <div class="col-md-2">
     <div class="row text-center">
       <h1><%= item.net_likes %></h1>
     </div>
   </div>
   <div class="col-md-8">
-    <h3><%= item.title %></h3>
+    <% if item.class == Event %>
+      <h3><%= link_to item.title, region_event_path(slug: item.city.subregion.region.slug, id: item.id) %></h3>
+    <% else %>
+      <h3><%= link_to item.title, region_post_path(slug: item.region.slug, id: item.id) %></h3>
+    <% end %>
     <p><%= item.comments.count %> comments</p>
     <div class="row">
       <div class="col-md-2">

@@ -1,3 +1,15 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$pink: rgb(255,191,242);
+$yellow: rgb(255,253,96);
+$blue: rgb(124,205,239);
+$grayLighter: #eeeeee;
+
+.event-row {
+  background-color: $pink;
+}
+
+.post-row {
+  background-color: $blue;
+}

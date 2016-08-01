@@ -1,21 +1,24 @@
-<h1> Events & Postings </h1>
-<div class="container-fluid">
-  <row>
-    <div class="col-lg-12 text-left">
+<div class="container">
+  <h1> Events & Postings </h1>
+  <div class="container-fluid">
+    <div class="row">
       <% @events.each do |event| %>
-      <h2><%= link_to event.title, region_event_path(slug: @region.slug, id: event.id) %></h2>
-      <h3><%= event.location %></h3>
-      <h4><%= event.event_date %></h4>
-      <p><%= event.body %></p>
+      <div class="col-lg-12 text-left row alert event-row">
+        <h2><%= link_to event.title, region_event_path(slug: @region.slug, id: event.id) %></h2>
+        <h3><%= event.location %></h3>
+        <h4><%= event.event_date.strftime("%D") %></h4>
+        <p><%= event.body %></p>
+      </div>
       <% end %>
     </div>
-  </row>
-<row>
-  <div class="col-lg-12 text-left">
-    <% @posts.each do |post| %>
-    <h2><%= link_to post.title, region_post_path(slug: @region.slug, id: post.id) %></h2>
-    <p><%= post.body %></p>
-    <% end %>
+    <div class="row">
+      <% @posts.each do |post| %>
+      <div class="col-lg-12 text-left row alert alert-info">
+      <h2><%= link_to post.title, region_post_path(slug: @region.slug, id: post.id) %></h2>
+      <p><%= post.body %></p>
+      <p>Posted on: <%= post.created_at.strftime("%D") %></p>
+      </div>
+      <% end %>
+    </div>
   </div>
-</row>
 </div>
