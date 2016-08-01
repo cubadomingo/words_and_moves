@@ -2,23 +2,43 @@ class RegionsController < ApplicationController
 
   def explore
     #currently have this so the navbar can work but the nav won't have a region name for the explore
-    @region = Region.find(2)
     @regions = Region.all
   end
 
+  def new
+    @region = Region.new
+  end
+
+  def create
+    @region = Region.new(region_params)
+    if @region.save
+      flash[:success] = "The new region was created!"
+      redirect_to :back
+    else
+      flash[:danger] = "Fix the errors"
+      redirect_to :back
+    end
+  end
+
   def feed
-    @region = Region.find(1)
-    @subregions = @region.subregions.all
+    @region = Region.friendly.find(params[:slug])
+    @events = @region.events
+    @posts = @region.posts
   end
 
   def event
-    #this will eventually get passed in params for the navbar
-    @region = Region.find(1)
+    @region = Region.friendly.find(params[:slug])
+    @event = @region.events.find(params[:id])
   end
 
   def post
-    #this will eventually get passed in params for the navbar
-    @region = Region.find(2)
+    @region = Region.friendly.find(params[:slug])
+    @post = @region.posts.find(params[:id])
   end
 
+  private
+
+  def region_params
+    params.require(:region).permit(:name)
+  end
 end

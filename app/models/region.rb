@@ -4,10 +4,15 @@
 #
 #  id   :integer          not null, primary key
 #  name :string
+#  slug :string
 #
 
 class Region < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   has_many :posts
+  has_many :events
   has_many :subregions
 
   has_many :user_region_relations

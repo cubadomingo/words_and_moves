@@ -1,0 +1,12 @@
+<div class="container">
+  <%= form_for(@region) do |f| %>
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Create", class: "btn btn-primary button-100" %>
+    </div>
+  <% end %>
+</div>

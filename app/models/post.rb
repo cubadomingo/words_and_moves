@@ -2,9 +2,12 @@
 #
 # Table name: posts
 #
-#  id    :integer          not null, primary key
-#  title :string
-#  body  :text
+#  id          :integer          not null, primary key
+#  title       :string
+#  body        :text
+#  category_id :integer
+#  region_id   :integer
+#  user_id     :integer
 #
 
 class Post < ActiveRecord::Base

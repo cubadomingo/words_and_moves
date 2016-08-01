@@ -15,6 +15,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'react_on_rails'
 gem 'coveralls', require: false
+gem 'friendly_id'
 
 group :development do
   gem 'capistrano'
