@@ -81,63 +81,63 @@ $grayLighter: #eeeeee;
   max-width: 100%;
 }
 
+
 /* Navbar */
 
 .navbar {
+  height: 120px;
   background-color: white;
+  border-color: white;
   border-radius: 0px;
-  margin-bottom: 0;
+  margin-bottom: 0px;
   z-index: 9999;
 
-  .logo {
-    margin-top: 1px;
-  }
-
-  .btn-primary {
-    padding: 5px;
-  }
-
-  img {
-    height: 30%;
-    width: 30%;
-  }
-}
-
-.navbar-default .navbar-nav {
-  >li {
-    a {
-      color: black;
-    }
-
-    a:hover {
-      color: black;
-    }
-  }
-
-  .navbar-signin {
+  .sign-button {
+    font-size: 20px;
+    margin-top: 10px;
     color: $pink;
-
-    &:hover {
-      color: $pink;
-    }
+    background-color: white;
+    border-color: $pink;
+    padding-top: 1px;
+    padding-bottom: 1px;
   }
 
-  .navbar-signup {
-    background-color: white;
+  .feed-links {
+
+    span {
+      color: black;
+      font-size: 30px;
+      margin-left: 20px;
+
+      > a {
+        font-weight: 500;
+        font-size: 30px;
+        color: black;
+      }
+
+      > a:hover {
+        color: black;
+      }
+    }
+    margin-top: 25px;
+  }
+}
+
+.navbar-default {
+   h2 {
     color: $pink;
-    &:hover {
-      background-color: $pink;
-      color: white;
-    }
+    margin-top: 5px;
   }
 }
 
-.navbar-collapse {
-  li {
-    background-color: white;
+.navbar {
+
+  h1 {
+    font-size: 60px;
+    color: black;
+    margin-top: 0px;
   }
 }
-
 
 /* login */
 
@@ -222,10 +222,6 @@ body {
     background-color: $yellow;
     border-color: $yellow;
   }
-}
-
-.navbar-signin {
-
 }
 
 
