@@ -8,33 +8,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <nav class="navbar navbar-default">
       <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+        <div class="row">
+          <div class="col-xs-6">
+            <% if params[:controller] == 'regions' %>
+              <h2><%= @region.name %></h2>
+            <% end %>
+          </div>
+          <div class="col-xs-6 text-right">
+            <% if user_signed_in? %>
+               <%= link_to current_user.username, edit_user_registration_path, class: "btn btn-primary sign-button" %>
+            <% else %>
+              <%= link_to "Sign in or Sign up", new_user_registration_path, class: "btn btn-primary sign-button"%>
+            <% end %>
+          </div>
         </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="brand"><%= image_tag("logo.png", class: "logo") %></li>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">Music</a></li>
-            <li><a href="#about">Films</a></li>
-            <li><a href="#">Arts</a></li>
-            <li><a href="#">Sports</a></li>
-            <li><%= link_to "Sign in", new_user_session_path, class: "navbar-signin" %></li>
-            <li><%= link_to "Sign up", new_user_registration_path, class: 'btn btn-primary navbar-btn navbar-signup' %></li>
-
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
+        <div class="row">
+          <div class="col-xs-3">
+          <h1>Feed</h1>
+          </div>
+          <div class="col-xs-9 text-right feed-links">
+            <span>[</span>
+            <span><a href="/">Music</a></span>
+            <span><a href="#about">Films</a></span>
+            <span><a href="#">Arts</a></span>
+            <span><a href="#">Sports</a></span>
+            <span>]</span>
+          </div>
+        </div>
+      </div>
     </nav>
   </head>
 
