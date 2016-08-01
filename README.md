@@ -128,6 +128,7 @@ All models have a timestamp which will not be inculded in this reference.
 ```
 has_many :subregions
 has_many :posts
+has_many :events
 
 has_many :user_region_relations
 has_many :users, through: :user_region_relations
