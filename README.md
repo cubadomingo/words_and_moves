@@ -46,7 +46,7 @@ Words & Moves is an application for users to submit events and posts happening i
     - [User_Region_Relations](#user_region_relations)
 - [Schema](#schema)
 - [Components](#components)
-- [Navigation & Routes](#navigation-routes)
+- [Navigation & Routes](#navigation--routes)
 
 ## Introduction
 This application will be location based. Each **Region** will have **Subregions** which is made of principal **Cities**. 
