@@ -25,7 +25,7 @@ Words & Moves is an application for users to submit events and posts happening i
 
 - [Introduction](#introduction)
 - [Technology](#technology)
-    - [Back  End](#back-end)
+    - [Back End](#back-end)
     - [Front End](#front-end)
     - [Testing](#testing)
     - [Gems](#gems)
@@ -46,7 +46,7 @@ Words & Moves is an application for users to submit events and posts happening i
     - [User_Region_Relations](#user_region_relations)
 - [Schema](#schema)
 - [Components](#components)
-- [Navigation](#navigation)
+- [Navigation & Routes](#navigation-routes)
 
 ## Introduction
 This application will be location based. Each **Region** will have **Subregions** which is made of principal **Cities**. 
@@ -60,12 +60,12 @@ This application will be location based. Each **Region** will have **Subregions*
        - Etc.
     - Northern Virginia (**Subregion**)
        - Alexandria (**City**)
-       - Arlintgon (**City**)
+       - Arlington (**City**)
        - Etc.
 
 Within these cities are **Users** who will be able to create **Events** happening in the region as well as discussion **Posts**. The events and posts fall under a **Category**. A user has the ability to **RSVP** to any events along with the ability to **Like** or **dislike** any post or event. The ratio of votes (59 likes, 10 dislikes, e.g.) and time posted at, will be the deciding factor in filtering Posts and Events by *Hot*, *New*, and *Rising*. Users will also be able to **Comment** on the event and discussion postings.
 
-Users will have a feed page once they are logged in where they will be able to view their regions's category's events and posts by default. They will have the ability to **subscribe to other regions** which will add that region's posting and events to the user's feed.
+Users will have a feed page once they are logged in where they will be able to view by default their regions's category's events and posts. They will have the ability to **subscribe to other regions** which will add that region's posting and events to their feed.
 
 ## Technology
 
@@ -97,30 +97,72 @@ Users will have a feed page once they are logged in where they will be able to v
 
 ### Gems
 
+* development
+   - bootstrap-sass
+   - react_on_rails
+   - annotate
+   - devise
+   - coveralls
+   - capistrano (nvm, passenger, rails, rvm, npm)
+* testing
+   - shoulda-matchers
+   - rspec-rails
+   - factory_girl-rails
+   - dotenv-rails
+   - capybara
+   - database_cleaner
+
 ### Tools
+
+* Travis CI
+* Coveralls
 
 ## Features
 All models have a timestamp which will not be inculded in this reference.
+
 ### Regions
-- Columns
+- Attributes
    - region_id (primary key)
    - name
 
+```
+has_many :subregions
+has_many :posts
+
+has_many :user_region_relations
+has_many :users, through: :user_region_relations
+```
+
 ### Subregions
-- Columns
+- Attributes
    - subregion_id (primary key)
    - region_id (foreign key)
    - name
 
+```
+belongs_to :region
+
+has_many :cities
+has_many :events, through: :cities
+```
+
 ### Cities
-- Columns
+- Attributes
    - city_id (primary key)
    - subregion_id (foreign key)
    - name
 
+```
+belongs_to :subregion
+has_many :events
+
+has_many :user_city_relations
+has_many :users, through: :user_city_relations
+```
+
 We are currently only including primary cities.
 ### Users
-- Columns
+- Attributes
    - user_id (primary key)
    - email
    - password
@@ -129,7 +171,34 @@ We are currently only including primary cities.
    - first_name
    - last_name
 
-*For the sake of keeping the list short Devise attributes have been ommited.*
+*For the sake of keeping the list short Devise attributes and associations have been ommited.*
+
+```
+has_many :comments
+has_many :posts
+has_many :events
+
+has_many :rsvps
+has_many :rsvped_events, through: :rsvps, source: :event
+
+has_many :likes
+has_many :liked_events, through: :likes, source: :event
+
+has_many :dislikes
+has_many :disliked_events, through: :dislikes, source: :event
+
+has_many :likes
+has_many :liked_posts, through: :likes, source: :post
+
+has_many :dislikes
+has_mnay :disliked_posts, through: :dislikes, source: :post
+
+has_many :user_city_relations
+has_many :pregerred_cities, through: :user_city_relations, source: :city
+
+has_many :user_region_relations
+has_many :preferred_regions, through: :user_region_relations, source: :region
+```
 
 Users will also have the ability to sign in with Oauth authentication through Facebook & Google (**Not Implemented Yet**). Users have all features that Devise includes.
 
@@ -138,7 +207,10 @@ Users will also have the ability to sign in with Oauth authentication through Fa
    - category_id (primary key)
    - name (string)
 
-Current categories include: Music, Art, Sports, Films. These categories can change and more than likely will. Regular users can not create categories only Admin Users.
+```
+has_many :posts
+has_many :events
+```
 
 ### Events
 - Attributes
@@ -150,11 +222,27 @@ Current categories include: Music, Art, Sports, Films. These categories can chan
    - location **REMOVE FROM SCHEMA**
    - event_date (datetime)
  
+```
+belongs_to :category
+belongs_to :user
+belongs_to :city
+has_many :comments
+has_many :rsvps
+has_many :likes, as: :item
+has_many :dislikes, as: :item
+has_many :users, through: :rsvps
+```
+
 ### RSVPs
 - Attributes
    - rsvp_id (primary_key)
    - event_id (foreign key)
    - user_id (foreign key)
+
+```
+belongs_to :user
+belongs_to :event
+```
 
 ### Posts
 - Attributes
@@ -164,6 +252,15 @@ Current categories include: Music, Art, Sports, Films. These categories can chan
    - title (string)
    - body (text)
 
+```
+belongs_to :region
+belongs_to :user
+belongs_to :category
+has_many :comments
+has_many :likes, as: :item
+has_many :dislikes, as: :item
+```
+
 ### Comments
 - Attributes
    - comment_id (primary key)
@@ -172,7 +269,11 @@ Current categories include: Music, Art, Sports, Films. These categories can chan
    - post_id (foreign key)
    - body (string)
  
-Include all CRUD functions for regular users and also gives the admin user the ability to remove comments.
+```
+belongs_to :post
+belongs_to :event
+belongs_to :user
+```
 
 ### Likes
 - Attributes
@@ -181,6 +282,11 @@ Include all CRUD functions for regular users and also gives the admin user the a
    - item_type (string)
    - item_id (integer)
  
+```
+belongs_to :user
+belongs_to :item, polymorphic: true
+```
+
 **Ask Thomas for clarification on this section**
 
 ### Dislikes
@@ -190,14 +296,21 @@ Include all CRUD functions for regular users and also gives the admin user the a
    - item_type (string)
    - item_id (integer)
 
-**Ask Thomas for clarification on this section**
+```
+belongs_to :user
+belongs_to :item, polymorphic: true
+```
 
 ### Subscribers
 - Attributes
    - subscriber_id (primary key)
    - email (string)
 
-Currently visitors of the site can subscribe and receive an email when the website goes live. This feature can possible be removed after the release.
+```
+belongs_to :region
+has_many :cities
+has_many :events, through: :cities
+```
 
 ### User_Region_Relations
 - Attributes
@@ -205,7 +318,11 @@ Currently visitors of the site can subscribe and receive an email when the websi
    - user_id (foreign key)
    - city_id (foreign key)
 
-Users can subscribe to regions to receive that regions events and posts in their feed. This is handy for people living in between two regions (Los Angeles & San Francisco, e.g.) or constantly traveling
+```
+belongs_to :user
+belongs_to :region
+```
+
 ### User_City_Relations
 **I don't think a user should be able to subscribe to a city but rather only a region**
 
@@ -217,43 +334,57 @@ Here is a visual representation of our Schema
 
 
 ## Components
+
 For the time being all components are being made in traditional rails erb views. Once we have a good enough outline and idea we will start incorporating React components into the views.
 
-## Navigation
+## Navigation & Routes
 
-### Landing Page (Temporary Root)
+Here is the routing for how the application will be, I am only showing the *read* views. Views for *creating*, *updating*, and *destroying* have not been established yet.
 
-This is a landing page for visitors to Subscribe and receive a notification when the site is live.
+### / (Root)
 
-### Explore (Root after including other regions)
+The current root is a subscribe page for visitors to enter their email and be notified when the site is live.
 
-This page will have a list of different regions to choose from. **No plans of implementation yet**
+### /explore (Root after including other regions)
 
-### Devise
+This page will have a list of different regions to choose from and then redirect to their respective feed.
 
-This includes all the devise views:
-- sign up
-- sign in
-- forgot password
-- email activation
-- user settings
+### Devise urls
 
-### User Feed 
+This includes all the devise views: urls have yet to be customized.
 
-This page has the events and posts from the users subscribed regions. Currently it will default to the DC individual region page.
+### /feed
 
-### Individual Event
+This page has the events and posts from the users subscribed regions. Currently it will default to the DC individual region page, a user will then be able to subscribe to other regions once they are added.
+
+### /feed/washingtondc
+
+This page will be the feed for an individual region. The region's posting and events will be here.
+
+### /feed/washingtondc/event/joey-badass-at-the-howard-theater
 
 This is the page for an individual event, comments are shown here. The right side bar should have a list of other posts/events in the region or subscribed feed if the User is signed in.
 
-### Individual Post
+### /feed/washingtondc/event/new
 
-This is the page for an individual post, comments are shown here. The right side bar should have a list of other posts/events in the region or subscribed feed if the User is signed in.
+This is the page for creating a new event.
 
-### Individual Region (Root after launch)
+### /feed/washingtondc/event/edit
 
-This page will have a subscribe button (**Only after regions > 1 else sign in / sign up button**) which will allow signed in users to add the region to their user feed page. If the user is signed out, he should be redirected to the sign in page. This region page will look like the user feed page.
+This is the page for editing an event.
 
-### All Regions Page (**No plans for implementation yet**)
+### /feed/washingtondc/post/nwa-begginer-guide
 
-This page will show all the regions posts and events.
+This is the page for an individual post, comments are shown here. The right side bar should have a list of other posts/events in the region or the user's subscribed feed if the User is signed in.
+
+### /feed/washingtondc/post/new
+
+This is the page for creating a new post.
+
+### /feed/washingtondc/post/edit
+
+This is the page for editing a post.
+
+### /feed/all
+
+This page will show posts and events for all the regions in our database.
