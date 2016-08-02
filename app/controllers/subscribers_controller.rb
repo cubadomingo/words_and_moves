@@ -21,3 +21,4 @@ class SubscribersController < ApplicationController
       params.require(:subscriber).permit(:email)
     end
 end
+

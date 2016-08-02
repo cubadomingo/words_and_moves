@@ -21,4 +21,8 @@ Rails.application.routes.draw do
     post 'signin', to: 'devise/sessions#create', as: :user_session
     delete 'signout', to: 'sessions#destroy', as: :destroy_user_session
   end
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/devel/emails"
+  end
 end
