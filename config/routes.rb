@@ -12,8 +12,10 @@ Rails.application.routes.draw do
   resources :subscribers, only: [:create]
   resources :likes, only: [:create]
   resources :dislikes, only: [:create]
-  resources :regions, path: '', only: [:create, :update, :destroy]
+  resources :regions, only: [:create, :update, :destroy]
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/facebook_callbacks" }
+
+  put '/users', to: "devise/registrations#update", as: "update_user"
 
 end
