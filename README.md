@@ -358,31 +358,31 @@ This includes all the devise views: urls have yet to be customized.
 
 This page has the events and posts from the users subscribed regions. Currently it will default to the DC individual region page, a user will then be able to subscribe to other regions once they are added.
 
-### /feed/washingtondc
+### /washingtondc/feed
 
 This page will be the feed for an individual region. The region's posting and events will be here.
 
-### /feed/washingtondc/event/joey-badass-at-the-howard-theater
+### /washingtondc/event/joey-badass-at-the-howard-theater
 
 This is the page for an individual event, comments are shown here. The right side bar should have a list of other posts/events in the region or subscribed feed if the User is signed in.
 
-### /feed/washingtondc/event/new
+### /washingtondc/event/new
 
 This is the page for creating a new event.
 
-### /feed/washingtondc/event/edit
+### /washingtondc/event/edit
 
 This is the page for editing an event.
 
-### /feed/washingtondc/post/nwa-begginer-guide
+### /washingtondc/post/nwa-begginer-guide
 
 This is the page for an individual post, comments are shown here. The right side bar should have a list of other posts/events in the region or the user's subscribed feed if the User is signed in.
 
-### /feed/washingtondc/post/new
+### /washingtondc/post/new
 
 This is the page for creating a new post.
 
-### /feed/washingtondc/post/edit
+### /washingtondc/post/edit
 
 This is the page for editing a post.
 
