@@ -10,4 +10,20 @@ class ApplicationController < ActionController::Base
       user_params.permit(:email, :username, :first_name, :last_name, :password, :password_confirmation, :current_password)
     end
   end
+
+  def after_sign_in_path_for(resource)
+    feed_path
+  end
+
+  def after_sign_up_path_for(resource)
+    feed_path
+  end
+
+  def after_update_path_for(resource)
+    feed_path
+  end
+
+  def after_inactive_sign_up_path_for(resource)
+    new_user_session_url
+  end
 end

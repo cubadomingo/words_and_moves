@@ -14,8 +14,11 @@ Rails.application.routes.draw do
   resources :dislikes, only: [:create]
   resources :regions, only: [:create, :update, :destroy]
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/facebook_callbacks" }
+  devise_for :users, controllers: { :omniauth_callbacks => "users/facebook_callbacks", registrations: "registrations" }, skip: [:sessions]
 
-  put '/users', to: "devise/registrations#update", as: "update_user"
-
+  as :user do
+    get 'signin', to: 'devise/sessions#new', as: :new_user_session
+    post 'signin', to: 'devise/sessions#create', as: :user_session
+    delete 'signout', to: 'sessions#destroy', as: :destroy_user_session
+  end
 end

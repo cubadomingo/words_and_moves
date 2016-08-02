@@ -143,48 +143,63 @@ $grayLighter: #eeeeee;
 
 /* login */
 
+.container {
+  margin-top:40px;
+  width: 805px;
+}
+
+.sign-up {
+  border-right: 1px solid;
+  border-color: $pink;
+  padding-left: 25px;
+  padding-right: 40px;
+  padding-bottom: 20px;
+}
+
+.sign-in {
+  padding-right: 25px;
+  padding-left: 40px;
+}
+
 body {
   background-color: $blue;
 }
 
-
-.login {
-  width: 325px;
-
-  .login-padding {
-    padding: 10px;
-
-     > h3 {
-      color: white;
-    }
-  }
-
-  .bottom-margin-form {
-    margin-bottom: 10px;
-  }
-
-  .no-margin {
-    margin: 0px;
-  }
-
-  .button-100 {
-    width: 100%;
-  }
-
-  .form-horizontal .control-label.text-left{
-    text-align: left;
-  }
-
-  .forgot-password {
-    font-size: 12px;
-    margin-left: 75px;
-  }
-
-  .checkbox input[type="checkbox"] {
-    margin-left: 0;
-  }
+.login-background {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: white;
 }
 
+.g-recaptcha {
+  margin: 0 auto;display: table
+}
+
+.bottom-margin-form {
+  margin-bottom: 10px;
+}
+
+.button-100 {
+  width: 100%;
+}
+
+.remember-me {
+  font-size: 14px;
+}
+
+.forgot-password {
+  font-size: 14px;
+  margin-left: 98px;
+}
+
+.checkbox input[type="checkbox"] {
+  margin-left: 0;
+}
+
+/* buttons */
 
 .btn-primary {
   background-color: $pink;
@@ -226,12 +241,7 @@ body {
   }
 }
 
-
-.login-margin-background {
-  margin-bottom: 20px;
-  border-radius: 10px;
-  background-color: white;
-}
+/* footer */
 
 footer {
   .container_fluid {
