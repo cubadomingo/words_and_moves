@@ -14,7 +14,7 @@ namespace :assets do
 
   desc "Compile assets with webpack"
   task :webpack do
-    sh "cd client && /home/words-and-moves/.nvm/versions/node/v6.3.1/bin/npm run build:production:client"
+    sh "cd client && /tmp/words-and-moves/nvm-exec.sh npm run build:production"
   end
 
   task :clobber do
