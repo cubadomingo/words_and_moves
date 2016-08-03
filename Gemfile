@@ -21,7 +21,7 @@ gem 'friendly_id'
 
 group :development do
   gem 'capistrano'
-  gem 'capistrano-nvm'
+  gem 'capistrano-nvm', require: false
   gem 'capistrano-bundler'
   gem 'capistrano-passenger'
   gem 'capistrano-rails'

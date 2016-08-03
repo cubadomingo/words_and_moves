@@ -10,6 +10,7 @@ set :repo_url, 'git@github.com:cubadomingo/words_and_moves.git'
 
 # Default value for :scm is :git
 # set :scm, :git
+set :nvm_node, 'v6.3.1'
 
 set :rvm_ruby_version, '2.3.0'
 

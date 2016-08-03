@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'feed', to: 'users#feed'
   get 'region/new', to: 'regions#new'
   get 'explore', to: 'regions#explore'
-  get '/:slug/feed', to: 'regions#feed', as: 'region_feed'
+  get '/:slug/', to: 'regions#feed', as: 'region_feed'
   get '/:slug/event/:id', to: 'regions#event', as: 'region_event'
   get '/:slug/post/:id', to: 'regions#post', as: 'region_post'
 
