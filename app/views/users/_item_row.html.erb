@@ -13,13 +13,21 @@
     <p><%= item.comments.count %> comments</p>
     <div class="row">
       <div class="col-md-2">
-      <%= button_to(likes_path(item, :item_id => item.id, :item_class => item.class), method: :post, remote: true, class: "btn btn-sm btn-primary") do %>
-        Like <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+      <% if item.likes.find_by(user_id: current_user.id).blank? %>
+        <%= button_to(likes_path(item, :item_id => item.id, :item_class => item.class), method: :post, remote: true, class: "btn btn-sm btn-primary") do %>
+          Like <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+        <% end %>
+      <% else %>
+        <%= delete_button_to("Un-like <span class='glyphicon glyphicon-arrow-up' aria-hidden='true'></span>", like_path(item.likes.find_by(user_id: current_user.id).id, :item_class => item.class), form: { remote: true }, button: { class: "btn btn-sm btn-primary active" } ) %>
       <% end %>
       </div>
       <div class="col-md-2">
-      <%= button_to(dislikes_path(item, :item_id => item.id, :item_class => item.class), method: :post, remote: true, class: "btn btn-sm btn-secondary") do %>
-        Dislike <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+      <% if item.dislikes.find_by(user_id: current_user.id).blank? %>
+        <%= button_to(dislikes_path(item, :item_id => item.id, :item_class => item.class), method: :post, remote: true, class: "btn btn-sm btn-secondary") do %>
+          Dislike <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+        <% end %>
+      <% else %>
+        <%= delete_button_to("Un-Dislike <span class='glyphicon glyphicon-arrow-down' aria-hidden='true'></span>", dislike_path(item.dislikes.find_by(user_id: current_user.id).id, :item_class => item.class), form: { remote: true }, button: { class: "btn btn-sm btn-secondary active" } ) %>
       <% end %>
       </div>
     </div>
