@@ -19,7 +19,9 @@ Rails.application.routes.draw do
   resources :subscribers, only: [:create]
   resources :likes, only: [:create, :destroy]
   resources :dislikes, only: [:create, :destroy]
-  resources :regions, only: [:create, :update, :destroy]
+  resources :regions, only: [:create, :update, :destroy], param: :slug do
+    resources :posts
+  end
 
 
   devise_for :users, controllers: { :omniauth_callbacks => "users/facebook_callbacks", registrations: "registrations" }, skip: [:sessions]
