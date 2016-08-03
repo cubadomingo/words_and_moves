@@ -6,9 +6,9 @@
   </div>
   <div class="col-md-8">
     <% if item.class == Event %>
-      <h3><%= link_to item.title, region_event_path(slug: item.city.subregion.region.slug, id: item.id) %></h3>
+      <h3><%= link_to item.title, region_event_path(slug: item.city.subregion.region.slug, slug2: item.slug) %></h3>
     <% else %>
-      <h3><%= link_to item.title, region_post_path(slug: item.region.slug, id: item.id) %></h3>
+      <h3><%= link_to item.title, region_post_path(slug: item.region.slug, slug2: item.slug) %></h3>
     <% end %>
     <p><%= item.comments.count %> comments</p>
     <div class="row">

@@ -4,7 +4,7 @@
     <div class="row">
       <% @events.each do |event| %>
       <div class="col-lg-12 text-left row alert event-row">
-        <h2><%= link_to event.title, region_event_path(slug: @region.slug, id: event.id) %></h2>
+        <h2><%= link_to event.title, region_event_path(slug: @region.slug, slug2: event.slug) %></h2>
         <h3><%= event.location %></h3>
         <h4><%= event.event_date.strftime("%D") %></h4>
         <p><%= event.body %></p>
@@ -14,7 +14,7 @@
     <div class="row">
       <% @posts.each do |post| %>
       <div class="col-lg-12 text-left row alert alert-info">
-      <h2><%= link_to post.title, region_post_path(slug: @region.slug, id: post.id) %></h2>
+      <h2><%= link_to post.title, region_post_path(slug: @region.slug, slug2: post.slug) %></h2>
       <p><%= post.body %></p>
       <p>Posted on: <%= post.created_at.strftime("%D") %></p>
       </div>
