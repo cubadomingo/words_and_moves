@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   get '/:slug/post/:id', to: 'regions#post', as: 'region_post'
 
   resources :subscribers, only: [:create]
-  resources :likes, only: [:create]
-  resources :dislikes, only: [:create]
+  resources :likes, only: [:create, :destroy]
+  resources :dislikes, only: [:create, :destroy]
   resources :regions, only: [:create, :update, :destroy]
 
   devise_for :users, controllers: { :omniauth_callbacks => "users/facebook_callbacks", registrations: "registrations" }, skip: [:sessions]

@@ -2,8 +2,8 @@
   <div class="col-md-12 login-padding text-center">
     <h3>Edit <%= resource_name.to_s.humanize %></h3>
   </div>
-  <div class="col-md-12 login-padding login-margin-background">
-    <%= form_for(resource, as: resource_name, url: update_user_path(), html: { method: :put }) do |f| %>
+  <div class="col-md-12 login-padding login-margin-background login-background">
+    <%= form_for(resource, as: resource_name, url: "/users", html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
 
       <div class="field">
