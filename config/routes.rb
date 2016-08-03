@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { :omniauth_callbacks => "users/facebook_callbacks", registrations: "registrations" }, skip: [:sessions]
 
   as :user do
-    get 'signin', to: 'devise/sessions#new', as: :new_user_session
-    post 'signin', to: 'devise/sessions#create', as: :user_session
+    get 'sign_in', to: 'devise/sessions#new', as: :new_user_session
+    post 'sign_in', to: 'devise/sessions#create', as: :user_session
     delete 'signout', to: 'sessions#destroy', as: :destroy_user_session
   end
 
