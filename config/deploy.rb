@@ -34,17 +34,6 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-namespace :compile_webpack do
-  desc "Compile assets with webpack"
-  task :webpack do
-    run "cd client && npm run build:production"
-  end
-
-  task :clobber do
-    rm_r Dir.glob(Rails.root.join("app/assets/webpack/*"))
-  end
-end
-
 namespace :deploy do
 
   after :restart, :clear_cache do
@@ -56,4 +45,3 @@ namespace :deploy do
     end
   end
 end
-
