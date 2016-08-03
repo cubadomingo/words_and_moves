@@ -14,7 +14,13 @@ namespace :assets do
 
   desc "Compile assets with webpack"
   task :webpack do
-    run "cd client && npm run build:production"
+    on roles fetch(:npm_roles) do
+      within fetch(:npm_target_path, release_path) do
+        with fetch(:npm_env_variables, {}) do
+          run "cd client"
+          execute :npm, 'npm run build:production'
+      end
+    end
   end
 
   task :clobber do
@@ -22,3 +28,5 @@ namespace :assets do
   end
 end
 
+
+#"cd client && npm run build:production"
