@@ -14,7 +14,7 @@ namespace :assets do
 
   desc "Compile assets with webpack"
   task :webpack do
-    run "cd client && npm run build:production"
+    execute "cd client &&", :npm, 'run build:production'
   end
 
   task :clobber do
