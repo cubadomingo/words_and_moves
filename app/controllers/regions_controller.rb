@@ -28,12 +28,12 @@ class RegionsController < ApplicationController
 
   def event
     @region = Region.friendly.find(params[:slug])
-    @event = @region.events.find(params[:id])
+    @event = @region.events.friendly.find(params[:slug2])
   end
 
   def post
     @region = Region.friendly.find(params[:slug])
-    @post = @region.posts.find(params[:id])
+    @post = @region.posts.friendly.find(params[:slug2])
   end
 
   private
