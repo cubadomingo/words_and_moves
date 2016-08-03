@@ -19,6 +19,7 @@ namespace :assets do
         with fetch(:npm_env_variables, {}) do
           run "cd client"
           execute :npm, 'npm run build:production'
+        end
       end
     end
   end
