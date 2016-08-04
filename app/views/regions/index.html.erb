@@ -2,7 +2,7 @@
   <h1> This is where a list of cities will be </h1>
 
   <% @regions.each do |region| %>
-  <h1><%= link_to region.name, region_feed_path(region.slug) %>
+  <h1><%= link_to region.name, region_path(region.slug) %>
   <% end %>
   <hr>
 
@@ -11,7 +11,7 @@
       <div class="panel panel-danger">
       <div class="panel-heading">Popular</div>
         <% for region in @regions %>
-          <h3><%= link_to region.name, region_feed_path(region.slug) %></h3>
+          <h3><%= link_to region.name, region_path(region.slug) %></h3>
         <% end %>
       </div>
     </div>
@@ -19,7 +19,7 @@
       <div class="panel panel-danger">
         <div class="panel-heading">Recently Added</div>
         <% for region in @regions %>
-          <h3><%= link_to region.name, region_feed_path(region.slug) %></h3>
+          <h3><%= link_to region.name, region_path(region.slug) %></h3>
         <% end %>
       </div>
     </div>
