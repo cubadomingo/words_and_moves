@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <h1>Posts</h1>
+    </div>
+    <div class="col-md-3">
+      <%= link_to("Create Post", new_region_post_path(@region.slug), class: "btn btn-sm btn-primary") %>
+    </div>
+  </div>
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <td>Title</td>
+      <td>Category</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    </tr>
+  </thead>
+  <% for post in @posts %>
+    <tr>
+      <td><%= link_to(post.title, region_post_path(post.region.slug, post.slug)) %></td>
+      <td><%= post.category.name %></td>
+      <td><%= link_to("Edit", edit_region_post_path(post.region.slug, post.slug), class: "btn btn-sm btn-secondary") %></td>
+      <td><%= delete_button_to("Delete", region_post_path(post.region.slug, post.slug), form: { remote: true }, button: { class: "btn btn-sm btn-primary" } ) %></td>
+    </tr>
+  <% end %>
+</div>

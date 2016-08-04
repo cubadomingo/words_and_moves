@@ -14,12 +14,13 @@ Rails.application.routes.draw do
 
   get '/:slug/', to: 'regions#feed', as: 'region_feed'
   get '/:slug/event/:slug2', to: 'regions#event', as: 'region_event'
-  get '/:slug/post/:slug2', to: 'regions#post', as: 'region_post'
 
   resources :subscribers, only: [:create]
   resources :likes, only: [:create, :destroy]
   resources :dislikes, only: [:create, :destroy]
-  resources :regions, only: [:create, :update, :destroy]
+  resources :regions, only: [:create, :update, :destroy], param: :slug do
+    resources :posts, param: :slug
+  end
 
 
   devise_for :users, controllers: { :omniauth_callbacks => "users/facebook_callbacks", registrations: "registrations" }, skip: [:sessions]

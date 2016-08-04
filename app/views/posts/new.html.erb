@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Create New Post</h1>
+  <%= form_for([@region, @post]) do |f| %>
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :body %>
+      <%= f.text_area :body, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :category %>
+      <%= f.collection_select :category_id, Category.all, :id, :name, class: "form-control" %>
+    </div>
+    <%= f.submit "Create Post", class: "btn btn-primary" %>
+  <% end %>
+</div>
