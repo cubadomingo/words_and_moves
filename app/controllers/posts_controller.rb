@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_region, except: [:show]
+  before_action :set_region
 
   def index
     @posts = @region.posts
@@ -25,11 +25,28 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
+  end
 
+  def update
+    @post = Post.find(params[:id])
+    if @post.update_attributes(post_params)
+      flash[:success] = "Thank you for updating this post" 
+      redirect_to region_feed_path(@region)
+    else
+      flash[:danger] = "Sorry, something went wrong"
+      redirect_back(fallback_location: new_region_post_path(@region))
+    end
   end
 
   def destroy
-
+    @post = Post.find(params[:id])
+    if @post.destroy
+      flash[:warning] = "You have successfully deleted a Post"
+    else
+      flash[:danger] = "Sorry, something went wrong"
+    end
+    redirect_back(fallback_location: root_path)
   end
 
   private
