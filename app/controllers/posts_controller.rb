@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:slug])
   end
 
   def new
@@ -25,11 +25,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:slug])
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:slug])
     if @post.update_attributes(post_params)
       flash[:success] = "Thank you for updating this post" 
       redirect_to region_feed_path(@region)
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:slug])
     if @post.destroy
       flash[:warning] = "You have successfully deleted a Post"
     else
