@@ -1,8 +1,17 @@
 class RegionsController < ApplicationController
 
-  def explore
-    #currently have this so the navbar can work but the nav won't have a region name for the explore
+  def index
     @regions = Region.all
+  end
+
+  def show
+    @region = Region.friendly.find(params[:slug])
+    @events = @region.events
+    @posts = @region.posts
+  end
+
+  def edit
+    @region = Region.friendly.find(params[:slug])
   end
 
   def new
@@ -20,20 +29,7 @@ class RegionsController < ApplicationController
     end
   end
 
-  def feed
-    @region = Region.friendly.find(params[:slug])
-    @events = @region.events
-    @posts = @region.posts
-  end
-
-  def event
-    @region = Region.friendly.find(params[:slug])
-    @event = @region.events.friendly.find(params[:slug2])
-  end
-
-  def post
-    @region = Region.friendly.find(params[:slug])
-    @post = @region.posts.friendly.find(params[:slug2])
+  def update
   end
 
   private

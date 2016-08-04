@@ -10,7 +10,6 @@
 #  category_id :integer
 #  city_id     :integer
 #  user_id     :integer
-#  region_id   :integer
 #
 
 class Event < ActiveRecord::Base
