@@ -27,7 +27,7 @@ class Event < ActiveRecord::Base
 
   def slug_candidates
     [
-      [:title, :location],
+      [:title, :venue],
     ]
   end
 

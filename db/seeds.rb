@@ -23,9 +23,9 @@ if ENV['RAILS_ENV'] != 'test'
     city.events.create!(
       title: Faker::Hipster.sentence(7),
       body: Faker::Hipster.paragraph,
-      location: Faker::Company.name,
-      event_date: Faker::Time.between(DateTime.now, DateTime.now + 365),
-      category_id: art.id,
+      venue: Faker::Company.name,
+      date: Faker::Time.between(Date.today, Date.today + 365),
+      time: Faker::Time.between(Time.now, Time.now + 24),
       city_id: city.id,
       user_id: user.id
     )
@@ -35,8 +35,9 @@ if ENV['RAILS_ENV'] != 'test'
     city.events.create!(
       title: Faker::Hipster.sentence(7),
       body: Faker::Hipster.paragraph,
-      location: Faker::Company.name,
-      event_date: Faker::Time.between(DateTime.now, DateTime.now + 365),
+      venue: Faker::Company.name,
+      date: Faker::Time.between(Date.today, Date.today + 365),
+      time: Faker::Time.between(Time.now, Time.now + 24),
       category_id: art.id,
       city_id: city2.id,
       user_id: user.id
@@ -47,8 +48,9 @@ if ENV['RAILS_ENV'] != 'test'
     city.events.create!(
       title: Faker::Hipster.sentence(7),
       body: Faker::Hipster.paragraph,
-      location: Faker::Company.name,
-      event_date: Faker::Time.between(DateTime.now, DateTime.now + 365),
+      venue: Faker::Company.name,
+      date: Faker::Time.between(Date.today, Date.today + 365),
+      time: Faker::Time.between(Time.now, Time.now + 24),
       category_id: art.id,
       city_id: city3.id,
       user_id: user.id
@@ -59,8 +61,9 @@ if ENV['RAILS_ENV'] != 'test'
     city.events.create!(
       title: Faker::Hipster.sentence(7),
       body: Faker::Hipster.paragraph,
-      location: Faker::Company.name,
-      event_date: Faker::Time.between(DateTime.now, DateTime.now + 365),
+      venue: Faker::Company.name,
+      date: Faker::Time.between(Date.today, Date.today + 365),
+      time: Faker::Time.between(Time.now, Time.now + 24),
       category_id: art.id,
       city_id: city4.id,
       user_id: user.id
@@ -71,8 +74,9 @@ if ENV['RAILS_ENV'] != 'test'
     city.events.create!(
       title: Faker::Hipster.sentence(7),
       body: Faker::Hipster.paragraph,
-      location: Faker::Company.name,
-      event_date: Faker::Time.between(DateTime.now, DateTime.now + 365),
+      venue: Faker::Company.name,
+      date: Faker::Time.between(Date.today, Date.today + 365),
+      time: Faker::Time.between(Time.now, Time.now + 24),
       category_id: art.id,
       city_id: city5.id,
       user_id: user.id
