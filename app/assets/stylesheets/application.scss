@@ -89,7 +89,7 @@ $grayLighter: #eeeeee;
 /* Navbar */
 
 .navbar {
-  height: 120px;
+  height: 100%;
   background-color: white;
   border-color: white;
   border-radius: 0px;
@@ -97,35 +97,73 @@ $grayLighter: #eeeeee;
   z-index: 9999;
 
   .sign-button {
-    font-size: 20px;
+    font-size: 15px;
     margin-top: 10px;
     color: $pink;
     background-color: white;
     border-color: $pink;
     padding-top: 1px;
     padding-bottom: 1px;
+
+    &:hover {
+      color: white;
+      background-color: $pink;
+    }
   }
 
-  .feed-links {
+  .nav-button {
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: $blue;
+    background-color: white;
+    border-color: $blue;
+    padding-top: 1px;
+    padding-bottom: 1px;
 
-    span {
-      color: black;
-      font-size: 30px;
-      margin-left: 20px;
-
-      > a {
-        font-weight: 500;
-        font-size: 30px;
-        color: black;
-      }
-
-      > a:hover {
-        color: black;
-      }
+    &:hover {
+      color: white;
+      border-color: $blue;
+      background-color: $blue;
     }
-    margin-top: 25px;
   }
 }
+.category-nav {
+  padding-left: 0px;
+  padding-right: 0px;
+
+  .category-button {
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: black;
+  background-color: white;
+  border-color: black;
+  padding-top: 1px;
+  padding-bottom: 1px;
+
+  &:hover {
+    color: white;
+    border-color: black;
+    background-color: black;
+  }
+ }
+
+ .subscribe-button {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: $pink;
+    background-color: white;
+    border-color: $pink;
+    padding-top: 1px;
+    padding-bottom: 1px;
+
+    &:hover {
+      color: white;
+      background-color: $pink;
+    }
+  }
+}
+
 
 .navbar-default {
    h2 {
@@ -134,14 +172,21 @@ $grayLighter: #eeeeee;
   }
 }
 
+.logo-margin {
+  margin-top: 8px;
+}
+
 .navbar {
 
   h1 {
-    font-size: 60px;
+    font-weight: 500;
+    font-size: 40px;
     color: black;
     margin-top: 0px;
   }
 }
+
+
 
 /* login */
 
@@ -186,6 +231,10 @@ body {
 
 .button-100 {
   width: 100%;
+}
+
+.sign-out {
+  display: inline;
 }
 
 .remember-me {

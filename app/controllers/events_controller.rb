@@ -1,9 +1,10 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_region
 
  def show
     @event = @region.events.friendly.find(params[:slug])
+    @categories = Category.all
+    @subregions = @region.subregions
   end
 
   def new
@@ -22,6 +23,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.friendly.find(params[:slug])
+    @categories = Category.all
   end
 
   def update

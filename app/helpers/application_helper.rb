@@ -3,6 +3,8 @@ module ApplicationHelper
     :session
   end
 
+  def
+
   def resource
     @resource ||= Session.new
   end
@@ -18,12 +20,11 @@ module ApplicationHelper
     button_options = {
       type: 'submit'
     }.merge(options[:button] || {})
-    
+
     form_tag(url, form_options) do
       button_tag(button_options) do
         title.html_safe
       end
     end
   end
-
 end

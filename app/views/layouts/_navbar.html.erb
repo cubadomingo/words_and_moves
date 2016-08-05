@@ -1,39 +1,49 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <div class="row">
       <div class="col-xs-6">
-        <% if params[:controller] == 'regions' && params[:action] != 'index' %>
-          <h2><%= @region.name %></h2>
-        <% end %>
+        <div class="row">
+          <div class="logo-margin">
+            <%= link_to image_tag('logo-pink.png', width: '60%', height: '60%'), root_path %>
+          </div>
+        </div>
       </div>
       <div class="col-xs-6 text-right">
+       <div class="row">
         <% if user_signed_in? %>
-          <div class="col-xs-6"></div>
-          <div class="col-xs-3">
-            <%= link_to current_user.username, edit_user_registration_path, class: "btn btn-primary sign-button" %>
-          </div>
-          <div class="col-xs-3">
-            <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-primary sign-button" %>
-          </div>
+          <span><%= link_to 'My Feed', feed_path, class: "btn btn-primary sign-button" %></span>
+          <span><%= link_to 'My Account', edit_user_registration_path, class: "btn btn-primary sign-button" %></span>
+          <span><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-primary sign-button", form_class: "sign-out"%></span>
         <% else %>
           <%= link_to "Sign in or Sign up", new_user_session_path, class: "btn btn-primary sign-button"%>
         <% end %>
+        </div>
+        <div class="row">
+          <span><%= link_to 'Explore', regions_path, class: "btn btn-primary nav-button" %></span>
+          <span><%= link_to 'All', "#", class: "btn btn-primary nav-button" %></span>
+          <span><%= link_to 'Submit Post', "#", class: "btn btn-primary nav-button" %></span>
+          <span><%= link_to 'Submit Event', "#", class: "btn btn-primary nav-button" %></span>
+          <span><%= link_to 'FAQ', "#", class: "btn btn-primary nav-button" %></span>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-3">
-        <%= render "layouts/page_title", locals: { controller: params[:controller] } %>
-      </div>
-      <div class="col-xs-9 text-right feed-links">
-        <span>[</span>
-        <span><a href="/feed">My Feed</a></span>
-        <span>|</span>
-        <span><a href="/">Music</a></span>
-        <span><a href="#about">Films</a></span>
-        <span><a href="#">Arts</a></span>
-        <span><a href="#">Sports</a></span>
-        <span>]</span>
-      </div>
+              <% if ['regions','posts','events'].include? params[:controller] %>
+                <% unless params[:action] == ('index' || 'new') %>
+                <div class="col-xs-12 category-nav">
+                  <div class="col-xs-6 text-left category-nav">
+                    <span><%= link_to @region.name, region_path(@region) , class: "btn btn-primary category-button" %></span>
+                    <% @subregions.each do |subregion| %>
+                      <span><%= link_to subregion.name, "#" , class: "btn btn-primary category-button" %></span>
+                    <% end %>
+                    <span><%= link_to 'Subscribe', '#' , class: "btn btn-primary subscribe-button" %>
+                    </span>
+                  </div>
+                  <div class="col-xs-6 text-right category-nav">
+                    <% @categories.each do |category| %>
+                      <span><%= link_to category.name, "#" , class: "btn btn-primary category-button" %></span>
+                    <% end %>
+                  </div>
+                </div>
+                <% end %>
+              <% end %>
     </div>
   </div>
 </nav>

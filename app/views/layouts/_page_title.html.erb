@@ -1,7 +1,0 @@
-<% if current_user == nil || params[:controller] == "devise/registrations" %>
-  <h1><strong>{words&moves}</strong></h1>
-<% elsif params[:action] == "feed" %>
-  <h1>Feed</h1>
-<% elsif params[:action] == "explore" %>
-  <h1>Explore</h1>
-<% end %>
