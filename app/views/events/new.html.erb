@@ -10,12 +10,16 @@
       <%= f.text_area :body, class: "form-control" %>
     </div>
     <div class="field">
-      <%= f.label :location%>
-      <%= f.text_area :location, class: "form-control" %>
+      <%= f.label :venue%>
+      <%= f.text_area :venue, class: "form-control" %>
     </div>
     <div class="field">
       <%= f.label :date %>
-      <%= f.datetime_field :event_date, class: "form-control" %>
+      <%= f.date_field :date, class: "form-control" %>
+    </div>
+    <div class="field">
+      <%= f.label :time %>
+      <%= f.time_field :time, class: "form-control" %>
     </div>
     <div class="field">
       <%= f.label :category %>

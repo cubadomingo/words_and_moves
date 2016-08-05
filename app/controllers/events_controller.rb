@@ -9,6 +9,8 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @categories = Category.all
+    @subregions = @region.subregions
   end
 
   def create
