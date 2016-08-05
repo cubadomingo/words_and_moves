@@ -1,7 +1,30 @@
-<% if current_user == nil || params[:controller] == "devise/registrations" %>
-  <h1><strong>{words&moves}</strong></h1>
-<% elsif params[:action] == "feed" %>
-  <h1>Feed</h1>
-<% elsif params[:action] == "explore" %>
-  <h1>Explore</h1>
+<% case params[:controller] %>
+  <% when 'regions' %>
+    <% case params[:action] %>
+      <% when 'show' %>
+        <h1><%= @region.name %> FEED</h1>
+      <% when 'index' %>
+        <h1> Explore </h1>
+      <% when 'new' %>
+        <h1> NEW </h1>
+      <% when 'edit' %>
+        <h1> EDIT </h1>
+    <% end %>
+  <% when 'devise/sessions' %>
+    <h1>SIGN IN OR SIGN UP </h1>
+  <% when 'users' %>
+    <h1> MY FEED</h1>
+  <% when 'registrations' %>
+    <h1> SETTINGS </h1>
+  <% when ('events' || 'posts') %>
+    <% case params[:action] %>
+      <% when 'show' %>
+        <h1><%= @region.name.upcase %></h1>
+      <% when 'edit' %>
+        <h1> EDIT </h1>
+      <% when 'new' %>
+        <h1> NEW </h1>
+    <% end %>
+  <% when 'devise/passwords' %>
+    <h1> RESET PASSWORD </h1>
 <% end %>

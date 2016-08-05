@@ -6,12 +6,16 @@ class RegionsController < ApplicationController
 
   def show
     @region = Region.friendly.find(params[:slug])
+    @subregions =  @region.subregions
+    @categories = Category.all
     @events = @region.events
     @posts = @region.posts
   end
 
   def edit
     @region = Region.friendly.find(params[:slug])
+    @categories = Category.all
+
   end
 
   def new

@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_region
 
   def show
     @post = @region.posts.friendly.find(params[:slug])
+    @categories = Category.all
+    @suregions = @region.subregions
   end
 
   def new
@@ -22,6 +23,8 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.friendly.find(params[:slug])
+    @categories = Category.all
+
   end
 
   def update
