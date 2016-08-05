@@ -4,11 +4,14 @@ class PostsController < ApplicationController
   def show
     @post = @region.posts.friendly.find(params[:slug])
     @categories = Category.all
-    @suregions = @region.subregions
+    @subregions = @region.subregions
   end
 
   def new
     @post = Post.new
+    @subregions = @region.subregions
+    @categories = Category.all
+
   end
 
   def create
