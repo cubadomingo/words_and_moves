@@ -11,7 +11,7 @@ RSpec.feature "Liking" do
     it "successfully likes Post" do
       sign_in user
       visit feed_path
-      row = find(".alert-info")
+      row = find(".col-md-11")
       row.click_button("Like")
       expect(page).to have_selector(".alert", text: "Thank you for liking this Post")
     end
@@ -20,9 +20,9 @@ RSpec.feature "Liking" do
     it "successfully unlikes a Post" do
       sign_in user
       visit feed_path
-      row = find(".alert-info")
+      row = find(".col-md-11")
       row.click_button("Like")
-      row = find(".alert-info")
+      row = find(".col-md-11")
       row.click_button("Un-like")
       expect(page).to have_selector(".alert", text: "You have unliked this Post")
     end

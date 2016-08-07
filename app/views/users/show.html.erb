@@ -1,12 +1,14 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-10">
-      <% for item in @item_list %>
-        <%= render 'item_row', item: item %>
-      <% end %>
+<div class="container-fluid col-lg-10 feed-margin">
+  <% for item in @item_list %>
+    <div class="col-lg-12 post">
+     <%= render 'item_row', item: item %>
     </div>
-    <div class="col-xs-2">
-      <div class='panel panel-primary'>
+  <% end %>
+</div>
+
+
+<div class="container-fluid col-lg-2 sidenav-margin">
+   <div class='panel panel-primary'>
         <h3><a href="#">hot</a></h3>
         <h3><a href="#">new</a></h3>
         <h3><a href="#">rising</a></h3>
@@ -24,6 +26,5 @@
         <h4><a href="#">Jazz</a></h4>
         <h4><a href="#">Dance</a></h4>
       </div>
-    </div>
-  </div>
 </div>
+
