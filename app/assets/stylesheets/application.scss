@@ -83,8 +83,8 @@ $grayLighter: #eeeeee;
 /* Navbar */
 
 .logo {
-  height: 67px;
-  width: 472px;
+  height: 40%;
+  width: 40%;
 }
 
 .navbar {
@@ -96,7 +96,7 @@ $grayLighter: #eeeeee;
   z-index: 9999;
 
   .sign-button {
-    font-size: 15px;
+    font-size: 20px;
     margin-top: 10px;
     color: $pink;
     background-color: white;
@@ -111,9 +111,8 @@ $grayLighter: #eeeeee;
   }
 
   .nav-button {
-    font-size: 15px;
+    font-size: 20px;
     margin-top: 10px;
-    margin-bottom: 10px;
     color: $blue;
     background-color: white;
     border-color: $blue;
@@ -337,6 +336,7 @@ body {
   margin-bottom: 10px;
 
    .category-button {
+  width: 100%;
   font-size: 20px;
   margin-bottom: 10px;
   color: black;
@@ -353,6 +353,7 @@ body {
  }
 
  .subscribe-button {
+    width: 100%;
     font-size: 20px;
     margin-bottom: 10px;
     color: $pink;
@@ -366,6 +367,23 @@ body {
       background-color: $pink;
     }
   }
+
+  .nav-button {
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: $blue;
+    background-color: white;
+    border-color: $blue;
+    padding-top: 1px;
+    padding-bottom: 1px;
+
+    &:hover {
+      color: white;
+      border-color: $blue;
+      background-color: $blue;
+    }
+  }
 }
 
 .categories {
@@ -377,6 +395,7 @@ body {
   margin-bottom: 10px;
 
   .category-button {
+  width: 100%;
   font-size: 20px;
   margin-bottom: 10px;
   color: black;
@@ -390,9 +409,11 @@ body {
     border-color: black;
     background-color: black;
   }
- }
+}
+}
 
-
+.submissions {
+  margin-top: 10px;
 }
 
 .post {
@@ -413,6 +434,7 @@ body {
 }
 
 .sidenav-margin {
+  padding-left: 0px;
   margin-top: 20px;
 }
 
@@ -424,6 +446,9 @@ body {
 
 .subregions {
   margin-top: 10px;
+   border-bottom: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: $pink;
 }
 
 /* footer */

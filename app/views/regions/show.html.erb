@@ -15,7 +15,7 @@
 </div>
 
 <div class="container-fluid col-lg-2 sidenav-margin">
-    <div class="col-lg-12 regions">
+  <div class="col-lg-12 regions">
     <div class="region">
       <%= link_to @region.name, region_path(@region) , class: "btn btn-primary category-button" %>
           <%= link_to 'Subscribe', '#' , class: "btn btn-primary subscribe-button" %>
@@ -28,13 +28,17 @@
       </div>
     <% end %>
     </div>
+    <div class="submissions">
+      <span><%= link_to 'Submit Post', new_region_post_path(region_slug: @region.slug), class: "btn btn-primary nav-button" %></span>
+      <span><%= link_to 'Submit Event', new_region_event_path(region_slug: @region.slug), class: "btn btn-primary nav-button" %></span>
     </div>
+  </div>
   <div class="col-lg-12 categories">
-  <% @categories.each do |category| %>
-                      <div>
-                        <%= link_to category.name, "#" , class: "btn btn-primary category-button" %>
-                      </div>
-                    <% end %>
+    <% @categories.each do |category| %>
+      <div>
+        <%= link_to category.name, "#" , class: "btn btn-primary category-button" %>
+      </div>
+    <% end %>
   </div>
 </div>
 
