@@ -3,7 +3,7 @@
       <div class="col-xs-6">
         <div class="row">
           <div class="logo-margin">
-            <%= link_to image_tag('logo-pink.png', width: '60%', height: '60%'), root_path %>
+            <%= link_to image_tag('logo-pink.png', class: "logo"), root_path %>
           </div>
         </div>
       </div>
@@ -25,25 +25,6 @@
           <span><%= link_to 'FAQ', "#", class: "btn btn-primary nav-button" %></span>
         </div>
       </div>
-              <% if ['regions','posts','events'].include? params[:controller] %>
-                <% unless params[:action] == ('index' || 'new') %>
-                <div class="col-xs-12 category-nav">
-                  <div class="col-xs-6 text-left category-nav">
-                    <span><%= link_to @region.name, region_path(@region) , class: "btn btn-primary category-button" %></span>
-                    <% @subregions.each do |subregion| %>
-                      <span><%= link_to subregion.name, "#" , class: "btn btn-primary category-button" %></span>
-                    <% end %>
-                    <span><%= link_to 'Subscribe', '#' , class: "btn btn-primary subscribe-button" %>
-                    </span>
-                  </div>
-                  <div class="col-xs-6 text-right category-nav">
-                    <% @categories.each do |category| %>
-                      <span><%= link_to category.name, "#" , class: "btn btn-primary category-button" %></span>
-                    <% end %>
-                  </div>
-                </div>
-                <% end %>
-              <% end %>
     </div>
   </div>
 </nav>

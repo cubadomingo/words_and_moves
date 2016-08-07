@@ -80,13 +80,12 @@ $grayLighter: #eeeeee;
   color: white;
 }
 
-.logo {
-  max-height: 100%;
-  max-width: 100%;
-}
-
-
 /* Navbar */
+
+.logo {
+  height: 67px;
+  width: 472px;
+}
 
 .navbar {
   height: 100%;
@@ -193,6 +192,22 @@ $grayLighter: #eeeeee;
 .authentication-container {
   margin-top:40px;
   width: 805px;
+}
+
+.settings-container {
+  margin-top: 40px;
+  width: 400px;
+}
+
+.settings-background {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: white;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: white;
 }
 
 .sign-up {
@@ -310,6 +325,105 @@ body {
     background-color: $yellow;
     border-color: $yellow;
   }
+}
+
+/* Region Posts & Events */
+
+.regions {
+  border-radius: 10px;
+  background-color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+
+   .category-button {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: black;
+  background-color: white;
+  border-color: black;
+  padding-top: 1px;
+  padding-bottom: 1px;
+
+  &:hover {
+    color: white;
+    border-color: black;
+    background-color: black;
+  }
+ }
+
+ .subscribe-button {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: $pink;
+    background-color: white;
+    border-color: $pink;
+    padding-top: 1px;
+    padding-bottom: 1px;
+
+    &:hover {
+      color: white;
+      background-color: $pink;
+    }
+  }
+}
+
+.categories {
+  border-radius: 10px;
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  .category-button {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: black;
+  background-color: white;
+  border-color: black;
+  padding-top: 1px;
+  padding-bottom: 1px;
+
+  &:hover {
+    color: white;
+    border-color: black;
+    background-color: black;
+  }
+ }
+
+
+}
+
+.post {
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.event {
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+
+}
+
+.feed-margin {
+ margin-top: 20px;
+}
+
+.sidenav-margin {
+  margin-top: 20px;
+}
+
+.region {
+  border-bottom: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: $pink;
+}
+
+.subregions {
+  margin-top: 10px;
 }
 
 /* footer */
