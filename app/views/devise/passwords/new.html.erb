@@ -1,25 +1,17 @@
-<div class="container login">
-  <div class="col-md-12 login-padding text-center">
-    <h3>Forgot your password?</h3>
-  </div>
-  <div class="col-md-12 login-padding login-margin-background">
+<div class="container settings-container">
+  <div class="col-md-12 settings-background">
+    <p class="text-left">RESET YOUR PASSWORD</p>
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-      <%= devise_error_messages! %>
 
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
-        <br>
+      <div class="field bottom-margin-form">
+        <%= f.email_field :email, placeholder: "email", autofocus: true, class: "form-control" %>
       </div>
 
-      <div class="actions">
+      <div class="actions bottom-margin-form">
         <%= f.submit "Send me reset password instructions", class: "btn btn-primary button-100" %>
       </div>
     <% end %>
-  </div>
-
-  <div class="col-lg-12 login-padding text-center login-margin-background">
-    <p class="no-margin"> Not what you're looking for? </p>
+    <p class="text-center">OR</p>
     <%= render "devise/shared/links" %>
   </div>
 </div>
