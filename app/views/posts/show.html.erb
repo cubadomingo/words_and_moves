@@ -1,3 +1,21 @@
-<div class="container" %>
-  <h1><%= @post.title %></h1>
+<div class="container item-container">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 settings-background">
+    <h1><%= @post.title %></h1>
+    <i><%= "#{@post.created_at.strftime('%D')}" %></i>
+    <p><%= @post.body %></p>
+    <%= link_to "< Back", region_path(@post.region), class: "btn btn-primary sign-button" %>
+    <%= link_to "Comments", "javascript:void(0)", class: "btn btn-primary sign-button", id: "show-comments" %>
+    <%= link_to "Add Comment", "javascript:void(0)", class: "btn btn-primary sign-button" %>
+    <div id="comments">
+      <h3>Comments</h3>
+      <% for comment in @post.comments %>
+        <div class="row">
+          <strong><%= comment.user.username %></strong>
+          <p><%= comment.body %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
 </div>

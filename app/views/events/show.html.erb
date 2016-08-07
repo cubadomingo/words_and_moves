@@ -1,3 +1,23 @@
-<div class="container" %>
-  <h1><%= @event.title %></h1>
+<div class="container item-container">
+  <div class="col-md-2"></div>
+  <div class="col-md-8 settings-background">
+    <h1><%= @event.title %></h1>
+    <address><%= @event.venue %></address>
+    <strong><%= "#{@event.date.strftime('%D')}" %></strong>
+    <p><%= @event.body %></p>
+    <%= link_to "< Back", region_path(@event.city.subregion.region), class: "btn btn-primary sign-button" %>
+    <%= link_to "Comments", "javascript:void(0)", class: "btn btn-primary sign-button", id: "show-comments" %>
+    <%= link_to "Add Comment", "javascript:void(0)", class: "btn btn-primary sign-button" %>
+    <div id="comments">
+      <h3>Comments</h3>
+      <% for comment in @event.comments %>
+        <div class="row">
+          <strong><%= comment.user.username %></strong>
+          <p><%= comment.body %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+  <div class="col-md-2"></div>
 </div>
