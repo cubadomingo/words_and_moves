@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "pages#landing"
+  root "regions#show"
 
   get 'hello_world', to: 'hello_world#index'
   get 'feed', to: 'users#show'

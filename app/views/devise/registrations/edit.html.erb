@@ -3,7 +3,7 @@
     <p class="text-left">UPDATE YOUR INFORMATION</p>
     <%= form_for(resource, as: resource_name, url: "/users", html: { method: :put }) do |f| %>
       <div class="field">
-        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+        <%= f.email_field :email, placeholder: "email", autofocus: true, class: "form-control" %>
       </div><br />
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -11,15 +11,15 @@
       <% end %>
 
       <div class="field">
-        <%= f.password_field :password, placeholder: "New password", autocomplete: "off", class: "form-control" %>
+        <%= f.password_field :password, placeholder: "new password", autocomplete: "off", class: "form-control" %>
       </div><br />
 
       <div class="field">
-        <%= f.password_field :password_confirmation, placeholder: "Confirm new password", autocomplete: "on", class: "form-control" %>
+        <%= f.password_field :password_confirmation, placeholder: "confirm new password", autocomplete: "on", class: "form-control" %>
       </div><br />
 
       <div class="field">
-        <%= f.password_field :current_password, placeholder: "Current password (required)", class: "form-control" %>
+        <%= f.password_field :current_password, placeholder: "current password (required)", class: "form-control" %>
       </div><br />
 
       <div class="actions bottom-margin-form">
@@ -27,6 +27,6 @@
       </div>
     <% end %>
     <p class="text-center bottom-margin-form">OR<p>
-    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-primary button-100" %>
+    <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-primary button-100" %>
   </div>
 </div>
