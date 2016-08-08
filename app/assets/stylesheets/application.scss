@@ -9,6 +9,7 @@ $yellow: rgb(255,242,0);
 $darkYellow: rgb(231,219,0);
 $blue: rgb(0,174,239);
 $grayLighter: #eeeeee;
+$gray: #d6d5d4;
 
 /* Landing Page */
 
@@ -82,120 +83,69 @@ $grayLighter: #eeeeee;
 
 /* Navbar */
 
-.logo {
-  height: 40%;
-  width: 40%;
+.navbar-brand {
+  height: 35%;
+  width: 35%;
 }
 
 .navbar {
-  height: 100%;
   background-color: white;
-  border-color: white;
-  border-radius: 0px;
+  border-color: $gray;
+  border-top: 0;
+  border-left: 0;
+  border-radius: 0;
+  border-right: 0;
   margin-bottom: 0px;
   z-index: 9999;
 
-  .sign-button {
-    font-size: 20px;
-    margin-top: 10px;
-    color: $pink;
-    background-color: white;
-    border-color: $pink;
-    padding-top: 1px;
-    padding-bottom: 1px;
+  .navbar-nav {
 
-    &:hover {
+    > li{
+      margin-left:10px;
+    }
+
+    .sign-button {
+      margin-top: 15px;
+      font-size: 20px;
+      color: $pink;
+      background-color: white;
+      border-color: $pink;
+      padding-top: 1px;
+      padding-bottom: 1px;
+    }
+
+    .sign-button:hover {
       color: white;
       background-color: $pink;
     }
   }
-
-  .nav-button {
-    font-size: 20px;
-    margin-top: 10px;
-    color: $blue;
-    background-color: white;
-    border-color: $blue;
-    padding-top: 1px;
-    padding-bottom: 1px;
-
-    &:hover {
-      color: white;
-      border-color: $blue;
-      background-color: $blue;
-    }
-  }
 }
-.category-nav {
-  padding-left: 0px;
-  padding-right: 0px;
 
-  .category-button {
-  font-size: 15px;
-  margin-bottom: 10px;
-  color: black;
+.sign-button {
+  font-size: 20px;
+  margin-top: 10px;
+  color: $pink;
   background-color: white;
-  border-color: black;
+  border-color: $pink;
   padding-top: 1px;
   padding-bottom: 1px;
 
   &:hover {
     color: white;
-    border-color: black;
-    background-color: black;
-  }
- }
-
- .subscribe-button {
-    font-size: 15px;
-    margin-bottom: 10px;
-    color: $pink;
-    background-color: white;
-    border-color: $pink;
-    padding-top: 1px;
-    padding-bottom: 1px;
-
-    &:hover {
-      color: white;
-      background-color: $pink;
-    }
+    background-color: $pink;
   }
 }
 
-
-.navbar-default {
-   h2 {
-    color: $pink;
-    margin-top: 5px;
-  }
-}
-
-.logo-margin {
-  margin-top: 8px;
-}
-
-.navbar {
-
-  h1 {
-    font-weight: 500;
-    font-size: 40px;
-    color: black;
-    margin-top: 0px;
-  }
-}
-
-
-
-/* login */
-
-.authentication-container {
-  margin-top:40px;
-  width: 805px;
-}
+/* Devise Views */
 
 .settings-container {
   margin-top: 40px;
   width: 400px;
+}
+
+.authentication-container {
+  margin-top:40px;
+  width: 805px;
 }
 
 .item-container {
@@ -209,8 +159,9 @@ $grayLighter: #eeeeee;
   padding-right: 30px;
   background-color: white;
   border-radius: 10px;
+  border-width: 1px;
   border-style: solid;
-  border-color: white;
+  border-color: $gray;
 }
 
 .sign-up {
@@ -226,17 +177,13 @@ $grayLighter: #eeeeee;
   padding-left: 40px;
 }
 
-body {
-  background-color: $blue;
-}
-
 .login-background {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: white;
   border-radius: 10px;
   border-style: solid;
-  border-color: white;
+  border-width: 1px;
+  border-color: $gray;
 }
 
 .g-recaptcha {
@@ -249,10 +196,6 @@ body {
 
 .button-100 {
   width: 100%;
-}
-
-.sign-out {
-  display: inline;
 }
 
 .remember-me {
@@ -330,16 +273,15 @@ body {
   }
 }
 
+/* User Feed */
+
+.user-feed {
+  margin-top: 20px;
+}
+
 /* Region Posts & Events */
 
-.regions {
-  border-radius: 10px;
-  background-color: white;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  margin-bottom: 10px;
-
-   .category-button {
+.nav-black-button {
   width: 100%;
   font-size: 20px;
   margin-bottom: 10px;
@@ -354,9 +296,9 @@ body {
     border-color: black;
     background-color: black;
   }
- }
+}
 
- .subscribe-button {
+.nav-pink-button {
     width: 100%;
     font-size: 20px;
     margin-bottom: 10px;
@@ -366,93 +308,61 @@ body {
     padding-top: 1px;
     padding-bottom: 1px;
 
-    &:hover {
-      color: white;
-      background-color: $pink;
-    }
-  }
-
-  .nav-button {
-    width: 100%;
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: $blue;
-    background-color: white;
-    border-color: $blue;
-    padding-top: 1px;
-    padding-bottom: 1px;
-
-    &:hover {
-      color: white;
-      border-color: $blue;
-      background-color: $blue;
-    }
+  &:hover {
+    color: white;
+    background-color: $pink;
   }
 }
 
-.categories {
-  border-radius: 10px;
-  background-color: white;
-  padding-top: 20px;
-  padding-bottom: 15px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-
-  .category-button {
+.nav-blue-button {
   width: 100%;
   font-size: 20px;
   margin-bottom: 10px;
-  color: black;
+  color: $blue;
   background-color: white;
-  border-color: black;
+  border-color: $blue;
   padding-top: 1px;
   padding-bottom: 1px;
 
   &:hover {
     color: white;
-    border-color: black;
-    background-color: black;
+    border-color: $blue;
+    background-color: $blue;
   }
 }
-}
 
-.submissions {
-  margin-top: 10px;
-}
 
 .post {
-  background-color: white;
-  border-radius: 10px;
+  border-color: $gray;
+  border-style: solid;
+  border-width: 1px;
   margin-bottom: 20px;
+  color: $gray;
+  a {
+    color: black;
+    text-decoration: none;
+  }
 }
 
 .event {
-  background-color: white;
-  border-radius: 10px;
+  border-color: $gray;
+  border-style: solid;
+  border-width: 1px;
   margin-bottom: 20px;
-
+  color: $gray;
+   a {
+    color: black;
+    text-decoration: none;
+  }
 }
 
-.feed-margin {
+.region-feed {
  margin-top: 20px;
 }
 
-.sidenav-margin {
+.sidenav {
   padding-left: 0px;
   margin-top: 20px;
-}
-
-.region {
-  border-bottom: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: $pink;
-}
-
-.subregions {
-  margin-top: 10px;
-   border-bottom: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: $pink;
 }
 
 /* footer */

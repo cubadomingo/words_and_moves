@@ -1,19 +1,18 @@
-<div class="container-fluid col-lg-10 user-feed">
-  <% for item in @item_list %>
-    <div class="col-lg-12 post">
-     <%= render 'item_row', item: item %>
-    </div>
-  <% end %>
-</div>
-
 <div class="col-lg-2 sidenav">
     <div class="col-xs-12 region">
-    <p>YOUR REGIONS</p>
-    <% @user.preferred_regions.each do |region| %>
-      <span><%= link_to region.name , '#', class: "btn btn-primary nav-black-button" %></span>
+      <p>REGION</p>
+      <%= link_to @region.name, region_path(@region) , class: "btn btn-primary nav-black-button" %>
+          <%= link_to 'Subscribe', '#' , class: "btn btn-primary nav-pink-button" %>
+      <span><%= link_to 'Submit Post', new_region_post_path(region_slug: @region.slug), class: "btn btn-primary nav-blue-button" %></span>
+      <span><%= link_to 'Submit Event', new_region_event_path(region_slug: @region.slug), class: "btn btn-primary nav-blue-button" %></span>
+    </div>
+     <div class="col-xs-12 subregions">
+    <p>SUB-REGIONS</p>
+    <% @subregions.each do |subregion| %>
+      <div>
+        <%= link_to subregion.name, "#" , class: "btn btn-primary nav-black-button" %>
+      </div>
     <% end %>
-    <span><%= link_to 'Submit Post', '#', class: "btn btn-primary nav-blue-button" %></span>
-    <span><%= link_to 'Submit Event', '#', class: "btn btn-primary nav-blue-button" %></span>
     </div>
     <div class="col-xs-12 filter">
     <p>FILTER BY</p>
@@ -32,6 +31,3 @@
     <% end %>
   </div>
 </div>
-
-
-

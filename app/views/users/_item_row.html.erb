@@ -1,7 +1,25 @@
   <div class="col-md-1">
-    <div class=" text-center">
+    <div class="col-m2-12 text-center">
       <h1><%= item.net_likes %></h1>
     </div>
+    <div class="col-md-6">
+      <% if item.likes.find_by(user_id: current_user.id).blank? %>
+        <%= button_to(likes_path(item, :item_id => item.id, :item_class => item.class), method: :post, remote: true, class: "btn btn-sm btn-primary") do %>
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        <% end %>
+      <% else %>
+        <%= delete_button_to("<span class='glyphicon glyphicon-plus' aria-hidden='true'></span>", like_path(item.likes.find_by(user_id: current_user.id).id, :item_class => item.class), form: { remote: true }, button: { class: "btn btn-sm btn-primary active" } ) %>
+      <% end %>
+      </div>
+      <div class="col-md-6">
+      <% if item.dislikes.find_by(user_id: current_user.id).blank? %>
+        <%= button_to(dislikes_path(item, :item_id => item.id, :item_class => item.class), method: :post, remote: true, class: "btn btn-sm btn-secondary") do %>
+        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+        <% end %>
+      <% else %>
+        <%= delete_button_to("<span class='glyphicon glyphicon-minus' aria-hidden='true'></span>", dislike_path(item.dislikes.find_by(user_id: current_user.id).id, :item_class => item.class), form: { remote: true }, button: { class: "btn btn-sm btn-secondary active" } ) %>
+      <% end %>
+      </div>
   </div>
   <div class="col-md-11">
     <% if item.class == Event %>
@@ -10,22 +28,4 @@
       <h3><%= link_to item.title, region_post_path(item.region.slug, item.slug) %></h3>
     <% end %>
     <p><%= item.comments.count %> comments</p>
-      <div class="col-md-2">
-      <% if item.likes.find_by(user_id: current_user.id).blank? %>
-        <%= button_to(likes_path(item, :item_id => item.id, :item_class => item.class), method: :post, remote: true, class: "btn btn-sm btn-primary") do %>
-          Like <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
-        <% end %>
-      <% else %>
-        <%= delete_button_to("Un-like <span class='glyphicon glyphicon-arrow-up' aria-hidden='true'></span>", like_path(item.likes.find_by(user_id: current_user.id).id, :item_class => item.class), form: { remote: true }, button: { class: "btn btn-sm btn-primary active" } ) %>
-      <% end %>
-      </div>
-      <div class="col-md-2">
-      <% if item.dislikes.find_by(user_id: current_user.id).blank? %>
-        <%= button_to(dislikes_path(item, :item_id => item.id, :item_class => item.class), method: :post, remote: true, class: "btn btn-sm btn-secondary") do %>
-          Dislike <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-        <% end %>
-      <% else %>
-        <%= delete_button_to("Un-Dislike <span class='glyphicon glyphicon-arrow-down' aria-hidden='true'></span>", dislike_path(item.dislikes.find_by(user_id: current_user.id).id, :item_class => item.class), form: { remote: true }, button: { class: "btn btn-sm btn-secondary active" } ) %>
-      <% end %>
-      </div>
   </div>
