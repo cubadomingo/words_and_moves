@@ -4,7 +4,7 @@ RSpec.feature "Subscribe" do
   xcontext "when using valid email" do
     it "allows user to subscribe" do
       subscriber = FactoryGirl.build(:subscriber)
-      visit root_path
+      visit subscribe_path
       fill_in "subscriber_email", with: subscriber.email
       click_button "Subscribe"
       expect(page).to have_content("Thanks for subcribing!")
@@ -12,7 +12,7 @@ RSpec.feature "Subscribe" do
   end
   xcontext "when email field is blank" do
     it "does not allow user to subscribe" do
-      visit root_path
+      visit subscribe_path
       click_button "Subscribe"
       expect(page).to have_content("Please enter a valid email address!")
     end
@@ -20,7 +20,7 @@ RSpec.feature "Subscribe" do
   xcontext "when email is already subscribed" do
     it "does not allow user to subscribe again" do
       subscriber = FactoryGirl.create(:subscriber)
-      visit root_path
+      visit subscribe_path
       fill_in "subscriber_email", with: subscriber.email
       click_button "Subscribe"
       expect(page).to have_content("You are already subscribed!")

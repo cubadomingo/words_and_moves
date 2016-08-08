@@ -1,25 +1,20 @@
 <div class="container">
-  <h1>Create an Event</h1>
+  <p>CREATE AN EVENT</p>
   <%= form_for([@region, @event]) do |f| %>
     <div class="field">
-      <%= f.label :title %>
-      <%= f.text_field :title, class: "form-control" %>
+      <%= f.text_field :title, placeholder: "title", class: "form-control bottom-margin-form" %>
     </div>
     <div class="field">
-      <%= f.label :body %>
-      <%= f.text_area :body, class: "form-control" %>
+      <%= f.text_area :body, placeholder: "body", class: "form-control bottom-margin-form" %>
     </div>
     <div class="field">
-      <%= f.label :venue%>
-      <%= f.text_area :venue, class: "form-control" %>
+      <%= f.text_area :venue, placeholder: "venue", class: "form-control bottom-margin-form" %>
     </div>
     <div class="field">
-      <%= f.label :date %>
-      <%= f.date_field :date, class: "form-control" %>
+      <%= f.date_field :date, class: "form-control bottom-margin-form" %>
     </div>
     <div class="field">
-      <%= f.label :time %>
-      <%= f.time_field :time, class: "form-control" %>
+      <%= f.time_field :time, class: "form-control bottom-margin-form" %>
     </div>
     <div class="field">
       <%= f.label :category %>

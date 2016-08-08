@@ -1,13 +1,11 @@
 <div class="container">
-  <h1>Create New Post</h1>
+  <p>SUBMIT A NEW POST</p>
   <%= form_for([@region, @post]) do |f| %>
     <div class="field">
-      <%= f.label :title %>
-      <%= f.text_field :title, class: "form-control" %>
+      <%= f.text_field :title, placeholder: "title", class: "form-control bottom-margin-form" %>
     </div>
     <div class="field">
-      <%= f.label :body %>
-      <%= f.text_area :body, class: "form-control" %>
+      <%= f.text_area :body, placeholder: "body", class: "form-control" %>
     </div>
     <div class="field">
       <%= f.label :category %>
