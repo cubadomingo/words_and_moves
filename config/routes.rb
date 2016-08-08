@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'hello_world', to: 'hello_world#index'
   get 'feed', to: 'users#show'
+  get 'subscribe', to: 'pages#landing'
   resources :subscribers, only: [:create]
   resources :likes, only: [:create, :destroy]
   resources :dislikes, only: [:create, :destroy]

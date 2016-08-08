@@ -1,13 +1,14 @@
-<div class="container-fluid col-lg-10 region-feed">
+<div class="container feed-container">
+<div class="col-md-10 region-feed">
   <% @events.each do |event| %>
-    <div class="col-lg-12 text-left event">
+    <div class="col-md-12 text-left event">
       <h3><%= link_to event.title, region_event_path(@region.slug, event.slug) %></h3>
       <h4><%= event.venue %></h4>
       <h4><%= event.date.strftime("%m.%d.%y")%> @ <%= event.time.strftime("%I:%M %p") %></h4>
     </div>
   <% end %>
   <% @posts.each do |post| %>
-    <div class="col-lg-12 text-left post">
+    <div class="col-md-12 text-left post">
       <h3><%= link_to post.title, region_post_path(@region.slug, post.slug) %></h3>
       <p>Posted <%= time_ago_in_words(post.created_at) %> ago by <%= link_to User.find(post.user_id).username, '#' %></p>
     </div>
@@ -15,4 +16,4 @@
 </div>
 
 <%= render 'layouts/sidenav' %>
-
+</div>

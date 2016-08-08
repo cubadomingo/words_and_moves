@@ -1,12 +1,12 @@
-<div class="col-lg-2 sidenav">
-    <div class="col-xs-12 region">
+<div class="col-md-2 sidenav">
+    <div class="col-md-12 region">
       <p>REGION</p>
       <%= link_to @region.name, region_path(@region) , class: "btn btn-primary nav-black-button" %>
           <%= link_to 'Subscribe', '#' , class: "btn btn-primary nav-pink-button" %>
       <span><%= link_to 'Submit Post', new_region_post_path(region_slug: @region.slug), class: "btn btn-primary nav-blue-button" %></span>
       <span><%= link_to 'Submit Event', new_region_event_path(region_slug: @region.slug), class: "btn btn-primary nav-blue-button" %></span>
     </div>
-     <div class="col-xs-12 subregions">
+     <div class="col-md-12 subregions">
     <p>SUB-REGIONS</p>
     <% @subregions.each do |subregion| %>
       <div>
@@ -14,7 +14,7 @@
       </div>
     <% end %>
     </div>
-    <div class="col-xs-12 filter">
+    <div class="col-md-12 filter">
     <p>FILTER BY</p>
       <span><%= link_to 'Hot', "#", class: "btn btn-primary nav-pink-button" %></span>
       <span><%= link_to 'New', "#", class: "btn btn-primary nav-pink-button" %></span>
@@ -22,7 +22,7 @@
       <span><%= link_to 'Posts', "#", class: "btn btn-primary nav-pink-button" %></span>
       <span><%= link_to 'Events', "#", class: "btn btn-primary nav-pink-button" %></span>
     </div>
-  <div class="col-xs-12 categories">
+  <div class="col-md-12 categories">
   <p>CATEGORIES</p>
     <% @categories.each do |category| %>
       <div>

@@ -5,7 +5,7 @@ RSpec.feature "Sign Out" do
       # Required because signing out redirects to the first regions page
       region = FactoryGirl.create :region
       sign_in user
-      visit feed_path
+      visit root_path
       click_button("Sign Out")
       expect(page).to have_selector(".alert", text: "Signed out successfully.")
     end

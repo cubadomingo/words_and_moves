@@ -83,14 +83,20 @@ $gray: #d6d5d4;
 
 /* Navbar */
 
-.navbar-brand {
-  height: 35%;
-  width: 35%;
+.logo {
+  margin-top: 10px;
+  height: 30px;
+  width: auto;
 }
 
+
+    .navbar-right {
+      margin-right: 0px;
+    }
+
 .navbar {
-  background-color: white;
-  border-color: $gray;
+  background-color: $pink;
+  border-color: $pink;
   border-top: 0;
   border-left: 0;
   border-radius: 0;
@@ -105,18 +111,18 @@ $gray: #d6d5d4;
     }
 
     .sign-button {
-      margin-top: 15px;
+      margin-top: 9px;
       font-size: 20px;
-      color: $pink;
-      background-color: white;
-      border-color: $pink;
+      color: white;
+      background-color: $pink;
+      border-color: white;
       padding-top: 1px;
       padding-bottom: 1px;
     }
 
     .sign-button:hover {
-      color: white;
-      background-color: $pink;
+      color: $pink;
+      background-color: white;
     }
   }
 }
@@ -298,7 +304,7 @@ $gray: #d6d5d4;
 
 .nav-black-button {
   width: 100%;
-  font-size: 20px;
+  font-size: 15px;
   margin-bottom: 10px;
   color: black;
   background-color: white;
@@ -315,7 +321,7 @@ $gray: #d6d5d4;
 
 .nav-pink-button {
     width: 100%;
-    font-size: 20px;
+    font-size: 15px;
     margin-bottom: 10px;
     color: $pink;
     background-color: white;
@@ -331,7 +337,7 @@ $gray: #d6d5d4;
 
 .nav-blue-button {
   width: 100%;
-  font-size: 20px;
+  font-size: 15px;
   margin-bottom: 10px;
   color: $blue;
   background-color: white;
@@ -375,8 +381,13 @@ $gray: #d6d5d4;
  margin-top: 20px;
 }
 
+.feed-container {
+  max-width: 1200px;
+}
+
 .sidenav {
   padding-left: 0px;
+  padding-right: 0px;
   margin-top: 20px;
 }
 
@@ -424,3 +435,6 @@ footer {
 
 }
 
+body {
+  padding-top: 50px;
+}
