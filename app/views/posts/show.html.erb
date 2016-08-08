@@ -4,9 +4,9 @@
     <h1><%= @post.title %></h1>
     <i><%= "#{@post.created_at.strftime('%D')}" %></i>
     <p><%= @post.body %></p>
-    <%= link_to "< Back", region_path(@post.region), class: "btn btn-primary sign-button" %>
-    <%= link_to "Comments", "javascript:void(0)", class: "btn btn-primary sign-button", id: "show-comments" %>
-    <%= link_to "Add Comment", "javascript:void(0)", class: "btn btn-primary sign-button" %>
+    <%= link_to "< Back", region_path(@post.region), class: "btn inverse-primary-button" %>
+    <%= link_to "Comments", "javascript:void(0)", class: "btn inverse-primary-button", id: "show-comments" %>
+    <%= link_to "Add Comment", "javascript:void(0)", class: "btn inverse-primary-button" %>
     <div id="comments">
       <h3>Comments</h3>
       <% for comment in @post.comments %>
