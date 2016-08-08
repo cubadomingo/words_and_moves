@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_region
+  before_action :set_city, only: [:create]
 
  def show
     @event = @region.events.friendly.find(params[:slug])
@@ -14,8 +16,8 @@ class EventsController < ApplicationController
   end
 
   def create
-    if @region.events.create!(event_params)
-      flash[:success] = "Thank you for creating a post"
+    if @city.events.create!(event_params)
+      flash[:success] = "Thank you for creating an Event"
       redirect_to region_path(@region)
     else
       flash[:danger] = "Sorry, something went wrong"
@@ -55,7 +57,11 @@ class EventsController < ApplicationController
     @region = Region.friendly.find(params[:region_slug])
   end
 
+  def set_city
+    @city = City.find(params[:event][:city_id])
+  end
+
   def event_params
-    params.require(:event).permit(:title, :body, :location, :event_date, :city_id, :category_id)
+    params.require(:event).permit(:title, :body, :venue, :date, :time, :city_id, :category_id).merge(user_id: current_user.id)
   end
 end
