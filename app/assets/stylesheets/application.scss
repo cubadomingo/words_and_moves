@@ -121,6 +121,21 @@ $gray: #d6d5d4;
   }
 }
 
+.inverse-primary-button {
+  margin-top: 15px;
+  font-size: 20px;
+  color: $pink;
+  background-color: white;
+  border-color: $pink;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.inverse-primary-button:hover {
+  color: white;
+  background-color: $pink;
+}
+
 .sign-button {
   font-size: 20px;
   margin-top: 10px;
