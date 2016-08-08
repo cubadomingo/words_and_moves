@@ -220,8 +220,9 @@ has_many :events
    - city_id (foreign key)
    - title (string)
    - body (text)
-   - location **REMOVE FROM SCHEMA**
-   - event_date (datetime)
+   - venue (string)
+   - event_time (time)
+   - event_date (date)
  
 ```
 belongs_to :category
@@ -358,7 +359,7 @@ This includes all the devise views: urls have yet to be customized.
 
 This page has the events and posts from the users subscribed regions. Currently it will default to the DC individual region page, a user will then be able to subscribe to other regions once they are added.
 
-### /washingtondc/feed
+### /regions/washingtondc
 
 This page will be the feed for an individual region. The region's posting and events will be here.
 
@@ -366,26 +367,23 @@ This page will be the feed for an individual region. The region's posting and ev
 
 This is the page for an individual event, comments are shown here. The right side bar should have a list of other posts/events in the region or subscribed feed if the User is signed in.
 
-### /washingtondc/event/new
+### regions/washingtondc/event/new
 
 This is the page for creating a new event.
 
-### /washingtondc/event/edit
+### regions/washingtondc/event/edit
 
 This is the page for editing an event.
 
-### /washingtondc/post/nwa-begginer-guide
+### regions/washingtondc/post/nwa-begginer-guide
 
 This is the page for an individual post, comments are shown here. The right side bar should have a list of other posts/events in the region or the user's subscribed feed if the User is signed in.
 
-### /washingtondc/post/new
+### regions/washingtondc/post/new
 
 This is the page for creating a new post.
 
-### /washingtondc/post/edit
+### regions/washingtondc/post/edit
 
 This is the page for editing a post.
 
-### /feed/all
-
-This page will show posts and events for all the regions in our database.
