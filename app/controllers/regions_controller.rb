@@ -5,7 +5,7 @@ class RegionsController < ApplicationController
   end
 
   def show
-    @region = Region.find(1)
+    @region = Region.first
     @subregions =  @region.subregions
     @categories = Category.all
     @events = @region.events
