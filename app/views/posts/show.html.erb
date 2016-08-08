@@ -7,7 +7,8 @@
     <%= link_to "< Back", region_path(@post.region), class: "btn inverse-primary-button" %>
     <%= link_to "Comments", "javascript:void(0)", class: "btn inverse-primary-button", id: "show-comments" %>
     <%= link_to "Add Comment", "javascript:void(0)", class: "btn inverse-primary-button" %>
-    <div id="comments">
+    <%= react_component("CommentBoxApp", props: { comments: @post.comments, item_id: @post.id, item_type: @post.class.to_s }, prerender: false) %>
+    <!-- <div id="comments">
       <h3>Comments</h3>
       <% for comment in @post.comments %>
         <div class="row">
@@ -15,7 +16,7 @@
           <p><%= comment.body %>
         </div>
       <% end %>
-    </div>
+    </div> -->
   </div>
   <div class="col-md-2"></div>
 </div>
