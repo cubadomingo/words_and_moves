@@ -23,11 +23,11 @@
     </div>
     <div class="field">
       <%= f.label :category %>
-      <%= f.collection_select :category_id, Category.all, :id, :name, class: "form-control" %>
+      <%= f.collection_select :category_id, Category.all, :id, :name, {}, class: "form-control" %>
     </div>
     <div class="field">
       <%= f.label :city %>
-      <%= f.collection_select :city_id, City.all, :id, :name, class: "form-control" %>
+      <%= f.collection_select :city_id, City.all, :id, :name, {}, class: "form-control" %>
     </div>
     <%= f.submit "Create Event", class: "btn btn-primary" %>
   <% end %>
