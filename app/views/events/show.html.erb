@@ -5,19 +5,12 @@
     <address><%= @event.venue %></address>
     <strong><%= "#{@event.date.strftime('%D')}" %></strong>
     <p><%= @event.body %></p>
-    <%= link_to "< Back", region_path(@event.city.subregion.region), class: "btn inverse-primary-button" %>
-    <%= link_to "Comments", "javascript:void(0)", class: "btn inverse-primary-button", id: "show-comments" %>
-    <%= link_to "Add Comment", "javascript:void(0)", class: "btn inverse-primary-button" %>
-    <div id="comments">
-      <h3>Comments</h3>
-      <% for comment in @event.comments %>
-        <div class="row">
-          <strong><%= comment.user.username %></strong>
-          <p><%= comment.body %>
-        </div>
-      <% end %>
+    <div class="row">
+      <%= react_component("CommentBoxApp", props: { comments: @event.comments, item_id: @event.id, item_type: @event.class.to_s }, prerender: false) %>
     </div>
-
+    <div class="row">
+      <%= link_to "< Back", region_path(@event.city.subregion.region), class: "btn inverse-primary-button" %>
+    </div>
   </div>
   <div class="col-md-2"></div>
 </div>
