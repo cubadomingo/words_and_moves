@@ -5,8 +5,6 @@ RSpec.feature "Sign Up" do
     within(".sign-up") do
       fill_in "user_email", with: "test_email@wordsandmoves.com"
       fill_in "user_username", with: "test_user"
-      fill_in "user_first_name", with: "Test"
-      fill_in "user_last_name", with: "User"
       fill_in "user_password", with: "testing"
       fill_in "user_password_confirmation", with: "testing"
       click_button "Sign up"
@@ -22,8 +20,6 @@ RSpec.feature "Sign Up" do
       within(".sign-up") do
         fill_in "user_email", with: "test_email@wordsandmoves.com"
         fill_in "user_username", with: "test_user"
-        fill_in "user_first_name", with: "Test"
-        fill_in "user_last_name", with: "User"
         fill_in "user_password", with: "testing"
         fill_in "user_password_confirmation", with: "testing"
         click_button "Sign up"
