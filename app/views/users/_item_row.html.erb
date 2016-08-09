@@ -1,23 +1,23 @@
-  <div class="col-md-1">
-    <div class="col-m2-12 text-center">
-      <h1><%= item.net_likes %></h1>
-    </div>
-    <div class="col-md-6">
+  <div class="col-md-1 no-padding">
+    <div class="col-md-12 no-padding text-center">
       <% if item.likes.find_by(user_id: current_user.id).blank? %>
-        <%= button_to(likes_path(item, :item_id => item.id, :item_class => item.class), method: :post, remote: true, class: "btn btn-sm btn-primary") do %>
+        <%= button_to(likes_path(item, :item_id => item.id, :item_class => item.class), method: :post, remote: true, class: "") do %>
           <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         <% end %>
       <% else %>
-        <%= delete_button_to("<span class='glyphicon glyphicon-plus' aria-hidden='true'></span>", like_path(item.likes.find_by(user_id: current_user.id).id, :item_class => item.class), form: { remote: true }, button: { class: "btn btn-sm btn-primary active" } ) %>
+        <%= delete_button_to("<span class='glyphicon glyphicon-plus' aria-hidden='true'></span>", like_path(item.likes.find_by(user_id: current_user.id).id, :item_class => item.class), form: { remote: true }, button: { class: "active" } ) %>
       <% end %>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-12 no-padding text-center">
+      <h4><%= item.net_likes %></h4>
+    </div>
+      <div class="col-md-12 no-padding text-center">
       <% if item.dislikes.find_by(user_id: current_user.id).blank? %>
-        <%= button_to(dislikes_path(item, :item_id => item.id, :item_class => item.class), method: :post, remote: true, class: "btn btn-sm btn-secondary") do %>
+        <%= button_to(dislikes_path(item, :item_id => item.id, :item_class => item.class), method: :post, remote: true, class: "") do %>
         <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
         <% end %>
       <% else %>
-        <%= delete_button_to("<span class='glyphicon glyphicon-minus' aria-hidden='true'></span>", dislike_path(item.dislikes.find_by(user_id: current_user.id).id, :item_class => item.class), form: { remote: true }, button: { class: "btn btn-sm btn-secondary active" } ) %>
+        <%= delete_button_to("<span class='glyphicon glyphicon-minus' aria-hidden='true'></span>", dislike_path(item.dislikes.find_by(user_id: current_user.id).id, :item_class => item.class), form: { remote: true }, button: { class: "active" } ) %>
       <% end %>
       </div>
   </div>
