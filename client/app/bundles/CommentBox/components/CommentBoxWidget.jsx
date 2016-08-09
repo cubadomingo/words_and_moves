@@ -58,14 +58,13 @@ export default class CommentBoxWidget extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div>
+        <div className="">
           { this.state._showComments ? <button className="btn inverse-primary-button" onClick={this._hideComments}>Hide <span className="glyphicon glyphicon-comment" /></button> : <button className="btn inverse-primary-button" onClick={this._showComments}>Show All <span className="glyphicon glyphicon-comment" /></button> }
           { this.state._showCommentForm ? <button className="btn inverse-primary-button" onClick={this._hideCommentForm}>Hide <span className="glyphicon glyphicon-comment" /></button> : <button className="btn inverse-primary-button" onClick={this._showCommentForm}>Add Comment <span className="glyphicon glyphicon-pencil" /></button> }
-        </div>
+
           { this.state._showComments ? <CommentList data={this.props} deleteComment={this._deleteComment} /> : null }
           { this.state._showCommentForm ? <CommentForm onReactionSubmit={this.onReactionSubmit} itemNum={this.props.index} /> : null }
-      </div>
+        </div>
     );
   }
 }

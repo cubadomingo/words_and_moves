@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import Comment from '../components/Comment';
 
 // Simple example of a React "dumb" component
 export default class CommentList extends React.Component {
@@ -20,11 +21,9 @@ export default class CommentList extends React.Component {
       <div className="row">
         <div className="col-md-1"></div>
         <div className="col-md-5">
-          {data.comments.length > 0 ? <h4>Comments</h4> : <div className="panel panel-default"><h4>No Comments Yet!</h4></div>}
+          {data.comments.length > 0 ? <h3>Comments</h3> : <div><h4>No Comments Yet!</h4></div>}
           {data.comments.map((comment, i) =>
-            <div className="row" key={i}>
-              <p key={i}><strong>Test Name: </strong>{comment.body}</p>
-            </div>
+            <Comment data={comment} index={i} key={i}/>
           )};
         </div>
       </div>
