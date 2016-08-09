@@ -3,12 +3,7 @@
 @import "users";
 
 $pink: rgb(236,0,140);
-$lightPink: rgb(255,191,242);
-$darkPink: rgb(203,1,121);
-$yellow: rgb(255,242,0);
-$darkYellow: rgb(231,219,0);
 $blue: rgb(0,174,239);
-$grayLighter: #eeeeee;
 $gray: #d6d5d4;
 
 /* Navbar */
@@ -161,36 +156,26 @@ $gray: #d6d5d4;
   margin-left: 0;
 }
 
-/* buttons */
+/* Regions Index */
 
-.btn-primary {
-  background-color: $pink;
+.regions-container {
+  margin-top: 20px;
+}
+
+.individual-city {
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 20px;
   border-color: $pink;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 1px;
+}
 
-  &:hover {
-    background-color: $pink;
-    border-color: $pink;
-  }
-
-  &:active {
-    background-color: $pink;
-    border-color: $pink;
-  }
-
-  &.active {
-    background-color: $darkPink;
-    border-color: $darkPink;
-
-    &:hover {
-      background-color: $darkPink;
-      border-color: $pink;
-    }
-  }
-
-  &:focus {
-    background-color: $pink;
-    border-color: $pink;
-  }
+.city-logo {
+  height: 80%;
+  width: 80%;
 }
 
 /* User Feed */
@@ -285,6 +270,7 @@ $gray: #d6d5d4;
 }
 
 .feed-container {
+  padding: 0px;
   max-width: 1200px;
 }
 
@@ -292,6 +278,23 @@ $gray: #d6d5d4;
   padding-left: 0px;
   padding-right: 0px;
   margin-top: 20px;
+}
+
+/* Misc */
+
+.pink-button-100 {
+  width: 100%;
+  background-color: white;
+  color: $pink;
+  border-color: $pink;
+  border-style: solid;
+  border-width: 1px;
+
+  &:hover {
+    background-color: $pink;
+    color: white;
+    border-color: white;
+  }
 }
 
 /* footer */
@@ -325,18 +328,6 @@ footer {
   text-align: center;
 }
 
-.panel-danger {
-
-  .panel-heading {
-    color: $pink;
-    background-color: $lightPink;
-    border-bottom: 1px solid $pink;
-  }
-  a {
-    color: $pink;
-  }
-
-}
 
 body {
   padding-top: 50px;
