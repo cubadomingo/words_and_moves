@@ -20,6 +20,7 @@
     </div>
   </div>
   <div class="row">
+
     <div class="col-md-12 filter">
     <p>FILTER BY</p>
       <span><%= link_to 'Hot', "#", class: "btn btn-primary nav-pink-button" %></span>
@@ -28,6 +29,14 @@
       <span><%= link_to 'Posts', "#", class: "btn btn-primary nav-pink-button" %></span>
       <span><%= link_to 'Events', "#", class: "btn btn-primary nav-pink-button" %></span>
     </div>
+
+  <div class="col-md-12 categories">
+  <p>CATEGORIES</p>
+    <% @categories.each do |category| %>
+      <div>
+        <%= link_to category.name, "#" , class: "btn btn-primary nav-black-button" %>
+      </div>
+    <% end %>
   </div>
   <div class="row">
     <div class="col-md-12 categories">
