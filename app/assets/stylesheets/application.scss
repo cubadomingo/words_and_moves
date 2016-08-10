@@ -13,73 +13,6 @@ $gray: #d6d5d4;
 
 /* Landing Page */
 
-.home-subscribe {
-  color: black;
-  background-color: white;
-  margin-bottom: 0px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-
-  h2 {
-    color: $pink;
-    margin-top: 20px;
-  }
-
-  h3 {
-    color: $blue;
-  }
-
-  input {
-    font-size: 18px;
-    display: inline-block;
-    height: 50px;
-    width: 300px;
-  }
-
-  .btn-primary {
-    font-size: 20px;
-    height: 50px;
-    margin-bottom: 5px;
-  }
-}
-
-.landing-background {
-  background-color: $yellow;
-}
-
-.landing-icon {
-  margin-top: 20px;
-  max-width: 100%;
-  max-height: 100%;
-}
-
-.home-music {
-  background-color: $pink;
-  min-height: 100px;
-  padding-bottom: 10px;
-  color: white;
-}
-
-.home-films {
-  background-color: $blue;
-  min-height: 100px;
-  padding-bottom: 10px;
-  color: white;
-}
-
-.home-arts {
-  background-color: $pink;
-  min-height: 100px;
-  padding-bottom: 10px;
-  color: white;
-}
-
-.home-sports {
-  background-color: $blue;
-  min-height: 100px;
-  padding-bottom: 10px;
-  color: white;
-}
 
 /* Navbar */
 
@@ -232,72 +165,21 @@ $gray: #d6d5d4;
   margin-left: 0;
 }
 
-/* buttons */
-
-.btn-primary {
-  background-color: $pink;
-  border-color: $pink;
-
-  &:hover {
-    background-color: $pink;
-    border-color: $pink;
-  }
-
-  &:active {
-    background-color: $pink;
-    border-color: $pink;
-  }
-
-  &.active {
-    background-color: $darkPink;
-    border-color: $darkPink;
-
-    &:hover {
-      background-color: $darkPink;
-      border-color: $pink;
-    }
-  }
-
-  &:focus {
-    background-color: $pink;
-    border-color: $pink;
-  }
-}
-
-.btn-secondary {
-  background-color: $yellow;
-  border-color: $yellow;
-
-  &:hover {
-    background-color: $yellow;
-    border-color: $yellow;
-  }
-
-  &:active {
-    background-color: $yellow;
-    border-color: $yellow;
-  }
-
-  &.active {
-    background-color: $darkYellow;
-    border-color: $darkYellow;
-
-    &:hover {
-      background-color: $darkYellow;
-      border-color: $yellow;
-    }
-  }
-
-  &:focus {
-    background-color: $yellow;
-    border-color: $yellow;
-  }
-}
-
 /* User Feed */
 
 .user-feed {
+  h3 {
+    margin-top: 8px;
+  }
   margin-top: 20px;
+}
+
+.like-count {
+  margin-top: 10px;
+}
+
+.glyph-active {
+  color: $pink;
 }
 
 /* Region Posts & Events */
@@ -391,49 +273,7 @@ $gray: #d6d5d4;
   margin-top: 20px;
 }
 
-/* footer */
 
-footer {
-  .container_fluid {
-    padding-botton: 0px;
-  }
-
-  .footer_links {
-    word-spacing: 25px;
-
-    a {
-      color: white;
-      font-size: 16px;
-    }
-  }
-
-  padding-top: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: black;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 40px;
-  width: 100%;
-  position: absolute;
-  overflow: hidden;
-  padding-bottom: 10px;
-  text-align: center;
-}
-
-.panel-danger {
-
-  .panel-heading {
-    color: $pink;
-    background-color: $lightPink;
-    border-bottom: 1px solid $pink;
-  }
-  a {
-    color: $pink;
-  }
-
-}
 
 body {
   padding-top: 50px;

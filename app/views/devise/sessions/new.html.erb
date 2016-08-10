@@ -8,10 +8,6 @@
 
         <%= f.text_field :username, placeholder: "choose a username", class: "form-control bottom-margin-form" %>
 
-        <%= f.text_field :first_name, placeholder: "first name", class: "form-control bottom-margin-form" %>
-
-        <%= f.text_field :last_name, placeholder: "last name", class: "form-control bottom-margin-form" %>
-
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>

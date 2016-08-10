@@ -6,6 +6,7 @@ class RegionsController < ApplicationController
 
   def show
     @region = Region.first
+    @item_list = @region.posts + @region.events
     @subregions =  @region.subregions
     @categories = Category.all
     @events = @region.events

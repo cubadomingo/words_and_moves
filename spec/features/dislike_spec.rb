@@ -11,8 +11,7 @@ RSpec.feature "Disliking" do
     it "successfully likes Post" do
       sign_in user
       visit feed_path
-      row = first(".post")
-      row.find("button.btn-secondary").click
+      click_link ("dislike-signed-in")
       expect(page).to have_selector(".alert", text: "You have disliked this Post")
     end
   end
@@ -20,10 +19,8 @@ RSpec.feature "Disliking" do
     it "successfully unlikes a Post" do
       sign_in user
       visit feed_path
-      row = first(".post")
-      row.find("button.btn-secondary").click
-      row = first(".post")
-      row.find("button.btn-secondary").click
+      click_link ("dislike-signed-in")
+      click_link ("undislike-signed-in")
       expect(page).to have_selector(".alert", text: "You have un-disliked this Post")
     end
   end
