@@ -11,76 +11,6 @@ $blue: rgb(0,174,239);
 $grayLighter: #eeeeee;
 $gray: #d6d5d4;
 
-/* Landing Page */
-
-.home-subscribe {
-  color: black;
-  background-color: white;
-  margin-bottom: 0px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-
-  h2 {
-    color: $pink;
-    margin-top: 20px;
-  }
-
-  h3 {
-    color: $blue;
-  }
-
-  input {
-    font-size: 18px;
-    display: inline-block;
-    height: 50px;
-    width: 300px;
-  }
-
-  .btn-primary {
-    font-size: 20px;
-    height: 50px;
-    margin-bottom: 5px;
-  }
-}
-
-.landing-background {
-  background-color: $yellow;
-}
-
-.landing-icon {
-  margin-top: 20px;
-  max-width: 100%;
-  max-height: 100%;
-}
-
-.home-music {
-  background-color: $pink;
-  min-height: 100px;
-  padding-bottom: 10px;
-  color: white;
-}
-
-.home-films {
-  background-color: $blue;
-  min-height: 100px;
-  padding-bottom: 10px;
-  color: white;
-}
-
-.home-arts {
-  background-color: $pink;
-  min-height: 100px;
-  padding-bottom: 10px;
-  color: white;
-}
-
-.home-sports {
-  background-color: $blue;
-  min-height: 100px;
-  padding-bottom: 10px;
-  color: white;
-}
-
 /* Navbar */
 
 .logo {
@@ -89,10 +19,9 @@ $gray: #d6d5d4;
   width: auto;
 }
 
-
-    .navbar-right {
-      margin-right: 0px;
-    }
+.navbar-right {
+  margin-right: 0px;
+}
 
 .navbar {
   background-color: $pink;
@@ -121,8 +50,8 @@ $gray: #d6d5d4;
     }
 
     .sign-button:hover {
-      color: $pink;
-      background-color: white;
+      color: white;
+      background-color: $pink;
     }
   }
 }
@@ -264,40 +193,14 @@ $gray: #d6d5d4;
   }
 }
 
-.btn-secondary {
-  background-color: $yellow;
-  border-color: $yellow;
-
-  &:hover {
-    background-color: $yellow;
-    border-color: $yellow;
-  }
-
-  &:active {
-    background-color: $yellow;
-    border-color: $yellow;
-  }
-
-  &.active {
-    background-color: $darkYellow;
-    border-color: $darkYellow;
-
-    &:hover {
-      background-color: $darkYellow;
-      border-color: $yellow;
-    }
-  }
-
-  &:focus {
-    background-color: $yellow;
-    border-color: $yellow;
-  }
-}
-
 /* User Feed */
 
 .user-feed {
   margin-top: 20px;
+}
+
+.no-padding {
+  padding: 0px;
 }
 
 /* Region Posts & Events */
