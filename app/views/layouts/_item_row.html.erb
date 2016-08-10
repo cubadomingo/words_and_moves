@@ -1,0 +1,54 @@
+<div class="col-md-1 like-count">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <% if signed_in? %>
+          <% if item.likes.find_by(user_id: current_user.id).blank? %>
+            <%= link_to(likes_path(item, :item_id => item.id, :item_class => item.class), method: :post) do %>
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            <% end %>
+          <% else %>
+            <%= link_to(like_path(item.likes.find_by(user_id: current_user.id).id, :item_class => item.class),   method: :delete) do %>
+              <span class="glyphicon glyphicon-plus glyph-active" aria-hidden="true"></span>
+            <% end %>
+          <% end %>
+        <% else %>
+          <%= link_to(likes_path(item, :item_id => item.id, :item_class => item.class), method: :post) do %>
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h3><%= item.net_likes %></h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <% if signed_in? %>
+          <% if item.dislikes.find_by(user_id: current_user.id).blank? %>
+            <%= link_to(dislikes_path(item, :item_id => item.id, :item_class => item.class), method: :post) do %>
+            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+            <% end %>
+          <% else %>
+            <%= link_to(dislike_path(item.dislikes.find_by(user_id: current_user.id).id, :item_class => item.class), method: :delete) do %>
+              <span class="glyphicon glyphicon-minus glyph-active" aria-hidden="true"></span>
+            <% end %>
+          <% end %>
+        <% else %>
+          <%= link_to(dislikes_path(item, :item_id => item.id, :item_class => item.class), method: :post) do %>
+            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+          <% end %>
+        <% end %>
+
+      </div>
+    </div>
+</div>
+  <div class="col-md-11">
+    <% if item.class == Event %>
+      <h3><%= link_to item.title, region_event_path(item.city.subregion.region.slug, item.slug) %></h3>
+    <% else %>
+      <h3><%= link_to item.title, region_post_path(item.region.slug, item.slug) %></h3>
+    <% end %>
+    <p><%= item.comments.count %> comments</p>
+</div>

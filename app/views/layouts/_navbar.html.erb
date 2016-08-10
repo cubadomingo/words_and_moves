@@ -16,7 +16,7 @@
           <li><%= button_to 'My Account', edit_user_registration_path, method: :get, class: "btn btn-primary sign-button" %></li>
           <li><%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-primary sign-button"%></li>
         <% else %>
-          <li><%= button_to "Sign in or Sign up", new_user_session_path, class: "btn btn-primary sign-button"%></li>
+          <li><%= button_to "Sign in or Sign up", new_user_session_path, method: :get, class: "btn btn-primary sign-button"%></li>
         <% end %>
       </ul>
     </div>

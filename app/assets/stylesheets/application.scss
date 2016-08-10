@@ -297,7 +297,19 @@ $gray: #d6d5d4;
 /* User Feed */
 
 .user-feed {
+  h3 {
+    margin-top: 8px;
+  }
+  padding-left: 0px;
   margin-top: 20px;
+}
+
+.like-count {
+  margin-top: 10px;
+}
+
+.glyph-active {
+  color: $pink;
 }
 
 /* Region Posts & Events */
@@ -391,49 +403,7 @@ $gray: #d6d5d4;
   margin-top: 20px;
 }
 
-/* footer */
 
-footer {
-  .container_fluid {
-    padding-botton: 0px;
-  }
-
-  .footer_links {
-    word-spacing: 25px;
-
-    a {
-      color: white;
-      font-size: 16px;
-    }
-  }
-
-  padding-top: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  background-color: black;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 40px;
-  width: 100%;
-  position: absolute;
-  overflow: hidden;
-  padding-bottom: 10px;
-  text-align: center;
-}
-
-.panel-danger {
-
-  .panel-heading {
-    color: $pink;
-    background-color: $lightPink;
-    border-bottom: 1px solid $pink;
-  }
-  a {
-    color: $pink;
-  }
-
-}
 
 body {
   padding-top: 50px;
