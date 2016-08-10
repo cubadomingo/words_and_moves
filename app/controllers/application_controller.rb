@@ -26,15 +26,4 @@ class ApplicationController < ActionController::Base
   def after_inactive_sign_up_path_for(resource)
     new_user_session_url
   end
-
-  protected
-
-  def authenticate_user!
-    if user_signed_in?
-      super
-    else
-      flash[:danger] = "You must sign in before performing this action"
-      redirect_to new_user_session_path
-    end
-  end
 end

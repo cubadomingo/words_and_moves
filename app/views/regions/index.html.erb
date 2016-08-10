@@ -1,21 +1,11 @@
-<div class="container">
-  <br />
-  <div class="row">
+<div class="container region-index">
+  <% for region in @regions %>
     <div class="col-md-6">
-      <div class="panel panel-danger">
-      <div class="panel-heading">Popular</div>
-        <% for region in @regions %>
-          <h3><%= link_to region.name, region_path(region.slug) %></h3>
-        <% end %>
+      <div class="col-md-12 text-center city">
+        <%= link_to region.name, region_path(region.slug), class: "btn btn-primary sign-in-button bottom-margin-form" %>
+        <%= image_tag("dc-skyline.png", class: "city-logo") %>
+        <%= link_to "Subscribe", "#", class: "btn btn-primary sign-in-button bottom-margin-form" %>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="panel panel-danger">
-        <div class="panel-heading">Recently Added</div>
-        <% for region in @regions %>
-          <h3><%= link_to region.name, region_path(region.slug) %></h3>
-        <% end %>
-      </div>
-    </div>
-  </div>
+  <% end %>
 </div>

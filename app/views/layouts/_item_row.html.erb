@@ -13,7 +13,7 @@
              <% end %>
            <% end %>
          <% else %>
-           <%= link_to(likes_path(item, :item_id => item.id, :item_class => item.class), method: :post, id: "like-not-signed-in") do %>
+           <%= link_to(new_user_session_path, id: "like-not-signed-in") do %>
              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
            <% end %>
          <% end %>
@@ -37,7 +37,7 @@
              <% end %>
            <% end %>
          <% else %>
-           <%= link_to(dislikes_path(item, :item_id => item.id, :item_class => item.class), method: :post, id: "like-not-signed-in") do %>
+           <%= link_to(new_user_session_path, id: "like-not-signed-in") do %>
              <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
            <% end %>
          <% end %>
