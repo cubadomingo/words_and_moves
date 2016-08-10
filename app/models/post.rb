@@ -12,7 +12,6 @@
 
 class Post < ActiveRecord::Base
   extend FriendlyId
-  has_many :comments
   has_many :likes, as: :item
   has_many :dislikes, as: :item
   has_many :comments, as: :item
