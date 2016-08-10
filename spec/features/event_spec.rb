@@ -20,7 +20,7 @@ RSpec.feature "Event" do
     click_button "Create Event"
     expect(page).to have_selector(".alert", text: "Thank you for creating an Event")
     expect(Event.count).to be > count
-    expect(page).to have_selector(".event", text: "Kevin Hart: Laugh At My Pain")
+    expect(page).to have_content("Kevin Hart: Laugh At My Pain")
   end
   scenario "View Event" do
     sign_in user

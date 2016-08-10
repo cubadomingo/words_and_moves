@@ -1,7 +1,7 @@
 # Adding test data
 if ENV['RAILS_ENV'] != 'test'
-  user = User.create!(email: "tmobaird@gmail.com", username: "tmobaird", first_name: "Thomas", last_name: "Baird", password: "testing")
-  user_two = User.create!(email: "testuser@gmail.com", username: "testuser", first_name: "Test", last_name: "User", password: "testing")
+  user = User.create!(email: "tmobaird@gmail.com", username: "tmobaird", password: "testing")
+  user_two = User.create!(email: "testuser@gmail.com", username: "testuser", password: "testing")
   region = Region.create!(name: "DC Metro Area")
   subregion = Subregion.create!(name: "Northern Virginia", region_id: region.id)
   subregion2 = Subregion.create!(name: "Southern Maryland", region_id: region.id)
