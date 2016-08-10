@@ -8,6 +8,35 @@ $black: #333;
 
 /* Landing Page */
 
+.landing-body {
+  color: $black;
+  background-color: white;
+  padding: 0px;
+}
+
+.logo-subscribe {
+  max-width: 80%;
+}
+
+
+.subscribe-container {
+  background-color: white;
+  margin-top: 40px;
+  max-width: 900px;
+  border-style: solid;
+  border-color: $pink;
+  border-radius: 10px;
+  border-width: 1px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.city-logo {
+  max-width: 95%;
+  height: auto;
+}
 
 /* Navbar */
 
