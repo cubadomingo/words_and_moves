@@ -14,7 +14,7 @@ RSpec.feature "Post" do
     click_button "Create Post"
     expect(page).to have_selector(".alert", text: "Thank you for creating a post")
     expect(Post.count).to be > count
-    expect(page).to have_selector(".post", text: "Kevin Hart (Stand-up Profile)")
+    expect(page).to have_content("Kevin Hart (Stand-up Profile)")
   end
   scenario "View Post" do
     sign_in user
