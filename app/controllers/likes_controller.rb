@@ -1,20 +1,17 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_item, only: :create
   before_action :set_like, only: :destroy
   before_action :verify_non_repeat, only: :create
 
+
   def create
-    if signed_in?
-      if @item.likes.create!(user_id: current_user.id)
-        flash[:success] = "Thank you for liking this #{@item.class}"
-      else
-        flash[:danger] = "Sorry, you've already liked this #{@item.class}"
-      end
-      redirect_back(fallback_location: root_path)
+    if @item.likes.create!(user_id: current_user.id)
+      flash[:success] = "Thank you for liking this #{@item.class}"
     else
-      flash[:danger] = "Please Sign in or Sign up to like or dislike!"
-      redirect_to(new_user_session_path)
+      flash[:danger] = "Sorry, you've already liked this #{@item.class}"
     end
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
