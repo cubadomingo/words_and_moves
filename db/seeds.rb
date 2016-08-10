@@ -1,6 +1,7 @@
 # Adding test data
 if ENV['RAILS_ENV'] != 'test'
   user = User.create!(email: "tmobaird@gmail.com", username: "tmobaird", first_name: "Thomas", last_name: "Baird", password: "testing")
+  user_two = User.create!(email: "testuser@gmail.com", username: "testuser", first_name: "Test", last_name: "User", password: "testing")
   region = Region.create!(name: "DC Metro Area")
   subregion = Subregion.create!(name: "Northern Virginia", region_id: region.id)
   subregion2 = Subregion.create!(name: "Southern Maryland", region_id: region.id)
@@ -12,6 +13,8 @@ if ENV['RAILS_ENV'] != 'test'
   city5 = City.create!(name: "Washington D.C.", subregion_id: subregion3.id)
   user.preferred_regions << region
   user.save
+  user_two.preferred_regions << region
+  user_two.save
   category = Category.create(name: "Sports")
   music = Category.create(name: "Music")
   code = Category.create(name: "Code")
@@ -29,6 +32,12 @@ if ENV['RAILS_ENV'] != 'test'
       city_id: city.id,
       user_id: user.id
     )
+  end
+
+  x = 0
+  5.times do
+    Comment.create!(item_id: city.events[x].id, item_type: city.events[x].class, body: Faker::Hipster.paragraph, user_id: user_two.id)
+    x += 1
   end
 
   10.times do
@@ -91,5 +100,11 @@ if ENV['RAILS_ENV'] != 'test'
       user_id: user.id,
       region_id: region.id
     )
+  end
+
+  x = 0
+  5.times do
+    Comment.create!(item_id: region.posts[x].id, item_type: region.posts[x].class, body: Faker::Hipster.paragraph, user_id: user_two.id)
+    x += 1
   end
 end

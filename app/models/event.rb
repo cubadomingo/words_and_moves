@@ -17,7 +17,7 @@ class Event < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   belongs_to :city
-  has_many :comments
+  has_many :comments, as: :item
   has_many :rsvps
   has_many :likes, as: :item
   has_many :dislikes, as: :item

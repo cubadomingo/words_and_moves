@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805181520) do
+ActiveRecord::Schema.define(version: 20160810021306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,10 +30,9 @@ ActiveRecord::Schema.define(version: 20160805181520) do
   create_table "comments", force: :cascade do |t|
     t.string  "body"
     t.integer "user_id"
-    t.integer "event_id"
-    t.integer "post_id"
-    t.index ["event_id"], name: "index_comments_on_event_id", using: :btree
-    t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
+    t.string  "item_type"
+    t.integer "item_id"
+    t.index ["item_type", "item_id"], name: "index_comments_on_item_type_and_item_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
@@ -164,8 +163,6 @@ ActiveRecord::Schema.define(version: 20160805181520) do
   end
 
   add_foreign_key "cities", "subregions"
-  add_foreign_key "comments", "events"
-  add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "dislikes", "users"
   add_foreign_key "events", "categories"
