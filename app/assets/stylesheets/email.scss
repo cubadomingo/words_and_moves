@@ -1,7 +1,30 @@
-h1 {
-  font-size: 100px;
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$pink: rgb(236,0,140);
+$blue: rgb(0,174,239);
+$gray: #d6d5d4;
+$black: #333;
+
+body {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
-h2 {
-  font-size: 200px;
+.logo {
+  width: 50%;
+  height: auto;
+}
+
+.bottom-margin {
+  margin-bottom: 10px;
+}
+
+.email-container {
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: $pink;
 }

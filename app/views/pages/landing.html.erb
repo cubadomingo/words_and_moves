@@ -7,54 +7,53 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   </head>
-
-  <body class="landing-background">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="jumbotron home-subscribe text-center">
-             <% flash.each do |message_type, message| %>
-              <div class="alert alert-<%= message_type %>"><%= message %></div>
-            <% end %>
-            <div class="row">
-              <%= image_tag("logo-pink.png", class: "logo")%>
-            </div>
-            <div class="row">
-              <%= image_tag("logo-yellow.png", class: "logo")%>
-            </div>
-            <div class="row">
-              <%= image_tag("logo-blue.png", class: "logo")%>
-            </div>
-            <div class="row">
-              <%= image_tag("logo-black.png", class: "logo")%>
-            </div>
-            <h2>The best place for locals to discuss music, film, and arts and find related events happening nearby.</h2>
-            <h3>Subscribe to receive an update when we go live.</h3>
-            <%= form_for @subscriber do |f| %>
-              <%= f.email_field :email, :required => false, class: "form-control" %>
-              <span><%= f.submit "Subscribe", class: "btn btn-primary" %></span>
-            <% end %>
-        </div>
+  <body class="landing-body">
+    <%= render 'layouts/flash_alerts' %>
+    <div class="container subscribe-container text-center">
+    <div class="row">
+      <%= image_tag("logo-pink.png", class: "logo-subscribe") %>
+    </div>
+    <div class="row">
+      <div class="col-md-1">
       </div>
-      <div class="row">
-        <div class="categories">
-          <div class="col-md-3 col-lg-3 home-music text-center">
-            <%= image_tag("film.png", class: "landing-icon") %>
-            <h2>Films</h2>
-          </div>
-          <div class="col-md-3 col-lg-3 home-films text-center">
-            <%= image_tag("music.png", class: "landing-icon") %>
-            <h2>Music</h2>
-          </div>
-          <div class="col-md-3 col-lg-3 home-arts text-center">
-            <%= image_tag("art.png", class: "landing-icon") %>
-            <h2>Arts</h2>
-          </div>
-          <div class="col-md-3 col-lg-3 home-sports text-center">
-            <%= image_tag("sport.png", class: "landing-icon") %>
-            <h2>Sports</h2>
-          </div>
-        </div>
+      <div class="col-md-10">
+        <h3>A community moderated platform for users to submit, vote, and discuss posts and events happening in their region.</h3>
+        <h3>Currently only avaliable in:</h3>
       </div>
+      <div class="col-md-1">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <%= image_tag("dc-skyline.png", class: "city-logo") %>
+        <h3>Washington DC Metro Area</h3>
+      </div>
+      <div class="col-md-6">
+        <%= image_tag("dc-skyline.png", class: "city-logo") %>
+        <h3>San Francisco Bay Area</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-10">
+        <h3>Subscribe to receive an alert once we're live</h3>
+      </div>
+      <div class="col-md-1">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <%= form_for @subscriber do |f| %>
+          <%= f.email_field :email, :required => false, class: "form-control" %>
+          <span><%= f.submit "Subscribe", class: "btn btn-primary sign-in-button" %></span>
+        <% end %>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
     </div>
   </body>
 </html>
