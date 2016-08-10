@@ -1,6 +1,5 @@
 <div class="container item-container">
-  <div class="col-md-2"></div>
-  <div class="col-md-8 settings-background">
+  <div class="col-md-12 settings-background">
     <h1><%= @post.title %></h1>
     <i><%= "#{@post.created_at.strftime('%D')}" %></i>
     <p><%= @post.body %></p>
@@ -11,5 +10,4 @@
       <%= link_to "< Back", region_path(@post.region), class: "btn inverse-primary-button" %>
     </div>
   </div>
-  <div class="col-md-2"></div>
 </div>
