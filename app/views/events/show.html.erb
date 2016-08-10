@@ -1,6 +1,5 @@
 <div class="container item-container">
-  <div class="col-md-2"></div>
-  <div class="col-md-8 settings-background">
+  <div class="col-md-12 settings-background">
     <h1><%= @event.title %></h1>
     <address><%= @event.venue %></address>
     <strong><%= "#{@event.date.strftime('%D')}" %></strong>
@@ -12,5 +11,4 @@
       <%= link_to "< Back", region_path(@event.city.subregion.region), class: "btn inverse-primary-button" %>
     </div>
   </div>
-  <div class="col-md-2"></div>
 </div>
