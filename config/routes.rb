@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  root "regions#show"
-
-  get 'hello_world', to: 'hello_world#index'
+  root "regions#index"
   get 'feed', to: 'users#show'
   get 'subscribe', to: 'pages#landing'
-  get 'user/:id', to: 'users#info'
   resources :subscribers, only: [:create]
   resources :likes, only: [:create, :destroy]
   resources :dislikes, only: [:create, :destroy]

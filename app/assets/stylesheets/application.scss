@@ -1,15 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "users";
 
 $pink: rgb(236,0,140);
-$lightPink: rgb(255,191,242);
-$darkPink: rgb(203,1,121);
-$yellow: rgb(255,242,0);
-$darkYellow: rgb(231,219,0);
 $blue: rgb(0,174,239);
-$grayLighter: #eeeeee;
 $gray: #d6d5d4;
+$black: #333;
 
 /* Landing Page */
 
@@ -54,28 +49,17 @@ $gray: #d6d5d4;
     }
 
     .sign-button:hover {
-      color: $pink;
-      background-color: white;
+      color: white;
+      background-color: $pink;
+      border-color: white;
     }
   }
 }
 
-.inverse-primary-button {
-  margin-top: 15px;
-  font-size: 20px;
-  color: $pink;
-  background-color: white;
-  border-color: $pink;
-  padding-top: 1px;
-  padding-bottom: 1px;
-}
+/* Devise Views */
 
-.inverse-primary-button:hover {
-  color: white;
-  background-color: $pink;
-}
-
-.sign-button {
+.sign-in-button {
+  width: 100%;
   font-size: 20px;
   margin-top: 10px;
   color: $pink;
@@ -85,12 +69,11 @@ $gray: #d6d5d4;
   padding-bottom: 1px;
 
   &:hover {
-    color: white;
-    background-color: $pink;
+    color: $pink;
+    background-color: white;
+    border-color: $pink;
   }
 }
-
-/* Devise Views */
 
 .settings-container {
   margin-top: 40px;
@@ -175,7 +158,7 @@ $gray: #d6d5d4;
 }
 
 .like-count {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .glyph-active {
@@ -188,16 +171,16 @@ $gray: #d6d5d4;
   width: 100%;
   font-size: 15px;
   margin-bottom: 10px;
-  color: black;
+  color: $black;
   background-color: white;
-  border-color: black;
+  border-color: $black;
   padding-top: 1px;
   padding-bottom: 1px;
 
   &:hover {
-    color: white;
-    border-color: black;
-    background-color: black;
+    color: $black;
+    border-color: $black;
+    background-color: white;
   }
 }
 
@@ -212,8 +195,9 @@ $gray: #d6d5d4;
     padding-bottom: 1px;
 
   &:hover {
-    color: white;
-    background-color: $pink;
+    color: $pink;
+    background-color: white;
+    border-color: $pink;
   }
 }
 
@@ -228,33 +212,24 @@ $gray: #d6d5d4;
   padding-bottom: 1px;
 
   &:hover {
-    color: white;
+    color: $blue;
     border-color: $blue;
-    background-color: $blue;
+    background-color: white;
   }
 }
 
 
-.post {
+.item {
   border-color: $gray;
-  border-style: solid;
+  border-bottom-style: solid;
   border-width: 1px;
-  margin-bottom: 20px;
   color: $gray;
+  h4 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
   a {
-    color: black;
-    text-decoration: none;
-  }
-}
-
-.event {
-  border-color: $gray;
-  border-style: solid;
-  border-width: 1px;
-  margin-bottom: 20px;
-  color: $gray;
-   a {
-    color: black;
+    color: $black;
     text-decoration: none;
   }
 }
@@ -272,8 +247,6 @@ $gray: #d6d5d4;
   padding-right: 0px;
   margin-top: 20px;
 }
-
-
 
 body {
   padding-top: 50px;

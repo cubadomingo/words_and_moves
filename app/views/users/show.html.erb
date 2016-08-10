@@ -1,15 +1,19 @@
 <div class="container feed-container">
 <div class="col-lg-10 user-feed">
+  <div class="col-md-12">
   <% for item in @item_list %>
   <div class="row">
-    <div class="col-lg-12 post">
+    <div class="col-lg-12 item">
      <%= render 'layouts/item_row', item: item %>
     </div>
   </div>
   <% end %>
+  </div>
 </div>
 
 <div class="col-lg-2 sidenav">
+<div class="col-md-12">
+  <div class="row">
     <div class="col-xs-12 region">
     <p>YOUR REGIONS</p>
     <% @user.preferred_regions.each do |region| %>
@@ -18,6 +22,8 @@
     <span><%= link_to 'Submit Post', '#', class: "btn btn-primary nav-blue-button" %></span>
     <span><%= link_to 'Submit Event', '#', class: "btn btn-primary nav-blue-button" %></span>
     </div>
+  </div>
+  <div class="row">
     <div class="col-xs-12 filter">
     <p>FILTER BY</p>
       <span><%= link_to 'Hot', "#", class: "btn btn-primary nav-pink-button" %></span>
@@ -26,14 +32,18 @@
       <span><%= link_to 'Posts', "#", class: "btn btn-primary nav-pink-button" %></span>
       <span><%= link_to 'Events', "#", class: "btn btn-primary nav-pink-button" %></span>
     </div>
-  <div class="col-xs-12 categories">
-  <p>CATEGORIES</p>
-    <% @categories.each do |category| %>
-      <div>
-        <%= link_to category.name, "#" , class: "btn btn-primary nav-black-button" %>
-      </div>
-    <% end %>
   </div>
+  <div class="row">
+    <div class="col-xs-12 categories">
+    <p>CATEGORIES</p>
+      <% @categories.each do |category| %>
+        <div>
+          <%= link_to category.name, "#" , class: "btn btn-primary nav-black-button" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 </div>
 </div>
 

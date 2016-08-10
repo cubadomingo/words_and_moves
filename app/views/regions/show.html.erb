@@ -1,12 +1,15 @@
 <div class="container feed-container">
+<<<<<<< Updated upstream
 <div class="col-lg-10 user-feed">
+  <div class="col-md-12">
   <% for item in @item_list %>
   <div class="row">
-    <div class="col-lg-12 post">
+    <div class="col-lg-12 item">
      <%= render 'layouts/item_row', item: item %>
     </div>
   </div>
   <% end %>
+  </div>
 </div>
 
 <%= render 'layouts/sidenav' %>

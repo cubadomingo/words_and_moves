@@ -19,7 +19,7 @@
 
 
         <div class="actions text-center">
-          <%= f.submit "Sign up", class: "btn btn-primary button-100" %>
+          <%= f.submit "Sign up", class: "btn btn-primary sign-in-button" %>
         </div>
       <% end %>
     </div>
@@ -37,13 +37,13 @@
             <span class="forgot-password"><%= link_to "reset password", new_password_path(resource_name)%></span>
           </div>
           <div class="text-center">
-            <%= f.submit "Sign in", class: "btn bottom-margin-form btn-primary button-100" %>
+            <%= f.submit "Sign in", class: "btn bottom-margin-form btn-primary sign-in-button" %>
           </div>
           <p class="text-center bottom-margin-form">OR</p>
           <%- if devise_mapping.omniauthable? %>
           <div class="text-center">
             <%- resource_class.omniauth_providers.each do |provider| %>
-              <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-primary button-100" %>
+              <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn btn-primary sign-in-button" %>
             <% end -%>
           </div>
           <% end -%>
