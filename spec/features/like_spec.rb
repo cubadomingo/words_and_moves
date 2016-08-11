@@ -11,17 +11,18 @@ RSpec.feature "Liking" do
     it "successfully likes Post" do
       sign_in user
       visit feed_path
-      click_link ("like-signed-in")
-      expect(page).to have_selector(".alert", text: "Thank you for liking this Post")
+      click_on('like')
+      expect(page).to have_selector(".glyph-active")
     end
   end
   context "when user un-likes a post" do
     it "successfully unlikes a Post" do
       sign_in user
       visit feed_path
-      click_link ("like-signed-in")
-      click_link ("unlike-signed-in")
-      expect(page).to have_selector(".alert", text: "You have unliked this Post")
+      click_link ("like")
+      expect(page).to have_selector(".glyph-active")
+      click_link ("unlike")
+      expect(page).to have_no_selector(".glyph-active")
     end
   end
 end

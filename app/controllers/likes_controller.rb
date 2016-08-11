@@ -5,13 +5,13 @@ class LikesController < ApplicationController
 
   def like
     @item.like!(@user)
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
   end
 
   def unlike
     @like = @item.likes.find_by(params[:id])
     @like.destroy!
-    redirect_to :back
+    redirect_back(fallback_location: root_path)
   end
 
   private
