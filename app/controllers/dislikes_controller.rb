@@ -1,45 +1,30 @@
 class DislikesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item, only: :create
-  before_action :set_dislike, only: :destroy
-  before_action :verify_non_repeat, only: :create
+  before_action :set_user
+  before_action :set_item
 
-  def create
-    if @item.dislikes.create!(user_id: current_user.id)
-      flash[:success] = "You have disliked this #{@item.class}"
-    else
-      flash[:danger] = "Sorry, you've already disliked this #{@item.class}"
-    end
-    redirect_back(fallback_location: root_path)
+  def dislike
+    @item.dislike!(@user)
+    redirect_to :back
   end
 
-  def destroy
-    if @dislike.destroy
-      flash[:warning] = "You have un-disliked this #{params[:item_class]}"
-    else
-      flash[:danger] = "Sorry, something went wrong"
-    end
-    redirect_back(fallback_location: root_path)
+  def undislike
+    @dislike = @item.dislikes.find_by(params[:id])
+    @dislike.destroy!
+    redirect_to :back
   end
 
   private
+
+  def set_user
+    @user = current_user
+  end
 
   def set_item
     if params[:item_class] == "Post"
       @item = Post.find(params[:item_id])
     else
       @item = Event.find(params[:item_id])
-    end
-  end
-
-  def set_dislike
-    @dislike = Dislike.find(params[:id])
-  end
-
-  def verify_non_repeat
-    unless @item.dislikes.where(user: current_user).empty?
-      flash[:danger] = "Sorry, you've already disliked this #{@item.class}"
-      redirect_back(fallback_location: feed_path)
     end
   end
 end

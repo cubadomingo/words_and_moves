@@ -35,14 +35,7 @@ class User < ApplicationRecord
   has_many :rsvped_events, through: :rsvps, source: :event
 
   has_many :likes
-  has_many :liked_events, through: :likes, source: :event
   has_many :dislikes
-  has_many :disliked_events, through: :dislikes, source: :event
-
-  has_many :likes
-  has_many :liked_posts, through: :likes, source: :post
-  has_many :dislikes
-  has_many :disliked_posts, through: :dislikes, source: :post
 
   has_many :user_region_relations
   has_many :preferred_regions, through: :user_region_relations, source: :region

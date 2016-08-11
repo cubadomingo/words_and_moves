@@ -1,51 +1,45 @@
 <div class="row">
   <div class="col-md-1 like-count">
-     <div class="row">
-       <div class="col-md-12 text-center">
-         <% if signed_in? %>
-           <% if item.likes.find_by(user_id: current_user.id).blank? %>
-             <%= link_to(likes_path(item, :item_id => item.id, :item_class => item.class), method: :post, id: "like-signed-in") do %>
-               <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-             <% end %>
-           <% else %>
-             <%= link_to(like_path(item.likes.find_by(user_id: current_user.id).id, :item_class => item.class),   method: :delete, id: "unlike-signed-in") do %>
-               <span class="glyphicon glyphicon-plus glyph-active" aria-hidden="true"></span>
-             <% end %>
-           <% end %>
-         <% else %>
-           <%= link_to(new_user_session_path, id: "like-not-signed-in") do %>
-             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-           <% end %>
-         <% end %>
-       </div>
-     </div>
-     <div class="row">
-       <div class="col-md-12 text-center">
-         <h4><%= item.net_likes %></h4>
-       </div>
-     </div>
-     <div class="row">
-       <div class="col-md-12 text-center">
-         <% if signed_in? %>
-           <% if item.dislikes.find_by(user_id: current_user.id).blank? %>
-             <%= link_to(dislikes_path(item, :item_id => item.id, :item_class => item.class), method: :post, id: "dislike-signed-in") do %>
-             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-             <% end %>
-           <% else %>
-             <%= link_to(dislike_path(item.dislikes.find_by(user_id: current_user.id).id, :item_class => item.class), method: :delete, id: "undislike-signed-in") do %>
-               <span class="glyphicon glyphicon-minus glyph-active" aria-hidden="true"></span>
-             <% end %>
-           <% end %>
-         <% else %>
-           <%= link_to(new_user_session_path, id: "like-not-signed-in") do %>
-             <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-           <% end %>
-         <% end %>
-
-       </div>
-     </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <!-- If user is signed in and likes the item it shows a pink plus sign -->
+        <% if signed_in? && item.like?(current_user) %>
+          <%= link_to unlike_path(item_id: item.id, item_class: item.class), method: :delete do %>
+            <span class="glyphicon glyphicon-plus glyph-active"></span>
+          <% end %>
+        <!-- If user is not signed in and/or has not liked the item it shows a black plus sign -->
+        <% else %>
+          <%= link_to like_path(item_id: item.id, item_class: item.class), method: :post do %>
+            <span class="glyphicon glyphicon-plus"></span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <!-- Shows the count of likes and dislikes added together  -->
+        <h4><%= item.net_likes %></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <!-- If user is signed in and dislikes the item it shows a pink minus sign -->
+        <% if signed_in? && item.dislike?(current_user) %>
+          <%= link_to undislike_path(item_id: item.id, item_class: item.class), method: :delete do  %>
+            <span class="glyphicon glyphicon-minus glyph-active"></span>
+          <% end %>
+        <!-- If user is not signed in and/or has not disliked the item it shows a black minus sign -->
+        <% else %>
+          <%= link_to dislike_path(item_id: item.id, item_class: item.class), method: :post do  %>
+            <span class="glyphicon glyphicon-minus"></span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
+
   <div class="col-md-11">
+    <!-- Provides different layout for events and posts -->
     <% if item.class == Event %>
       <h4><%= link_to item.title, region_event_path(item.city.subregion.region.slug, item.slug) %></h4>
     <% else %>
