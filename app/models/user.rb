@@ -42,6 +42,16 @@ class User < ApplicationRecord
 
   devise :omniauthable, :omniauth_providers => [:facebook]
 
+  # Sets a region to the user's preferred regions
+  def subscribe!(region)
+    preferred_regions << region
+  end
+
+  # returns true of false if a post is liked by user
+  def subscribe?(region)
+    preferred_regions.find_by(id: region.id)
+  end
+
   def self.from_omniauth(auth)
 	  where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
 	    user.email = auth.info.email

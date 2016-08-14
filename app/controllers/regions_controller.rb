@@ -5,7 +5,7 @@ class RegionsController < ApplicationController
   end
 
   def show
-    @region = Region.first
+    @region = Region.friendly.find(params[:slug])
     @item_list = @region.posts + @region.events
     @subregions =  @region.subregions
     @categories = Category.all
