@@ -20,6 +20,7 @@ export default class Comment extends React.Component {
   componentDidMount() {
     this.serverRequest = $.get("/user/" + this.props.data.user_id + ".json", function (result) {
       var lastGist = result;
+      console.log(lastGist);
       this.setState({
         author: lastGist.username,
         text: this.props.data.body

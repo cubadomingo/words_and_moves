@@ -28,7 +28,7 @@ export default class CommentForm extends React.Component {
       return;
     }
     // Need to update this method
-    this.props.onReactionSubmit({text: text}, this.props.itemNum)
+    this.props.onCommentSubmit({text: text}, this.props.itemNum)
     this.setState({text: ''});
   }
 

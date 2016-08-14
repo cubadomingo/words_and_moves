@@ -13,14 +13,17 @@ export default class CommentBoxWidget extends React.Component {
     // If you have lots of data or action properties, you should consider grouping them by
     // passing two properties: "data" and "actions".
     comments: PropTypes.array,
-    type: PropTypes.string,
-    index: PropTypes.number
+    itemId: PropTypes.number,
+    itemType: PropTypes.string
   };
   constructor(props,context) {
     super(props,context);
     this.state = {
+      itemId: this.props.itemId,
+      itemType: this.props.itemType,
       _showComments: false,
-      _showCommentForm: false
+      _showCommentForm: false,
+      comments: this.props.comments
     };
     this._showComments = this._showComments.bind(this)
     this._hideComments = this._hideComments.bind(this)
@@ -52,8 +55,32 @@ export default class CommentBoxWidget extends React.Component {
     this.setState({ _showCommentForm: false });
   }
 
-  _onCommentSubmit(reaction, commentIndex) {
-    this.props.handleAddReaction(reaction, commentIndex)
+  _onCommentSubmit(newComment, commentIndex) {
+    //console.log('add reaction %s by %s: to comment %d', newComment["text"], commentIndex);
+    debugger;
+    var index = this.props.itemId;
+    var type = this.props.itemType;
+    //comment["reactions"].push(reaction);
+
+    this.props.addComment(comment, commentIndex);
+  }
+
+  addComment(comment, ci) {
+    var comments = this.state.comments;
+    this.setState(state => { 
+      state.comments[ci] = comment;
+      return {comments: state.comments, itemId: state.itemId, itemType: state.itemType}
+    });
+    $.ajax({
+      url: "/comments",
+      dataType: 'json',
+      type: 'POST',
+      data: this.state.data[ci] = comment,
+      error: function(xhr, status, err) {
+        this.setState({data: comments});
+        console.error("/comments", status, err.toString());
+      }.bind(this)
+    });
   }
 
   render() {
@@ -63,7 +90,7 @@ export default class CommentBoxWidget extends React.Component {
           { this.state._showCommentForm ? <button className="btn inverse-primary-button" onClick={this._hideCommentForm}>Hide <span className="glyphicon glyphicon-comment" /></button> : <button className="btn inverse-primary-button" onClick={this._showCommentForm}>Add Comment <span className="glyphicon glyphicon-pencil" /></button> }
 
           { this.state._showComments ? <CommentList data={this.props} deleteComment={this._deleteComment} /> : null }
-          { this.state._showCommentForm ? <CommentForm onReactionSubmit={this.onReactionSubmit} itemNum={this.props.index} /> : null }
+          { this.state._showCommentForm ? <CommentForm onCommentSubmit={this._onCommentSubmit} itemNum={this.props.itemId} /> : null }
         </div>
     );
   }

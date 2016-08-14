@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def info
     respond_to do |format|
       format.html # default html response
-      format.json { render json: @user.to_json(only: [:id, :username]) }
+      format.json { render json: @user }
     end
   end
 
