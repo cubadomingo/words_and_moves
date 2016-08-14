@@ -4,7 +4,12 @@
       <div class="col-md-12 region">
         <p>REGION</p>
           <%= link_to @region.name, region_path(@region) , class: "btn btn-primary nav-black-button" %>
-          <%= link_to 'Subscribe', '#' , class: "btn btn-primary nav-pink-button" %>
+          <% if signed_in? && current_user.subscribe?(@region) %>
+            <%= link_to "Unsubscribe", unsubscribe_path(region_id: @region.id), method: :delete, class: "btn btn-primary nav-pink-button", id: "unsubscribe-show" %>
+          <!-- If user is not signed in and/or has not subscribed, it shows a subscribe button -->
+          <% else %>
+            <%= link_to "Subscribe", subscribe_path(region_id: @region.id), method: :post, class: "btn btn-primary nav-pink-button", id: "subscribe-show" %>
+          <% end %>
           <%= link_to 'Submit Post', new_region_post_path(region_slug: @region.slug), class: "btn btn-primary nav-blue-button" %>
           <%= link_to 'Submit Event', new_region_event_path(region_slug: @region.slug), class: "btn btn-primary nav-blue-button" %>
       </div>
