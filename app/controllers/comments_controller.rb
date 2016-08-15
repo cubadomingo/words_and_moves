@@ -2,8 +2,20 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item
 
+  def index
+    @comments = @item.comments.order(created_at: :asc)
+    respond_to do |format|
+      format.html # default html response
+      format.json { render json: @comments }
+    end
+  end
+
   def create
-    @item.comments.create!(user_id: current_user.id, body: params[:text])
+    @comment = @item.comments.create!(user_id: current_user.id, body: params[:text])
+    respond_to do |format|
+      format.html # default html response
+      format.json { render json: @comment }
+    end
   end
 
   private

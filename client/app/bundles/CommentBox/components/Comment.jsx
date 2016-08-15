@@ -35,7 +35,6 @@ export default class Comment extends React.Component {
 
   render() {
     const { index, data } = this.props;
-    console.log(data.comments);
     return (
       <div className="row">
         <strong>{this.state.author}: </strong>{this.state.text}

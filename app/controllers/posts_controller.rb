@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_region
+  before_action :set_region, except: [:index]
 
   def show
     @post = @region.posts.friendly.find(params[:slug])

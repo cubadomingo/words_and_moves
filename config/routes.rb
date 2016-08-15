@@ -23,6 +23,14 @@ Rails.application.routes.draw do
     resources :posts, param: :slug
   end
 
+  resources :events, as: "item" do
+    resources :comments
+  end
+
+  resources :posts, as: "item" do
+    resources :comments
+  end
+
 
   devise_for :users, controllers: { :omniauth_callbacks => "users/facebook_callbacks", registrations: "registrations" }
 
