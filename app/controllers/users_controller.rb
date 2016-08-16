@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:info]
   before_action :set_user, only: [:show, :info]
 
   def show
@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def info
+    @user = User.find(params[:id])
     respond_to do |format|
       format.html # default html response
       format.json { render json: @user }
