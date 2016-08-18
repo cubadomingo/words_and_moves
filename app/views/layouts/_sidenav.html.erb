@@ -5,7 +5,7 @@
         <p>REGION</p>
           <%= link_to @region.name, region_path(@region) , class: "btn btn-primary nav-black-button" %>
           <% if signed_in? && current_user.subscribe?(@region) %>
-            <%= link_to "Unsubscribe", unsubscribe_path(region_id: @region.id), method: :delete, class: "btn btn-primary nav-pink-button", id: "unsubscribe-show" %>
+            <%= link_to "Unsubscribe", "#", method: :delete, class: "btn btn-primary nav-pink-button", id: "unsubscribe-show" %>
           <!-- If user is not signed in and/or has not subscribed, it shows a subscribe button -->
           <% else %>
             <%= link_to "Subscribe", subscribe_path(region_id: @region.id), method: :post, class: "btn btn-primary nav-pink-button", id: "subscribe-show" %>
