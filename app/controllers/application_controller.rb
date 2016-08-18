@@ -11,19 +11,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  private
+
   def after_sign_in_path_for(resource)
     feed_path
   end
 
   def after_sign_up_path_for(resource)
-    feed_path
+    root_path
   end
 
   def after_update_path_for(resource)
     feed_path
-  end
-
-  def after_inactive_sign_up_path_for(resource)
-    new_user_session_url
   end
 end
