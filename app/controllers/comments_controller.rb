@@ -21,10 +21,10 @@ class CommentsController < ApplicationController
   private
 
   def set_item
-    if params[:item_class] == "Event"
-      @item = Event.find(params[:item_id])
+    if params[:post_id].blank?
+      @item = Event.find(params[:event_id])
     else
-      @item = Post.find(params[:item_id])
+      @item = Post.find(params[:post_id])
     end
   end
 end

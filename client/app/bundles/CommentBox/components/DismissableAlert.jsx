@@ -1,11 +1,8 @@
 import React, { PropTypes } from 'react';
 import _ from 'lodash';
 
-// Simple example of a React "dumb" component
 export default class DismissableAlert extends React.Component {  
   static propTypes = {
-    // If you have lots of data or action properties, you should consider grouping them by
-    // passing two properties: "data" and "actions".
     text: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
   };
@@ -16,19 +13,21 @@ export default class DismissableAlert extends React.Component {
 
     };
     this._handleAlertDismiss = this._handleAlertDismiss.bind(this)
-    this._parseErrorMessage = this._parseErrorMessage.bind(this)
-    this._getAlternateActionText = this._getAlternateActionText.bind(this)
-    this._getAlternateActionAddress = this._getAlternateActionAddress.bind(this)
-    this._getAlertTitle = this._getAlertTitle.bind(this)
-    this._getAlertClass = this._getAlertClass.bind(this)
+    this.parseErrorMessage = this.parseErrorMessage.bind(this)
+    this.getAlternateActionText = this.getAlternateActionText.bind(this)
+    this.getAlternateActionAddress = this.getAlternateActionAddress.bind(this)
+    this.getAlertTitle = this.getAlertTitle.bind(this)
+    this.getAlertClass = this.getAlertClass.bind(this)
 
   }
 
+  // Handle dismissing alerts
   _handleAlertDismiss() {
     this.props.handleAlertDismiss();
   }
 
-  _parseErrorMessage(text) {
+  // Parses the error message text into the proper message
+  parseErrorMessage(text) {
     if(text === "Unauthorized") {
       return "You must be signed in to the perform this action."
     } else if(text === "success") {
@@ -38,7 +37,8 @@ export default class DismissableAlert extends React.Component {
     }
   }
 
-  _getAlertTitle(text) {
+  // Returns proper alert title based upon request text
+  getAlertTitle(text) {
     if(text === "success") {
       return "Thanks!"
     } else {
@@ -46,30 +46,33 @@ export default class DismissableAlert extends React.Component {
     }
   }
 
-  _getAlternateActionText(text) { 
+  // Get's alternate action button text for requests
+  getAlternateActionText(text) { 
     if(text === "Unauthorized") {
       return "Sign in"
     }
   }
 
-  _getAlternateActionAddress(text) {
+  // Get's alternate action button url for requests
+  getAlternateActionAddress(text) {
     if(text === "Unauthorized") {
       return '/users/sign_in'
     }
   }
 
-  _getAlertClass(type) {
+  // Get's alert class by type of request text
+  getAlertClass(type) {
     return 'alert alert-' + type;
   }
 
   render() {
-    var text = this._parseErrorMessage(this.props.text);
-    var title = this._getAlertTitle(this.props.text);
-    var altActionText = this._getAlternateActionText(this.props.text);
-    var altActionAddress = this._getAlternateActionAddress(this.props.text);
+    var text = this.parseErrorMessage(this.props.text);
+    var title = this.getAlertTitle(this.props.text);
+    var altActionText = this.getAlternateActionText(this.props.text);
+    var altActionAddress = this.getAlternateActionAddress(this.props.text);
     var type = this.props.type;
     return (
-      <div className={this._getAlertClass(type)} >
+      <div className={this.getAlertClass(type)} >
         <h4>{title}</h4>
         <p>{text}</p>
         <p>

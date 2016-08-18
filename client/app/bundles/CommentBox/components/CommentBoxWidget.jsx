@@ -1,5 +1,3 @@
-// HelloWorldWidget is an arbitrary name for any "dumb" component. We do not recommend suffixing
-// all your dump component names with Widget.
 import CommentList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
 import DismissableAlert from '../components/DismissableAlert';
@@ -8,7 +6,6 @@ import DismissableAlert from '../components/DismissableAlert';
 import React, { PropTypes } from 'react';
 import _ from 'lodash';
 
-// Simple example of a React "dumb" component
 export default class CommentBoxWidget extends React.Component {
   static propTypes = {
     // If you have lots of data or action properties, you should consider grouping them by
@@ -22,35 +19,37 @@ export default class CommentBoxWidget extends React.Component {
     this.state = {
       itemId: this.props.itemId,
       itemType: this.props.itemType,
-      _showComments: false,
-      _showCommentForm: false,
-      _showAlert: false,
-      _alertText: "",
-      _alertType: "",
+      showComments: false,
+      showCommentForm: false,
+      showAlert: false,
+      alertText: "",
+      alertType: "",
       comments: []
     };
-    this._loadCommentsFromServer = this._loadCommentsFromServer.bind(this)
-    this._showComments = this._showComments.bind(this)
-    this._hideComments = this._hideComments.bind(this)
-    this._showCommentForm = this._showCommentForm.bind(this)
-    this._hideCommentForm = this._hideCommentForm.bind(this)
-    this._onCommentSubmit = this._onCommentSubmit.bind(this)
+    this.loadCommentsFromServer = this.loadCommentsFromServer.bind(this) // Needed so these methods can change component's state
+    this.showComments = this.showComments.bind(this)
+    this.hideComments = this.hideComments.bind(this)
+    this.showCommentForm = this.showCommentForm.bind(this)
+    this.hideCommentForm = this.hideCommentForm.bind(this)
+    this.onCommentSubmit = this.onCommentSubmit.bind(this)
     this.addComment = this.addComment.bind(this)
-    this._showAlerts = this._showAlerts.bind(this)
-    this._hideAlerts = this._hideAlerts.bind(this)
+    this.showAlerts = this.showAlerts.bind(this)
+    this.hideAlerts = this.hideAlerts.bind(this)
   }
 
   // Pull down all comments and adds them to the state
   componentDidMount() {
-    this._loadCommentsFromServer();
-    setInterval(this._loadCommentsFromServer, 2000);
+    this.loadCommentsFromServer();
+    this.intervalId = setInterval(this.loadCommentsFromServer, 2000);
   }
 
   componentWillUnmount() {
     this.serverRequest.abort();
+    clearInterval(this.intervalId);
   }
 
-  _loadCommentsFromServer() {
+  // Makes ajax call to server to retrieve comments for post/event
+  loadCommentsFromServer() {
     this.serverRequest = $.get(this.props.url + ".json", function (result) {
       var comments = result;
       console.log(comments);
@@ -60,42 +59,49 @@ export default class CommentBoxWidget extends React.Component {
     }.bind(this));
   }
 
-  _deleteComment(r, c) {
+  // TODO: This is currently not implemented yet
+  deleteComment(r, c) {
     this.props.deleteComment(r, c);
   }
 
-  _showComments() {
+  // This is used to enable the displaying of the comments
+  showComments() {
     console.log("showing comments");
-    this.setState({ _showComments: true });
+    this.setState({ showComments: true });
   }
-
-  _hideComments() {
+  // This is used to disable the displaying of the comments
+  hideComments() {
     console.log("hiding comments");
-    this.setState({ _showComments: false });
+    this.setState({ showComments: false });
   }
 
-  _showCommentForm() {
+  // This is used to enable the displaying of the new comment form
+  showCommentForm() {
     console.log("showing comments form");
-    this.setState({ _showCommentForm: true });
+    this.setState({ showCommentForm: true });
   }
 
-  _hideCommentForm() {
+  // This is used to disable the displaying of the new comment form
+  hideCommentForm() {
     console.log("hiding comments form");
-    this.setState({ _showCommentForm: false });
+    this.setState({ showCommentForm: false });
   }
 
-  _showAlerts(text) {
+  // This is used to enable the displaying of any alerts
+  showAlerts(text) {
     this.setState({
-      _showAlert: true,
-      _alertText: text,
+      showAlert: true,
+      alertText: text,
     });
   }
 
-  _hideAlerts() {
-    this.setState({_showAlert: false});
+  // This is used to disable the displaying of any alerts
+  hideAlerts() {
+    this.setState({showAlert: false});
   }
 
-  _onCommentSubmit(newComment) {
+  // Handler method for when submit button is clicked. Calls addComment()
+  onCommentSubmit(newComment) {
     var index = this.state.itemId;
     var type = this.state.itemType;
     console.log('add comment %s: to %s number %d', newComment["text"], type, index);
@@ -116,16 +122,16 @@ export default class CommentBoxWidget extends React.Component {
         console.log(commentsArr);
         this.setState({
           comments: commentsArr,
-          _alertType: "success",
+          alertType: "success",
         });
-        this._showAlerts("success");
+        this.showAlerts("success");
       }.bind(this),
       error: function(xhr, status, err) {
         //this.setState({data: comments});
         this.setState({
-          _alertType: "danger",
+          alertType: "danger",
         });
-        this._showAlerts(err.toString());
+        this.showAlerts(err.toString());
         console.error("/comments", status, err.toString());
       }.bind(this)
     });
@@ -136,14 +142,14 @@ export default class CommentBoxWidget extends React.Component {
   render() {
     return (
         <div className="">
-          { this.state._showAlert ? <DismissableAlert handleAlertDismiss={this._hideAlerts} text={this.state._alertText} type={this.state._alertType} /> : null }
+          { this.state.showAlert ? <DismissableAlert handleAlertDismiss={this.hideAlerts} text={this.state.alertText} type={this.state.alertType} /> : null }
 
 
-          { this.state._showComments ? <button className="btn btn-primary" onClick={this._hideComments}>Hide <span className="glyphicon glyphicon-comment" /></button> : <button className="btn btn-warning" onClick={this._showComments}>Show All <span className="glyphicon glyphicon-comment" /></button> }
-          { this.state._showCommentForm ? <button className="btn btn-primary" onClick={this._hideCommentForm}>Hide <span className="glyphicon glyphicon-pencil" /></button> : <button className="btn btn-warning" onClick={this._showCommentForm}>Add Comment <span className="glyphicon glyphicon-pencil" /></button> }
+          { this.state.showComments ? <button className="btn btn-primary" onClick={this.hideComments}>Hide <span className="glyphicon glyphicon-comment" /></button> : <button className="btn btn-warning" onClick={this.showComments}>Show All <span className="glyphicon glyphicon-comment" /></button> }
+          { this.state.showCommentForm ? <button className="btn btn-primary" onClick={this.hideCommentForm}>Hide <span className="glyphicon glyphicon-pencil" /></button> : <button className="btn btn-warning" onClick={this.showCommentForm}>Add Comment <span className="glyphicon glyphicon-pencil" /></button> }
 
-          { this.state._showComments ? <CommentList comments={this.state.comments} data={this.state} deleteComment={this._deleteComment} /> : null }
-          { this.state._showCommentForm ? <CommentForm onCommentSubmit={this._onCommentSubmit} itemNum={this.props.itemId} /> : null }
+          { this.state.showComments ? <CommentList comments={this.state.comments} data={this.state} deleteComment={this.deleteComment} /> : null }
+          { this.state.showCommentForm ? <CommentForm onCommentSubmit={this.onCommentSubmit} itemNum={this.props.itemId} /> : null }
         </div>
     );
   }

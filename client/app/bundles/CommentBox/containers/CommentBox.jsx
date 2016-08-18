@@ -6,8 +6,8 @@ import CommentList from '../components/CommentList';
 export default class CommentBox extends React.Component {
   static propTypes = {
     comments: PropTypes.array, // this is passed from the Rails view
-    item_id: PropTypes.number,
-    item_type: PropTypes.string,
+    item_id: PropTypes.number.isRequired,
+    item_type: PropTypes.string.isRequired,
   };
 
   constructor(props, context) {

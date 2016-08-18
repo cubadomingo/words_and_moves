@@ -13,14 +13,16 @@ export default class CommentForm extends React.Component {
     this.state = {
       text: ""
     };
-    this._handleTextChange = this._handleTextChange.bind(this)
+    this.handleTextChange = this.handleTextChange.bind(this)
     this._handleSubmit = this._handleSubmit.bind(this)
   }
 
-  _handleTextChange(e) {
+  // Updates the state when the user update's the comment's body
+  handleTextChange(e) {
     this.setState({text: e.target.value});
   }
 
+  // Event handler for when a new comment is submitted
   _handleSubmit(e) {
     e.preventDefault();
     var text = this.state.text.trim();
@@ -40,13 +42,14 @@ export default class CommentForm extends React.Component {
           <h3>Post Comment</h3>
           <form onSubmit={this._handleSubmit}>
             <input
+              id="comment-text"
               className="form-control"
               type="text"
               placeholder="Say something..."
               value={this.state.text}
-              onChange={this._handleTextChange}
+              onChange={this.handleTextChange}
             />
-            <input className="btn btn-md btn-primary" type="submit" value="Post" />
+            <input className="btn btn-md btn-primary" type="submit" disabled={!this.state.text} value="Post" />
           </form>
         </div>
       </div>

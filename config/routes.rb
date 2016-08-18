@@ -23,11 +23,11 @@ Rails.application.routes.draw do
     resources :posts, param: :slug
   end
 
-  resources :events, as: "item" do
+  resources :events do
     resources :comments
   end
 
-  resources :posts, as: "item" do
+  resources :posts do
     resources :comments
   end
 

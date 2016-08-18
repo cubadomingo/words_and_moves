@@ -1,10 +1,7 @@
 import React, { PropTypes } from 'react';
 
-// Simple example of a React "dumb" component
 export default class Comment extends React.Component {
   static propTypes = {
-    // If you have lots of data or action properties, you should consider grouping them by
-    // passing two properties: "data" and "actions".
     data: PropTypes.object,
     index: PropTypes.number,
   };
@@ -17,6 +14,7 @@ export default class Comment extends React.Component {
     };
   }
 
+  // Pulls down the comment's user's username by making ajax call to api. Sets state for this
   componentDidMount() {
     this.serverRequest = $.get("/user/" + this.props.data.user_id + ".json", function (result) {
       var lastGist = result;
