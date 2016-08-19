@@ -6,8 +6,8 @@ import CommentList from '../components/CommentList';
 export default class CommentBox extends React.Component {
   static propTypes = {
     comments: PropTypes.array, // this is passed from the Rails view
-    item_id: PropTypes.number,
-    item_type: PropTypes.string,
+    item_id: PropTypes.number.isRequired,
+    item_type: PropTypes.string.isRequired,
   };
 
   constructor(props, context) {
@@ -15,13 +15,17 @@ export default class CommentBox extends React.Component {
 
     // How to set initial state in ES6 class syntax
     // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
-    this.state = { comments: this.props.comments, itemId: this.props.item_id, itemType: this.props.item_type };
+    this.state = { 
+                  itemId: this.props.item_id, 
+                  itemType: this.props.item_type, 
+                  url: "/" + this.props.item_type.toLowerCase() + "s/" + this.props.item_id + "/comments" 
+                };
   }
 
   render() {
     return (
       <div>
-        <CommentBoxWidget comments={this.state.comments} itemId={this.state.itemId} itemType={this.state.itemType}  />
+        <CommentBoxWidget url={this.state.url} itemId={this.state.itemId} itemType={this.state.itemType}  />
       </div>
     );
   }
