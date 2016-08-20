@@ -10,6 +10,9 @@
       <%= link_to image_tag('logo-lg.png', class: "navbar-left logo"), root_path %>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     <ul class="nav navbar-nav navbar-left">
+        <li><%= button_to "Explore", root_path, method: :get, class: "btn btn-primary sign-button"%></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li><%= button_to 'My Feed', feed_path, method: :get, class: "btn btn-primary sign-button" %></li>

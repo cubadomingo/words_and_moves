@@ -3,7 +3,7 @@
     <div class="col-md-6">
       <div class="col-md-12 text-center city">
         <%= link_to region.name, region_path(region.slug), class: "btn btn-primary sign-in-button bottom-margin-form" %>
-        <%= image_tag("dc-skyline.png", class: "city-logo") %>
+        <%= image_tag("#{region.slug}-skyline.png", class: "city-logo") %>
         <% if signed_in? && current_user.subscribe?(region) %>
           <%= link_to "Unsubscribe", "#", method: :delete, class: "btn btn-primary sign-in-button bottom-margin-form", id: "unsubscribe" %>
         <!-- If user is not signed in and/or has not subscribed, it shows a subscribe button -->
