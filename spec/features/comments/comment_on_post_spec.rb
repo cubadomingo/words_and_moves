@@ -3,7 +3,7 @@ RSpec.feature "Commenting on post", js: true do
   let(:post) { FactoryGirl.create(:post, region: region, title: "Test Post", body: "Test Post Body") }
   let(:user) { FactoryGirl.create :user }
 
-  context "Sunny Day" do 
+  context "Sunny Day" do
     before do
       post.comments.create!(user_id: user.id, body: "test post")
       sign_in user

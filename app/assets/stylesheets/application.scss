@@ -6,7 +6,18 @@ $blue: rgb(0,174,239);
 $gray: #d6d5d4;
 $black: #333;
 
+
 /* Landing Page */
+
+@media(min-width:992px){
+  .subscribe-container {
+    margin-top: 40px;
+  }
+}
+
+.city-subscribe {
+  padding-top: 10px;
+}
 
 .landing-body {
   color: $black;
@@ -18,10 +29,15 @@ $black: #333;
   max-width: 80%;
 }
 
+.skyline {
+  border-style: solid;
+  border-width: 1px;
+  border-color: $pink;
+  border-radius: 10px;
+}
 
 .subscribe-container {
   background-color: white;
-  margin-top: 40px;
   max-width: 900px;
   border-style: solid;
   border-color: $pink;
@@ -180,7 +196,7 @@ $black: #333;
 /* Region Index */
 
 .region-index {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .city {
