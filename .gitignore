@@ -19,5 +19,6 @@
 /coverage/*
 
 # React on Rails
+webpack-bundle.js
 npm-debug.log
 node_modules
