@@ -1,28 +1,27 @@
 class RegionsController < ApplicationController
 
+  #Gets all regions
   def index
     @regions = Region.all
   end
 
+  #finds individual region through slug(friendly_id) and creates an item list of both posts and events
   def show
     @region = Region.friendly.find(params[:slug])
     @item_list = @region.posts + @region.events
-    @subregions =  @region.subregions
-    @categories = Category.all
-    @events = @region.events
-    @posts = @region.posts
   end
 
+  #finds individual region through slug(friendly_id)
   def edit
     @region = Region.friendly.find(params[:slug])
-    @categories = Category.all
-
   end
 
+  #makes a new region
   def new
     @region = Region.new
   end
 
+  #succesfully creates a region or fails. Both redirect back
   def create
     @region = Region.new(region_params)
     if @region.save
@@ -34,11 +33,9 @@ class RegionsController < ApplicationController
     end
   end
 
-  def update
-  end
-
   private
 
+  #sets regions params that are allowed
   def region_params
     params.require(:region).permit(:name)
   end

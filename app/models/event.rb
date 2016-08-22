@@ -23,14 +23,17 @@ class Event < ActiveRecord::Base
   has_many :dislikes, as: :item
   has_many :users, through: :rsvps
 
+  #method for creating slug through frienldy_id gem
   friendly_id :slug_candidates, use: :slugged
 
+  #joins title and venue to make the url slug
   def slug_candidates
     [
       [:title, :venue],
     ]
   end
 
+  #creates like with a user_id
   def like!(user)
     likes.create!(user_id: user.id)
   end
@@ -62,6 +65,7 @@ class Event < ActiveRecord::Base
     dislikes.find_by_user_id(user.id)
   end
 
+  #showing the net likes of the event
   def net_likes
     likes.count - dislikes.count
   end

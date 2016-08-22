@@ -1,7 +1,9 @@
 class RegistrationsController < Devise::RegistrationsController
-   def create
-    build_resource(sign_up_params)
 
+  #Creates a new user succesfully or fails and redirects to new_user_path
+  #Custom functionality due to having both sign up and sign in in the same view
+  def create
+    build_resource(sign_up_params)
     resource.save
     yield resource if block_given?
     if resource.persisted?
@@ -20,15 +22,5 @@ class RegistrationsController < Devise::RegistrationsController
       flash[:danger] = "Please fill in all required fields!"
       redirect_to new_user_session_path
     end
-  end
-
-  protected
-
-  def after_sign_up_path_for(resource)
-    feed_path
-  end
-
-  def after_inactive_sign_up_path_for(resource)
-    feed_path
   end
 end

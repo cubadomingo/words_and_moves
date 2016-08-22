@@ -1,51 +1,61 @@
 <div class="col-md-2 sidenav">
-  <div class="col-md-12">
-    <div class="row">
-      <div class="col-md-12 region">
-        <p>REGION</p>
-          <%= link_to @region.name, region_path(@region) , class: "btn btn-primary nav-black-button" %>
-          <% if signed_in? && current_user.subscribe?(@region) %>
-            <%= link_to "Unsubscribe", "#", method: :delete, class: "btn btn-primary nav-pink-button", id: "unsubscribe-show" %>
-          <!-- If user is not signed in and/or has not subscribed, it shows a subscribe button -->
-          <% else %>
-            <%= link_to "Subscribe", subscribe_path(region_id: @region.id), method: :post, class: "btn btn-primary nav-pink-button", id: "subscribe-show" %>
-          <% end %>
-          <%= link_to 'Submit Post', new_region_post_path(region_slug: @region.slug), class: "btn btn-primary nav-blue-button" %>
-          <%= link_to 'Submit Event', new_region_event_path(region_slug: @region.slug), class: "btn btn-primary nav-blue-button" %>
-      </div>
-    </div>
-
-    <div class="row">
-       <div class="col-md-12 subregions">
-      <p>SUB-REGIONS</p>
-      <% @subregions.each do |subregion| %>
-        <div>
-          <%= link_to subregion.name, "#" , class: "btn btn-primary nav-black-button" %>
+    <div class="col-md-12">
+      <% if params[:controller] == "users" %>
+        <div class="row">
+          <div class="col-md-12 region">
+            <p>YOUR REGIONS</p>
+            <% @user.preferred_regions.each do |region| %>
+              <span><%= link_to region.name , region_path(region), class: "btn btn-primary nav-black-button" %></span>
+            <% end %>
+            <span><%= link_to 'Submit Post', '#', class: "btn btn-primary nav-blue-button" %></span>
+            <span><%= link_to 'Submit Event', '#', class: "btn btn-primary nav-blue-button" %></span>
+          </div>
+        </div>
+      <% elsif params[:controller] == "regions" %>
+        <div class="row">
+          <div class="col-md-12 region">
+            <p>REGION</p>
+              <%= link_to @region.name, region_path(@region) , class: "btn btn-primary nav-black-button" %>
+              <% if signed_in? && current_user.subscribe?(@region) %>
+                <%= link_to "Unsubscribe", unsubscribe_path(region_id: @region.id), method: :delete, class: "btn btn-primary nav-pink-button", id: "unsubscribe-show" %>
+              <!-- If user is not signed in and/or has not subscribed, it shows a subscribe button -->
+              <% else %>
+                <%= link_to "Subscribe", subscribe_path(region_id: @region.id), method: :post, class: "btn btn-primary nav-pink-button", id: "subscribe-show" %>
+              <% end %>
+              <%= link_to 'Submit Post', new_region_post_path(region_slug: @region.slug), class: "btn btn-primary nav-blue-button" %>
+              <%= link_to 'Submit Event', new_region_event_path(region_slug: @region.slug), class: "btn btn-primary nav-blue-button" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 subregions">
+            <p>SUB-REGIONS</p>
+            <% @region.subregions.each do |subregion| %>
+              <div>
+                <%= link_to subregion.name, "#" , class: "btn btn-primary nav-black-button" %>
+              </div>
+            <% end %>
+          </div>
         </div>
       <% end %>
+      <div class="row">
+        <div class="col-md-12 filter">
+          <p>FILTER BY</p>
+          <span><%= link_to 'Hot', "#", class: "btn btn-primary nav-pink-button" %></span>
+          <span><%= link_to 'New', "#", class: "btn btn-primary nav-pink-button" %></span>
+          <span><%= link_to 'Top', "#", class: "btn btn-primary nav-pink-button" %></span>
+          <span><%= link_to 'Posts', "#", class: "btn btn-primary nav-pink-button" %></span>
+          <span><%= link_to 'Events', "#", class: "btn btn-primary nav-pink-button" %></span>
+        </div>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12 filter">
-      <p>FILTER BY</p>
-        <span><%= link_to 'Hot', "#", class: "btn btn-primary nav-pink-button" %></span>
-        <span><%= link_to 'New', "#", class: "btn btn-primary nav-pink-button" %></span>
-        <span><%= link_to 'Top', "#", class: "btn btn-primary nav-pink-button" %></span>
-        <span><%= link_to 'Posts', "#", class: "btn btn-primary nav-pink-button" %></span>
-        <span><%= link_to 'Events', "#", class: "btn btn-primary nav-pink-button" %></span>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12 categories">
-      <p>CATEGORIES</p>
-        <% @categories.each do |category| %>
-          <div>
-            <%= link_to category.name, "#" , class: "btn btn-primary nav-black-button" %>
-          </div>
-        <% end %>
+      <div class="row">
+        <div class="col-md-12 categories">
+          <p>CATEGORIES</p>
+          <% Category.all.each do |category| %>
+            <div>
+              <%= link_to category.name, "#" , class: "btn btn-primary nav-black-button" %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
