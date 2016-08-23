@@ -2,9 +2,12 @@
 @import "bootstrap";
 
 $pink: rgb(236,0,140);
+$darkpink: #d80080;
 $blue: rgb(0,174,239);
+$lightblue: #52d0ff;
 $gray: #d6d5d4;
 $black: #333;
+$darkwhite: #f2f2f2;
 
 
 /* Landing Page */
@@ -93,9 +96,9 @@ $black: #333;
     }
 
     .sign-button:hover {
-      color: white;
+      color: $darkwhite;
       background-color: $pink;
-      border-color: white;
+      border-color: $darkwhite;
     }
   }
 }
@@ -106,17 +109,18 @@ $black: #333;
   width: 100%;
   font-size: 20px;
   margin-top: 10px;
-  color: $pink;
-  background-color: white;
-  border-color: $pink;
+  color: white !important;
+  background-color: $pink !important;
+  border-color: white !important;
   padding-top: 1px;
   padding-bottom: 1px;
+  box-shadow: none !important;
+}
 
-  &:hover {
-    color: $pink;
-    background-color: white;
-    border-color: $pink;
-  }
+.sign-in-button:hover {
+  color: $pink !important;
+  background-color: white !important;
+  border-color: $pink !important;
 }
 
 .settings-container {
@@ -201,7 +205,7 @@ $black: #333;
 .city {
   padding-left: 20px;
   padding-right: 20px;
-  border-color: $gray;
+  border-color: $pink;
   border-width: 1px;
   border-style: solid;
   border-radius: 10px;
@@ -239,16 +243,16 @@ $black: #333;
   width: 100%;
   font-size: 15px;
   margin-bottom: 10px;
-  color: $black;
-  background-color: white;
-  border-color: $black;
+  color: $black !important;
+  background-color: white !important;
+  border-color: $black !important;
   padding-top: 1px;
   padding-bottom: 1px;
 
   &:hover {
-    color: $black;
-    border-color: $black;
-    background-color: white;
+    color: white !important;
+    border-color: $black !important;
+    background-color: $black !important;
   }
 }
 
@@ -256,16 +260,16 @@ $black: #333;
     width: 100%;
     font-size: 15px;
     margin-bottom: 10px;
-    color: $pink;
-    background-color: white;
-    border-color: $pink;
+    color: $pink !important;
+    background-color: white !important;
+    border-color: $pink !important;
     padding-top: 1px;
     padding-bottom: 1px;
 
   &:hover {
-    color: $pink;
-    background-color: white;
-    border-color: $pink;
+    color: white !important;
+    background-color: $pink !important;
+    border-color: $pink !important;
   }
 }
 
@@ -273,16 +277,16 @@ $black: #333;
   width: 100%;
   font-size: 15px;
   margin-bottom: 10px;
-  color: $blue;
-  background-color: white;
-  border-color: $blue;
+  color: $blue !important;
+  background-color: white !important;
+  border-color: $blue !important;
   padding-top: 1px;
   padding-bottom: 1px;
 
   &:hover {
-    color: $blue;
-    border-color: $blue;
-    background-color: white;
+    color: white !important;
+    border-color: $blue !important;
+    background-color: $blue !important;
   }
 }
 
