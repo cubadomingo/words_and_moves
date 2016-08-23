@@ -1,4 +1,5 @@
 module ApplicationHelper
+  #devise helpers
   def resource_name
     :session
   end

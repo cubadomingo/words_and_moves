@@ -9,6 +9,7 @@
 
 class Region < ActiveRecord::Base
   extend FriendlyId
+  #uses slug for region through friendly_id gem
   friendly_id :name, use: :slugged
 
   has_many :posts

@@ -5,7 +5,7 @@
         <%= link_to region.name, region_path(region.slug), class: "btn btn-primary sign-in-button bottom-margin-form" %>
         <%= image_tag("#{region.slug}-skyline.png", class: "city-logo") %>
         <% if signed_in? && current_user.subscribe?(region) %>
-          <%= link_to "Unsubscribe", "#", method: :delete, class: "btn btn-primary sign-in-button bottom-margin-form", id: "unsubscribe" %>
+          <%= link_to "Unsubscribe", unsubscribe_path(region_id: region.id), method: :delete, class: "btn btn-primary sign-in-button bottom-margin-form", id: "unsubscribe" %>
         <!-- If user is not signed in and/or has not subscribed, it shows a subscribe button -->
         <% else %>
           <%= link_to "Subscribe", subscribe_path(region_id: region.id), method: :post, class: "btn btn-primary sign-in-button bottom-margin-form", id: "subscribe" %>

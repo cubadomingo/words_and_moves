@@ -19,6 +19,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
+  #creates slug using friendly_id gem
   friendly_id :title, use: :slugged
 
    # creates a new like with item_id and user_id
@@ -53,6 +54,7 @@ class Post < ActiveRecord::Base
     dislikes.find_by_user_id(user.id)
   end
 
+  #shows net likes for post
   def net_likes
     likes.count - dislikes.count
   end
