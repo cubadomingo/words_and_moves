@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import CommentBoxWidget from '../components/CommentBoxWidget';
 import CommentList from '../components/CommentList';
 
+
 // Simple example of a React "smart" component
 export default class CommentBox extends React.Component {
   static propTypes = {

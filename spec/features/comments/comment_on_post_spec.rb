@@ -20,7 +20,7 @@ RSpec.feature "Commenting on post", js: true do
         click_button "Add Comment"
         fill_in "comment-text", with: "This is a new test comment"
         click_button "Post"
-        expect(page).to have_selector(".alert-success", text: "Thanks!")
+        expect(page).to have_text("Your comment has been successfully posted. Thanks!")
       end
       it "adds comment to list" do
         click_button "Add Comment"
@@ -42,7 +42,7 @@ RSpec.feature "Commenting on post", js: true do
         click_button "Add Comment"
         fill_in "comment-text", with: "This is a new test comment"
         click_button "Post"
-        expect(page).to have_selector(".alert-danger h4", text: "Oh snap! Something went wrong!")
+        expect(page).to have_text("Sorry for the inconvenience. Feel free to retry your action, or contact us at admin@wordsandmoves.com.")
       end
     end
     context "when user doesn't fill comment body" do
