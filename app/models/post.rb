@@ -59,3 +59,4 @@ class Post < ActiveRecord::Base
     likes.count - dislikes.count
   end
 end
+
