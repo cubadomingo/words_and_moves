@@ -1,12 +1,13 @@
 import CommentList from '../components/CommentList';
 import CommentForm from '../components/CommentForm';
-import DismissableAlert from '../components/DismissableAlert';
-
 
 import React, { PropTypes } from 'react';
 import _ from 'lodash';
+import ReactDOM from 'react-dom';
+import NotificationSystem from 'react-notification-system';
 
 export default class CommentBoxWidget extends React.Component {
+
   static propTypes = {
     // If you have lots of data or action properties, you should consider grouping them by
     // passing two properties: "data" and "actions".
@@ -21,10 +22,30 @@ export default class CommentBoxWidget extends React.Component {
       itemType: this.props.itemType,
       showComments: false,
       showCommentForm: false,
-      showAlert: false,
-      alertText: "",
-      alertType: "",
-      comments: []
+      comments: [],
+      _notificationSystem: null,
+      allowHTML: true,
+      notSignedIn: {
+        title: 'Sorry!',
+        message: "It doesn't look like you have permissions to perform that.",
+        level: 'error',
+        position: 'bl',
+        children: (
+          <a className="btn btn-sm btn-danger" href="/users/sign_in">Sign In</a>
+        )
+      },
+      postSuccessful: {
+        title: 'Thanks!',
+        message: "Your comment has been successfully posted. Thanks!",
+        level: 'success',
+        position: 'bl',
+      },
+      postFailed: {
+        title: "Oh Snap!",
+        message: "Sorry for the inconvenience. Feel free to retry your action, or contact us at <b>admin@wordsandmoves.com</b>.",
+        level: 'error',
+        position: 'bl'
+      }
     };
     this.loadCommentsFromServer = this.loadCommentsFromServer.bind(this) // Needed so these methods can change component's state
     this.showComments = this.showComments.bind(this)
@@ -33,14 +54,15 @@ export default class CommentBoxWidget extends React.Component {
     this.hideCommentForm = this.hideCommentForm.bind(this)
     this.onCommentSubmit = this.onCommentSubmit.bind(this)
     this.addComment = this.addComment.bind(this)
-    this.showAlerts = this.showAlerts.bind(this)
-    this.hideAlerts = this.hideAlerts.bind(this)
+    this._addNotification = this._addNotification.bind(this)
+    this._notificationSystemInstance = this._notificationSystemInstance.bind(this)
   }
 
   // Pull down all comments and adds them to the state
   componentDidMount() {
     this.loadCommentsFromServer();
     this.intervalId = setInterval(this.loadCommentsFromServer, 2000);
+    this._notificationSystem = this.refs.notificationSystem;
   }
 
   componentWillUnmount() {
@@ -87,17 +109,12 @@ export default class CommentBoxWidget extends React.Component {
     this.setState({ showCommentForm: false });
   }
 
-  // This is used to enable the displaying of any alerts
-  showAlerts(text) {
-    this.setState({
-      showAlert: true,
-      alertText: text,
-    });
+  _notificationSystemInstance() {
+    return this._notificationSystem;
   }
 
-  // This is used to disable the displaying of any alerts
-  hideAlerts() {
-    this.setState({showAlert: false});
+  _addNotification(postType) {
+    this._notificationSystem.addNotification(postType);
   }
 
   // Handler method for when submit button is clicked. Calls addComment()
@@ -124,14 +141,18 @@ export default class CommentBoxWidget extends React.Component {
           comments: commentsArr,
           alertType: "success",
         });
-        this.showAlerts("success");
+        this._addNotification(this.state.postSuccessful);
       }.bind(this),
       error: function(xhr, status, err) {
-        //this.setState({data: comments});
         this.setState({
           alertType: "danger",
         });
-        this.showAlerts(err.toString());
+        if(err.toString() === "Unauthorized") {
+          this._addNotification(this.state.notSignedIn);
+        }
+        else {
+          this._addNotification(this.state.postFailed);
+        }
         console.error("/comments", status, err.toString());
       }.bind(this)
     });
@@ -142,6 +163,7 @@ export default class CommentBoxWidget extends React.Component {
   render() {
     return (
         <div className="">
+          { <NotificationSystem notifications={ this._notificationSystemInstance } ref="notificationSystem" allowHTML={ this.state.allowHTML } /> }
           { this.state.showAlert ? <DismissableAlert handleAlertDismiss={this.hideAlerts} text={this.state.alertText} type={this.state.alertType} /> : null }
 
 
